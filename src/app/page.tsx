@@ -1,14 +1,12 @@
 'use client';
 
-import userApi from '@/apis/users';
+import { useGetUserData } from '@/hooks/reactQuery/user';
 
 export default function Home() {
-  userApi.get().then((res) => {
-    console.log(res);
-  });
+  const { data } = useGetUserData();
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div>어떻게 하까</div>
+      {data?.map((user) => <h1 key={user.id}>{user?.user_grade}</h1>)}
     </main>
   );
 }
