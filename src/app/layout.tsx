@@ -1,6 +1,9 @@
 import type { Metadata } from 'next';
+import classNames from 'classnames';
 
 import { ReactQueryProvider } from '@/components/providers';
+
+import { pretendard } from './fonts';
 
 import './globals.css';
 
@@ -16,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className="size-full flex-1">
+      <body className={classNames('size-full flex-1', pretendard.className)}>
         <ReactQueryProvider>
           <div className="flex min-h-screen w-full">{children}</div>
         </ReactQueryProvider>
