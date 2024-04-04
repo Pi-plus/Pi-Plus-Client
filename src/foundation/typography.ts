@@ -11,3 +11,5 @@ export const typography = {
   caption2: 'text-caption2 font-regular leading-caption2',
   caption3: 'text-caption3 font-regular leading-caption3',
 } as const;
+
+export type TKeyOfTypography = keyof typeof typography;
