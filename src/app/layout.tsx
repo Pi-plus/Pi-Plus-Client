@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import classNames from 'classnames';
 
-import { ReactQueryProvider } from '@/components/providers';
+import { ReactQueryProvider } from '@/providers';
 
 import { pretendard } from './fonts';
 
