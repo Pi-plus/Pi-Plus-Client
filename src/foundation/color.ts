@@ -1,0 +1,62 @@
+export const color = {
+  blue10: 'blue-10',
+  blue20: 'blue-20',
+  blue30: 'blue-30',
+  blue40: 'blue-40',
+  white: 'white',
+  black: 'black',
+  red: 'red',
+  gray5: 'gray-5',
+  gray10: 'gray-10',
+  gray20: 'gray-20',
+  gray30: 'gray-30',
+  gray40: 'gray-40',
+  gray50: 'gray-50',
+  gray60: 'gray-60',
+  gray70: 'gray-70',
+  gray80: 'gray-80',
+  gray90: 'gray-90',
+} as const;
+
+export const bgColor = {
+  blue10: 'bg-blue-10',
+  blue20: 'bg-blue-20',
+  blue30: 'bg-blue-30',
+  blue40: 'bg-blue-40',
+  white: 'bg-white',
+  black: 'bg-black',
+  red: 'bg-red',
+  gray5: 'bg-gray-5',
+  gray10: 'bg-gray-10',
+  gray20: 'bg-gray-20',
+  gray30: 'bg-gray-30',
+  gray40: 'bg-gray-40',
+  gray50: 'bg-gray-50',
+  gray60: 'bg-gray-60',
+  gray70: 'bg-gray-70',
+  gray80: 'bg-gray-80',
+  gray90: 'bg-gray-90',
+} as const;
+
+export const textColor = {
+  blue10: 'text-blue-10',
+  blue20: 'text-blue-20',
+  blue30: 'text-blue-30',
+  blue40: 'text-blue-40',
+  white: 'text-white',
+  black: 'text-black',
+  red: 'text-red',
+  gray5: 'text-gray-5',
+  gray10: 'text-gray-10',
+  gray20: 'text-gray-20',
+  gray30: 'text-gray-30',
+  gray40: 'text-gray-40',
+  gray50: 'text-gray-50',
+  gray60: 'text-gray-60',
+  gray70: 'text-gray-70',
+  gray80: 'text-gray-80',
+  gray90: 'text-gray-90',
+} as const;
+
+export type TKeyOfColor = keyof typeof color;
+export type TValueOfColor = (typeof bgColor)[keyof typeof bgColor];
