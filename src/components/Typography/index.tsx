@@ -8,12 +8,19 @@ import type { TEXT_TAGS } from './constant';
 
 interface ITypographyProps extends HTMLAttributes<HTMLSpanElement> {
   color?: TKeyOfColor;
-  label: TKeyOfTypography;
+  label?: TKeyOfTypography;
   children: React.ReactNode;
   as?: keyof typeof TEXT_TAGS;
 }
 
-const Typography = ({ color = 'black', label, children, as = 'span', className, ...props }: ITypographyProps) => {
+const Typography = ({
+  color = 'black',
+  label = 'body1',
+  children,
+  as = 'span',
+  className,
+  ...props
+}: ITypographyProps) => {
   return createElement(
     as,
     {
