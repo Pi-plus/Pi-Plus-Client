@@ -1,6 +1,7 @@
 'use client';
 
 import Lottie from 'react-lottie-player';
+import { Carousel } from 'react-responsive-carousel';
 import Image from 'next/image';
 import { defaultImages } from '@public/images';
 import { defaultLottie } from '@public/lotties';
@@ -9,11 +10,16 @@ import Button from '@/components/Button';
 import Typography from '@/components/Typography';
 import { LandingLayout, LandingSection } from '@/features/landing/components';
 
+import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
+
 const HomePage = () => {
   return (
     <main className="flex-col items-center justify-between flex gap-24">
-      <Image src={defaultImages.banner1} className="mt-10 w-[80%]" width={1920} height={30} alt="" />
-
+      <Carousel className="mt-10 w-[80%]" autoPlay showStatus={false}>
+        <Image src={defaultImages.banner1} className="w-full" width={1920} height={30} alt="" />
+        <Image src={defaultImages.banner2} className="w-full" width={1920} height={30} alt="" />
+        <Image src={defaultImages.banner3} className="w-full" width={1920} height={30} alt="" />
+      </Carousel>
       <LandingLayout>
         <Image src={defaultImages.onboarding2} width={480} height={480} alt="" />
         <div className="flex flex-col justify-between pb-8">
