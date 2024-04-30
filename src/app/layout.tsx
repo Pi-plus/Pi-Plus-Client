@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import classNames from 'classnames';
 
 import Header from '@/components/Header';
-import { ReactQueryProvider } from '@/providers';
+import { ChakraUIProvider, ReactQueryProvider } from '@/providers';
 
 import { pretendard } from './fonts';
 
@@ -22,10 +22,12 @@ export default function RootLayout({
     <html lang="ko">
       <body className={classNames('size-full flex-1', pretendard.className)}>
         <ReactQueryProvider>
-          <div className="flex flex-col min-h-screen w-full">
-            <Header />
-            {children}
-          </div>
+          <ChakraUIProvider>
+            <div className="flex flex-col min-h-screen w-full">
+              <Header />
+              {children}
+            </div>
+          </ChakraUIProvider>
         </ReactQueryProvider>
       </body>
     </html>

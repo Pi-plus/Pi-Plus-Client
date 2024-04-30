@@ -1,6 +1,7 @@
 export const typography = {
   heading1: 'text-heading1 font-regular leading-heading1',
   heading2: 'text-heading2 font-bold leading-heading2',
+  heading3: 'text-heading3 font-bold',
   title1: 'text-title1 font-bold leading-title1',
   title2: 'text-title2 font-bold leading-title2',
   title3: 'text-title3 font-medium leading-title3',
