@@ -56,6 +56,7 @@ const RAW_RUNTIME_STATE =
           ["react", "npm:18.2.0"],\
           ["react-dom", "virtual:e3e3d80051096c48b0c32d8cd2609bc7a2dc35a152b59841426dfa41198d5431929d1b46d768d58200db56cfc1a2d54ff30f8dc319460369e0403195451a63b4#npm:18.2.0"],\
           ["react-lottie-player", "virtual:e3e3d80051096c48b0c32d8cd2609bc7a2dc35a152b59841426dfa41198d5431929d1b46d768d58200db56cfc1a2d54ff30f8dc319460369e0403195451a63b4#npm:2.0.0"],\
+          ["react-responsive-carousel", "npm:3.2.23"],\
           ["tailwindcss", "npm:3.4.1"],\
           ["typescript", "patch:typescript@npm%3A5.4.2#optional!builtin<compat/typescript>::version=5.4.2&hash=5adc0c"]\
         ],\
@@ -8626,6 +8627,7 @@ const RAW_RUNTIME_STATE =
           ["react", "npm:18.2.0"],\
           ["react-dom", "virtual:e3e3d80051096c48b0c32d8cd2609bc7a2dc35a152b59841426dfa41198d5431929d1b46d768d58200db56cfc1a2d54ff30f8dc319460369e0403195451a63b4#npm:18.2.0"],\
           ["react-lottie-player", "virtual:e3e3d80051096c48b0c32d8cd2609bc7a2dc35a152b59841426dfa41198d5431929d1b46d768d58200db56cfc1a2d54ff30f8dc319460369e0403195451a63b4#npm:2.0.0"],\
+          ["react-responsive-carousel", "npm:3.2.23"],\
           ["tailwindcss", "npm:3.4.1"],\
           ["typescript", "patch:typescript@npm%3A5.4.2#optional!builtin<compat/typescript>::version=5.4.2&hash=5adc0c"]\
         ],\
@@ -8983,6 +8985,16 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["react-easy-swipe", [\
+      ["npm:0.0.21", {\
+        "packageLocation": "./.yarn/cache/react-easy-swipe-npm-0.0.21-b711aee7dc-10c0.zip/node_modules/react-easy-swipe/",\
+        "packageDependencies": [\
+          ["react-easy-swipe", "npm:0.0.21"],\
+          ["prop-types", "npm:15.8.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["react-fast-compare", [\
       ["npm:3.2.2", {\
         "packageLocation": "./.yarn/cache/react-fast-compare-npm-3.2.2-45b585a872-10c0.zip/node_modules/react-fast-compare/",\
@@ -9101,6 +9113,18 @@ const RAW_RUNTIME_STATE =
         "packagePeers": [\
           "@types/react",\
           "react"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["react-responsive-carousel", [\
+      ["npm:3.2.23", {\
+        "packageLocation": "./.yarn/cache/react-responsive-carousel-npm-3.2.23-c14eae816a-10c0.zip/node_modules/react-responsive-carousel/",\
+        "packageDependencies": [\
+          ["react-responsive-carousel", "npm:3.2.23"],\
+          ["classnames", "npm:2.5.1"],\
+          ["prop-types", "npm:15.8.1"],\
+          ["react-easy-swipe", "npm:0.0.21"]\
         ],\
         "linkType": "HARD"\
       }]\
