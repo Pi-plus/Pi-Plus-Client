@@ -2,12 +2,15 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { defaultSvg } from '@public/svgs';
 
+import type { TValueOfStudent } from '@/constants';
+import { HEADER_STUDENT_TABS } from '@/constants';
+
 import Dimmer from '../Dimmer';
 import { PortalConsumer } from '../GlobalPortal';
 import Typography from '../Typography';
 
 const HeaderContent = ({ setHover }: { setHover: (value: '' | 'concept' | 'problem') => void }) => {
-  const [studentHover, setStudentHover] = useState<'middle' | 'high' | ''>('');
+  const [studentHover, setStudentHover] = useState<TValueOfStudent | ''>('');
   return (
     <PortalConsumer>
       <div
@@ -15,30 +18,21 @@ const HeaderContent = ({ setHover }: { setHover: (value: '' | 'concept' | 'probl
         onMouseLeave={() => setHover('')}
       >
         <div className="h-full border-gray-10  items-center flex flex-col gap-14 pt-10 border-r-[1px] w-[20%]">
-          <div
-            className="w-full flex items-center justify-between cursor-pointer px-10"
-            onMouseOver={() => {
-              setStudentHover('middle');
-            }}
-            onFocus={() => {}}
-          >
-            <Typography label="body3" className={studentHover === 'middle' ? 'font-semibold' : ''}>
-              중학교
-            </Typography>
-            <Image src={defaultSvg.arrowRight} width={5} height={5} alt="" />
-          </div>
-          <div
-            className="w-full flex items-center justify-between cursor-pointer px-10"
-            onMouseOver={() => {
-              setStudentHover('high');
-            }}
-            onFocus={() => {}}
-          >
-            <Typography label="body3" className={studentHover === 'high' ? 'font-semibold' : ''}>
-              고등학교
-            </Typography>
-            <Image src={defaultSvg.arrowRight} width={5} height={5} alt="" />
-          </div>
+          {HEADER_STUDENT_TABS.map((item) => (
+            <div
+              key={item.label}
+              className="w-full flex items-center justify-between cursor-pointer px-10"
+              onMouseOver={() => {
+                setStudentHover(item.value);
+              }}
+              onFocus={() => {}}
+            >
+              <Typography label="body3" className={studentHover === item.value ? 'font-semibold' : ''}>
+                {item.label}
+              </Typography>
+              <Image src={defaultSvg.arrowRight} width={5} height={5} alt="" />
+            </div>
+          ))}
         </div>
 
         {studentHover === 'middle' && (
