@@ -15,7 +15,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a lo
 const HomePage = () => {
   return (
     <main className="flex-col items-center justify-between flex gap-24">
-      <Carousel className="mt-10 w-[80%]" autoPlay showStatus={false}>
+      <Carousel className="mt-10 w-[80%]" autoPlay showThumbs={false} showStatus={false}>
         <Image src={defaultImages.banner1} className="w-full" width={1920} height={30} alt="" />
         <Image src={defaultImages.banner2} className="w-full" width={1920} height={30} alt="" />
         <Image src={defaultImages.banner3} className="w-full" width={1920} height={30} alt="" />
