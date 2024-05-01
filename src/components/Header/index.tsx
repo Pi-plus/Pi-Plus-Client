@@ -23,11 +23,16 @@ const Header = () => {
             로그인
           </Typography>
         </div>
-        <div className="flex items-center gap-20">
+        <div className="flex gap-20 items-center">
           {HEADER_TABS.map((header) => (
-            <Typography label="title3" key={header.pathname} className="cursor-pointer hover:text-blue-30">
-              {header.title}
-            </Typography>
+            <div key={header.pathname} className="flex items-center gap-2">
+              <Typography label="title3" color="black" key={header.pathname} className="cursor-pointer">
+                {header.title}
+              </Typography>
+              {header.pathname !== 'mypage' && (
+                <Image src="/svgs/arrowDown.svg" className="cursor-pointer mt-2" alt="" width={11} height={5} />
+              )}
+            </div>
           ))}
         </div>
       </div>
