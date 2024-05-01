@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import classNames from 'classnames';
 
+import { PortalProvider } from '@/components/GlobalPortal';
 import Header from '@/components/Header';
 import { ChakraUIProvider, ReactQueryProvider } from '@/providers';
 
@@ -22,12 +23,14 @@ export default function RootLayout({
     <html lang="ko">
       <body className={classNames('size-full flex-1', pretendard.className)}>
         <ReactQueryProvider>
-          <ChakraUIProvider>
-            <div className="flex flex-col min-h-screen w-full">
-              <Header />
-              {children}
-            </div>
-          </ChakraUIProvider>
+          <PortalProvider>
+            <ChakraUIProvider>
+              <div className="flex flex-col min-h-screen w-full">
+                <Header />
+                {children}
+              </div>
+            </ChakraUIProvider>
+          </PortalProvider>
         </ReactQueryProvider>
       </body>
     </html>
