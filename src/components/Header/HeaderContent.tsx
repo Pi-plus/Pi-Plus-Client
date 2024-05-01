@@ -6,13 +6,13 @@ import Dimmer from '../Dimmer';
 import { PortalConsumer } from '../GlobalPortal';
 import Typography from '../Typography';
 
-const HeaderContent = ({ setHover }: { setHover: (value: boolean) => void }) => {
+const HeaderContent = ({ setHover }: { setHover: (value: '' | 'concept' | 'problem') => void }) => {
   const [studentHover, setStudentHover] = useState<'middle' | 'high' | ''>('');
   return (
     <PortalConsumer>
       <div
         className="absolute border-t-2 border-gray-20 w-full top-[93px] bg-white z-[60] h-80 flex"
-        onMouseLeave={() => setHover(false)}
+        onMouseLeave={() => setHover('')}
       >
         <div className="h-full border-gray-10  items-center flex flex-col gap-14 pt-10 border-r-[1px] w-[20%]">
           <div

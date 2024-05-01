@@ -4,14 +4,23 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { defaultImages } from '@public/images';
 
+import type { TValueOfPathname } from '@/constants';
 import { HEADER_TABS } from '@/constants';
 
 import Typography from '../Typography';
 
 import HeaderContent from './HeaderContent';
+import HeaderTab from './HeaderTab';
 
 const Header = () => {
-  const [hover, setHover] = useState<boolean>(false);
+  const [hover, setHover] = useState<'' | 'concept' | 'problem'>('');
+  const handleHoverHeaderTab = (pathname: TValueOfPathname) => {
+    if (pathname !== 'mypage') {
+      setHover(pathname);
+    } else {
+      setHover('');
+    }
+  };
   return (
     <>
       <header className="w-full flex justify-between items-center px-12 pt-2 border-b border-blue-30 pb-3">
@@ -33,21 +42,20 @@ const Header = () => {
               <div
                 key={header.pathname}
                 className="flex items-center gap-2"
-                onMouseOver={() => setHover(true)}
+                onMouseOver={() => handleHoverHeaderTab(header.pathname)}
                 onFocus={() => {}}
               >
-                <Typography label="title3" color="black" key={header.pathname} className="cursor-pointer">
-                  {header.title}
-                </Typography>
-                {header.pathname !== 'mypage' && (
-                  <Image src="/svgs/arrowDown.svg" className="cursor-pointer mt-2" alt="" width={11} height={5} />
-                )}
+                <HeaderTab
+                  title={header.title}
+                  focus={header.pathname === hover}
+                  hasArrow={header.pathname !== 'mypage'}
+                />
               </div>
             ))}
           </div>
         </div>
       </header>
-      {hover && <HeaderContent setHover={setHover} />}
+      {(hover === 'concept' || hover === 'problem') && <HeaderContent setHover={setHover} />}
     </>
   );
 };
