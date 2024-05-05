@@ -10,7 +10,7 @@ export type TStudentContent = { label: string; query: string; conceptHerf: strin
 export type TStudentSemester = 'one' | 'two' | 'three';
 export const MIDDLE_STUDENT_MATH: Record<TStudentSemester, TStudentContent[]> = {
   one: [
-    { label: '중학교 1학년 1학기', query: 'middle1-1', conceptHerf: '/student/concept' },
+    { label: '중학교 1학년 1학기', query: 'middle1-1', conceptHerf: 'https://numberings.tistory.com/3' },
     { label: '중학교 1학년 2학기', query: 'middle1-2', conceptHerf: ROUTES.STUDENT_CONCEPT },
   ],
   two: [
