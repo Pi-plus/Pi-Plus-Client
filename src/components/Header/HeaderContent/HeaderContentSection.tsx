@@ -1,17 +1,16 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
-
 import Typography from '@/components/Typography';
 import { ROUTES, type THoverPathname, type TStudentContent } from '@/constants';
+import { useNavigate } from '@/hooks';
 
 const HeaderContentSection = ({ list, type }: { list: TStudentContent[]; type: '' | THoverPathname }) => {
-  const { push } = useRouter();
+  const { push } = useNavigate();
   const handleClickContent = (math: TStudentContent) => {
     if (type === 'concept') {
       push(math.conceptHerf);
     } else if (type === 'problem') {
-      push(ROUTES.STUDENT_LIST);
+      push({ pathname: ROUTES.STUDENT_LIST, query: { math: math.query } });
     }
   };
   return (
