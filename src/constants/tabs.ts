@@ -1,6 +1,7 @@
 import { ROUTES } from './routes';
 
-export type TValueOfPathname = 'concept' | 'problem' | 'mypage';
+export type THoverPathname = 'concept' | 'problem';
+export type TValueOfPathname = THoverPathname | 'mypage';
 export type TValueOfTitlename = '개념학습' | '문제 풀기' | '마이 페이지';
 
 export type THeaderValue = { title: TValueOfTitlename; pathname: TValueOfPathname; href?: string };

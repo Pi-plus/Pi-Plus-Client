@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { defaultImages } from '@public/images';
 
-import type { TValueOfPathname } from '@/constants';
+import type { THoverPathname, TValueOfPathname } from '@/constants';
 import { HEADER_TABS } from '@/constants';
 
 import HeaderContent from './HeaderContent';
@@ -13,7 +13,7 @@ import HeaderLoginOption from './HeaderLoginOption';
 import HeaderTab from './HeaderTab';
 
 const Header = () => {
-  const [hover, setHover] = useState<'' | 'concept' | 'problem'>('');
+  const [hover, setHover] = useState<'' | THoverPathname>('');
   const handleHoverHeaderTab = (pathname: TValueOfPathname) => {
     if (pathname !== 'mypage') {
       setHover(pathname);
