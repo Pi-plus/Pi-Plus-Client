@@ -12,7 +12,7 @@ interface ISelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
 
 const Select = ({ placeholder, options, className, ...rest }: ISelectProps) => {
   return (
-    <select className={classNames(className, 'bg-gray-10 py-4 rounded-xl px-6 text-gray-60')} {...rest}>
+    <select className={classNames(className, 'bg-gray-10 py-3 w-full rounded-xl px-6 text-gray-60')} {...rest}>
       <option hidden>{placeholder}</option>
       {options.map((option) => (
         <option value={option.value} key={option.value}>
