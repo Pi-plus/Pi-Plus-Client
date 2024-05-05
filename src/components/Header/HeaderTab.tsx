@@ -1,5 +1,6 @@
 'use client';
 
+import type { HTMLAttributes } from 'react';
 import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 import { defaultSvg } from '@public/svgs';
@@ -9,20 +10,20 @@ import { ROUTES, type TValueOfTitlename } from '@/constants';
 
 import Typography from '../Typography';
 
-interface IHeaderTabProps {
+interface IHeaderTabProps extends HTMLAttributes<HTMLDivElement> {
   isHover: boolean;
   title: TValueOfTitlename;
   hasArrow: boolean;
   href: string;
 }
 
-const HeaderTab = ({ isHover, title, hasArrow, href }: IHeaderTabProps) => {
+const HeaderTab = ({ isHover, title, hasArrow, href, ...rest }: IHeaderTabProps) => {
   const router = useRouter();
   const pathname = usePathname();
   const focus = pathname.startsWith(href);
 
   return (
-    <>
+    <div {...rest}>
       <Typography
         label="title3"
         color="black"
@@ -47,7 +48,7 @@ const HeaderTab = ({ isHover, title, hasArrow, href }: IHeaderTabProps) => {
           height={5}
         />
       )}
-    </>
+    </div>
   );
 };
 export default HeaderTab;

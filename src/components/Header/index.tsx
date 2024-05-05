@@ -31,19 +31,16 @@ const Header = () => {
           <HeaderLoginOption />
           <div className="flex gap-20 items-center">
             {HEADER_TABS.map((header) => (
-              <div
+              <HeaderTab
                 key={header.pathname}
                 onMouseOver={() => handleHoverHeaderTab(header.pathname)}
                 className="flex items-center gap-2"
                 onFocus={() => {}}
-              >
-                <HeaderTab
-                  title={header.title}
-                  isHover={header.pathname === hover}
-                  hasArrow={header.pathname !== 'mypage'}
-                  href={header.href!}
-                />
-              </div>
+                title={header.title}
+                isHover={header.pathname === hover}
+                hasArrow={header.pathname !== 'mypage'}
+                href={header.href!}
+              />
             ))}
           </div>
         </div>
