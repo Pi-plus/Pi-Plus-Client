@@ -35,7 +35,6 @@ const Header = () => {
                 key={header.pathname}
                 onMouseOver={() => handleHoverHeaderTab(header.pathname)}
                 className="flex items-center gap-2"
-                onFocus={() => {}}
                 title={header.title}
                 isHover={header.pathname === hover}
                 hasArrow={header.pathname !== 'mypage'}
