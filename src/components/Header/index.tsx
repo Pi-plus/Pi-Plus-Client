@@ -44,7 +44,7 @@ const Header = () => {
           </div>
         </div>
       </header>
-      {hover && <HeaderContent setHover={setHover} />}
+      {hover && <HeaderContent hover={hover} setHover={setHover} />}
     </>
   );
 };
