@@ -7,9 +7,8 @@ import { defaultImages } from '@public/images';
 import type { TValueOfPathname } from '@/constants';
 import { HEADER_TABS } from '@/constants';
 
-import Typography from '../Typography';
-
 import HeaderContent from './HeaderContent';
+import HeaderLoginOption from './HeaderLoginOption';
 import HeaderTab from './HeaderTab';
 
 const Header = () => {
@@ -26,17 +25,7 @@ const Header = () => {
       <header className="w-full flex justify-between items-center px-12 pt-2 border-b border-blue-30 pb-3">
         <Image src={defaultImages.logo} width={241} height={90} alt="" />
         <div className="flex flex-col items-end">
-          <div className="flex items-center mb-5">
-            <Typography label="caption1" color="gray60" className="cursor-pointer" onClick={() => {}}>
-              회원가입
-            </Typography>
-            <Typography label="caption1" color="gray60" className="mx-4">
-              |
-            </Typography>
-            <Typography label="caption1" color="gray60" className="cursor-pointer" onClick={() => {}}>
-              로그인
-            </Typography>
-          </div>
+          <HeaderLoginOption />
           <div className="flex gap-20 items-center">
             {HEADER_TABS.map((header) => (
               <div
@@ -55,7 +44,7 @@ const Header = () => {
           </div>
         </div>
       </header>
-      {(hover === 'concept' || hover === 'problem') && <HeaderContent setHover={setHover} />}
+      {hover && <HeaderContent setHover={setHover} />}
     </>
   );
 };
