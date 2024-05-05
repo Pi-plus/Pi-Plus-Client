@@ -11,9 +11,3 @@ export const HEADER_TABS: THeaderValue[] = [
   { title: '문제 풀기', pathname: 'problem', href: ROUTES.STUDENT_LIST },
   { title: '마이 페이지', pathname: 'mypage', href: ROUTES.STUDENT_MY },
 ] as const;
-
-export type TValueOfStudent = 'middle' | 'high';
-export const HEADER_STUDENT_TABS: { value: TValueOfStudent; label: string }[] = [
-  { value: 'middle', label: '중학교' },
-  { value: 'high', label: '고등학교' },
-];
