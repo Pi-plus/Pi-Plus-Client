@@ -6,6 +6,7 @@ export const ROUTES = {
   HOME: '/',
   STUDENT_MY: '/student/mypage',
   STUDENT_LIST: '/student/problem/list',
+  STUDENT_CONCEPT: '/student/concept',
   TEACHER_MATCHING: '/teacher/matching',
 } as const;
 
