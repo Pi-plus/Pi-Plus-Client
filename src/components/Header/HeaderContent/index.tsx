@@ -16,6 +16,8 @@ interface IHeaderContentProps {
 }
 const HeaderContent = ({ hover, setHover }: IHeaderContentProps) => {
   const [studentHover, setStudentHover] = useState<TValueOfStudent | ''>('');
+  const middle = [MIDDLE_STUDENT_MATH.one, MIDDLE_STUDENT_MATH.two, MIDDLE_STUDENT_MATH.three];
+  const high = [HIGH_STUDENT_MATH.one, HIGH_STUDENT_MATH.two, HIGH_STUDENT_MATH.three];
   return (
     <PortalConsumer>
       <div
@@ -47,9 +49,9 @@ const HeaderContent = ({ hover, setHover }: IHeaderContentProps) => {
               setStudentHover('');
             }}
           >
-            <HeaderContentSection list={MIDDLE_STUDENT_MATH.one} type={hover} />
-            <HeaderContentSection list={MIDDLE_STUDENT_MATH.two} type={hover} />
-            <HeaderContentSection list={MIDDLE_STUDENT_MATH.three} type={hover} />
+            {middle.map((item, idx) => (
+              <HeaderContentSection key={idx} list={item} type={hover} setHover={setHover} />
+            ))}
           </div>
         )}
 
@@ -60,9 +62,9 @@ const HeaderContent = ({ hover, setHover }: IHeaderContentProps) => {
               setStudentHover('');
             }}
           >
-            <HeaderContentSection list={HIGH_STUDENT_MATH.one} type={hover} />
-            <HeaderContentSection list={HIGH_STUDENT_MATH.two} type={hover} />
-            <HeaderContentSection list={HIGH_STUDENT_MATH.three} type={hover} />
+            {high.map((item, idx) => (
+              <HeaderContentSection key={idx} list={item} type={hover} setHover={setHover} />
+            ))}
           </div>
         )}
       </div>
