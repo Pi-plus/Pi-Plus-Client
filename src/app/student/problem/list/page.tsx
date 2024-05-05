@@ -1,16 +1,14 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
+
 import Button from '@/components/Button';
 import Select from '@/components/Select';
 import { ROUTES } from '@/constants';
-import { useNavigate } from '@/hooks';
 
 const StudentProblemListPage = () => {
   const columns = ['문제번호', '학년', '단원명', '난이도'];
-  const { push } = useNavigate();
-  const handleNavigateDetail = (id: number) => {
-    push(`${ROUTES.STUDENT_LIST}/${id}`);
-  };
+  const { push } = useRouter();
   return (
     <div className="w-full flex flex-col">
       <div className="w-full flex justify-end mb-10 pr-10 mt-14">
@@ -35,7 +33,9 @@ const StudentProblemListPage = () => {
           <tbody>
             <tr
               className="w-full border-b border-gray-10 h-[48px] hover:bg-gray-5 cursor-pointer"
-              onClick={() => handleNavigateDetail(1)}
+              onClick={() => {
+                push(`${ROUTES.STUDENT_LIST}/${1}`);
+              }}
             >
               <td className="text-center">10101번</td>
               <td className="text-center">중학교 1학년</td>
