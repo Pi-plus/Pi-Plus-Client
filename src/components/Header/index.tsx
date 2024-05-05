@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { defaultImages } from '@public/images';
 
 import type { TValueOfPathname } from '@/constants';
@@ -23,21 +24,24 @@ const Header = () => {
   return (
     <>
       <header className="w-full flex justify-between items-center px-12 pt-2 border-b border-blue-30 pb-3">
-        <Image src={defaultImages.logo} width={241} height={90} alt="" />
+        <Link href="/">
+          <Image src={defaultImages.logo} className="cursor-pointer" width={241} height={90} alt="" />
+        </Link>
         <div className="flex flex-col items-end">
           <HeaderLoginOption />
           <div className="flex gap-20 items-center">
             {HEADER_TABS.map((header) => (
               <div
                 key={header.pathname}
-                className="flex items-center gap-2"
                 onMouseOver={() => handleHoverHeaderTab(header.pathname)}
+                className="flex items-center gap-2"
                 onFocus={() => {}}
               >
                 <HeaderTab
                   title={header.title}
-                  focus={header.pathname === hover}
+                  isHover={header.pathname === hover}
                   hasArrow={header.pathname !== 'mypage'}
+                  href={header.href!}
                 />
               </div>
             ))}
