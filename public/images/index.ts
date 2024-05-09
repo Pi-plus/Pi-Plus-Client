@@ -1,4 +1,13 @@
-type TKeyOfDefaultImages = 'logo' | 'banner1' | 'banner2' | 'banner3' | 'onboarding1' | 'onboarding2' | 'onboarding3';
+type TKeyOfDefaultImages =
+  | 'logo'
+  | 'banner1'
+  | 'banner2'
+  | 'banner3'
+  | 'onboarding1'
+  | 'onboarding2'
+  | 'onboarding3'
+  | 'book'
+  | 'studyStudent';
 
 export type Assets = {
   [key in TKeyOfDefaultImages]: string;
@@ -13,4 +22,7 @@ export const defaultImages: Assets = {
   onboarding1: '/images/onboarding1.png',
   onboarding2: '/images/onboarding2.png',
   onboarding3: '/images/onboarding3.png',
+
+  book: '/images/book.png',
+  studyStudent: '/images/study-student.png',
 };
