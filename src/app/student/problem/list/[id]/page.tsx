@@ -1,8 +1,12 @@
+'use client';
+
 import Image from 'next/image';
 import { defaultImages } from '@public/images';
 
 import Button from '@/components/Button';
+import Input from '@/components/Input';
 import Typography from '@/components/Typography';
+import { useInput } from '@/hooks';
 
 interface IStudentProblemDetailProps {
   params: {
@@ -13,6 +17,7 @@ interface IStudentProblemDetailProps {
 const StudentProblemDetailPage = ({ params }: IStudentProblemDetailProps) => {
   const { id } = params;
   console.log(id);
+  const { onChange, value } = useInput('');
   return (
     <main className="flex justify-center items-start gap-28 w-full px-16 mt-20">
       {/*왼쪽 section*/}
@@ -58,7 +63,17 @@ const StudentProblemDetailPage = ({ params }: IStudentProblemDetailProps) => {
         </div>
 
         {/*답안지*/}
-        <Button>답안 제출</Button>
+        <div className="w-full mt-14">
+          <div className="bg-gray-10 w-full flex items-center justify-center rounded-t-3xl py-6">
+            <Typography color="black" label="title1">
+              답안 입력
+            </Typography>
+          </div>
+          <div className="border border-gray-10 rounded-b-xl py-16 px-12">
+            <Input placeholder="adsg" value={value} onChange={onChange} className="my-5" type="secondary" />
+          </div>
+        </div>
+        <Button className="my-14">답안 제출</Button>
       </div>
     </main>
   );
