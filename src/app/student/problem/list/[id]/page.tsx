@@ -15,6 +15,7 @@ const StudentProblemDetailPage = ({ params }: IStudentProblemDetailProps) => {
   console.log(id);
   return (
     <main className="flex justify-center items-start gap-28 w-full px-16 mt-20">
+      {/*왼쪽 section*/}
       <div className="flex flex-col items-center justify-center w-1/2">
         <div className="bg-blue-10 w-full flex items-center justify-center rounded-t-3xl py-6">
           <Typography color="blue40" label="title1">
@@ -41,8 +42,22 @@ const StudentProblemDetailPage = ({ params }: IStudentProblemDetailProps) => {
         </div>
         <Image src="https://i.imgur.com/3JQKysn.png" width={630} height={500} alt="" />
       </div>
+      {/*오른쪽 section*/}
       <div className="w-1/2">
-        <Image src={defaultImages.studyStudent} width={170} height={170} alt="" />
+        {/*답안지 제목*/}
+        <div className="w-full flex items-center gap-6">
+          <Image src={defaultImages.studyStudent} width={170} height={170} alt="" />
+          <div className="flex flex-col items-start">
+            <Typography label="title1" color="black">
+              문제를 풀고 생각하는 답안지를 작성해주세요
+            </Typography>
+            <Typography color="gray50" label="body2">
+              객관식/주관식 형식에 맞게 입력해주세요
+            </Typography>
+          </div>
+        </div>
+
+        {/*답안지*/}
         <Button>답안 제출</Button>
       </div>
     </main>
