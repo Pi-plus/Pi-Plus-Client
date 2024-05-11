@@ -33,17 +33,19 @@ const StudentProblemDetailPage = ({ params }: IStudentProblemDetailProps) => {
       <div className="w-1/2">
         {/*답안지 제목*/}
         <SectionTitle
+          className="mb-14"
           title="문제를 풀고 생각하는 답안지를 작성해주세요"
           subTitle="객관식/주관식 형식에 맞게 입력해주세요"
         />
 
         {/*답안지*/}
-        <div className="w-full mt-14">
+        <div className="w-full">
           <MathTitle type="secondary" title="답안 입력" />
           <div className="border border-gray-10 rounded-b-xl py-16 px-12">
             <Input placeholder="adsg" value={value} onChange={onChange} className="my-5" type="secondary" />
           </div>
         </div>
+
         <Button className="my-14" onClick={onOpen}>
           답안 제출
         </Button>

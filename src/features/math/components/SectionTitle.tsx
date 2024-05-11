@@ -1,15 +1,17 @@
+import type { HTMLAttributes } from 'react';
 import Image from 'next/image';
 import { defaultImages } from '@public/images';
+import classNames from 'classnames';
 
 import Typography from '@/components/Typography';
 
-interface ISectionTitleProps {
+interface ISectionTitleProps extends HTMLAttributes<HTMLDivElement> {
   title: string;
   subTitle: string;
 }
-const SectionTitle = ({ title, subTitle }: ISectionTitleProps) => {
+const SectionTitle = ({ title, subTitle, className, ...rest }: ISectionTitleProps) => {
   return (
-    <div className="w-full flex items-center gap-6">
+    <div className={classNames('w-full flex items-center gap-6', className)} {...rest}>
       <Image src={defaultImages.studyStudent} width={170} height={170} alt="" />
       <div className="flex flex-col items-start">
         <Typography label="title1" color="black">
