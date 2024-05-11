@@ -8,6 +8,7 @@ import Input from '@/components/Input';
 import MathTitle from '@/components/MathTitle';
 import Modal from '@/components/Modal';
 import Typography from '@/components/Typography';
+import DifficultyLabel from '@/features/math/components/DifficultyLabel';
 import { useInput, useModal } from '@/hooks';
 
 interface IStudentProblemDetailProps {
@@ -38,11 +39,7 @@ const StudentProblemDetailPage = ({ params }: IStudentProblemDetailProps) => {
           </div>
 
           {/*난이도 라벨*/}
-          <div className="p-3 bg-blue-20 flex items-center justify-center self-start overflow-hidden rounded-[20px] whitespace-nowrap">
-            <Typography color="white" label="title3">
-              난이도 하
-            </Typography>
-          </div>
+          <DifficultyLabel difficulty="MEDIUM" />
         </div>
         <Image src="https://i.imgur.com/3JQKysn.png" width={630} height={500} alt="" />
       </div>
