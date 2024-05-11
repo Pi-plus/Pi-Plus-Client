@@ -54,8 +54,15 @@ const PreviewPage = () => {
         버튼
       </Button>
 
-      <Modal isOpen={isOpen} onClose={onClose}>
-        <Typography>컨텐츠</Typography>
+      <Modal isShow={isOpen} onClose={onClose} className="w-[90%] h-[90%]">
+        <div className="flex w-full">
+          <Typography>컨텐츠</Typography>
+          <Typography>컨텐츠</Typography>
+          <Typography>컨텐츠</Typography>
+          <Typography>컨텐츠</Typography>
+
+          <div className="w-[600px] bg-red h-[50px]" />
+        </div>
       </Modal>
     </div>
   );
