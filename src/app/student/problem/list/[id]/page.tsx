@@ -5,6 +5,7 @@ import { defaultImages } from '@public/images';
 
 import Button from '@/components/Button';
 import Input from '@/components/Input';
+import MathTitle from '@/components/MathTitle';
 import Modal from '@/components/Modal';
 import Typography from '@/components/Typography';
 import { useInput, useModal } from '@/hooks';
@@ -24,11 +25,7 @@ const StudentProblemDetailPage = ({ params }: IStudentProblemDetailProps) => {
     <main className="flex justify-center items-start gap-28 w-full px-16 mt-20">
       {/*왼쪽 section*/}
       <div className="flex flex-col items-center justify-center w-1/2">
-        <div className="bg-blue-10 w-full flex items-center justify-center rounded-t-3xl py-6">
-          <Typography color="blue40" label="title1">
-            문제 보기
-          </Typography>
-        </div>
+        <MathTitle title="문제 보기" />
         <div className="w-full flex items-start justify-between p-5">
           <div className="flex items-center justify-center gap-9">
             <Image src={defaultImages.book} width={173} height={120} alt="" />
@@ -66,11 +63,7 @@ const StudentProblemDetailPage = ({ params }: IStudentProblemDetailProps) => {
 
         {/*답안지*/}
         <div className="w-full mt-14">
-          <div className="bg-gray-10 w-full flex items-center justify-center rounded-t-3xl py-6">
-            <Typography color="black" label="title1">
-              답안 입력
-            </Typography>
-          </div>
+          <MathTitle type="secondary" title="답안 입력" />
           <div className="border border-gray-10 rounded-b-xl py-16 px-12">
             <Input placeholder="adsg" value={value} onChange={onChange} className="my-5" type="secondary" />
           </div>
