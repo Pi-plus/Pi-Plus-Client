@@ -1,13 +1,12 @@
 'use client';
 
 import Image from 'next/image';
-import { defaultImages } from '@public/images';
 
 import Button from '@/components/Button';
 import Input from '@/components/Input';
 import MathTitle from '@/components/MathTitle';
 import Modal from '@/components/Modal';
-import Typography from '@/components/Typography';
+import { SectionTitle } from '@/features/math/components';
 import ProblemTitle from '@/features/math/components/ProblemTitle';
 import { useInput, useModal } from '@/hooks';
 
@@ -33,17 +32,10 @@ const StudentProblemDetailPage = ({ params }: IStudentProblemDetailProps) => {
       {/*오른쪽 section*/}
       <div className="w-1/2">
         {/*답안지 제목*/}
-        <div className="w-full flex items-center gap-6">
-          <Image src={defaultImages.studyStudent} width={170} height={170} alt="" />
-          <div className="flex flex-col items-start">
-            <Typography label="title1" color="black">
-              문제를 풀고 생각하는 답안지를 작성해주세요
-            </Typography>
-            <Typography color="gray50" label="body2">
-              객관식/주관식 형식에 맞게 입력해주세요
-            </Typography>
-          </div>
-        </div>
+        <SectionTitle
+          title="문제를 풀고 생각하는 답안지를 작성해주세요"
+          subTitle="객관식/주관식 형식에 맞게 입력해주세요"
+        />
 
         {/*답안지*/}
         <div className="w-full mt-14">
