@@ -1,6 +1,6 @@
 'use client';
 
-import type { HTMLAttributes, PropsWithChildren } from 'react';
+import { type HTMLAttributes, type PropsWithChildren, useEffect } from 'react';
 
 import Dimmer from '../Dimmer';
 import { PortalConsumer } from '../GlobalPortal';
@@ -13,6 +13,15 @@ interface IModalProps extends PropsWithChildren, HTMLAttributes<HTMLDivElement> 
 }
 const Modal = (props: IModalProps) => {
   const { isShow, children, onClose, ...rest } = props;
+
+  useEffect(() => {
+    if (isShow) {
+      document.body.style.overflow = 'hidden';
+    }
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [isShow]);
   return (
     <>
       {isShow && (
