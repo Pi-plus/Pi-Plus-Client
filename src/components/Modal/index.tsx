@@ -1,25 +1,26 @@
 'use client';
 
-import type { ModalProps } from '@chakra-ui/react';
-import { Modal as CustomModal, ModalBody, ModalContent, ModalOverlay } from '@chakra-ui/react';
+import type { PropsWithChildren } from 'react';
 
-interface IModalProps extends ModalProps {
-  isOpen: boolean;
+import Dimmer from '../Dimmer';
+import { PortalConsumer } from '../GlobalPortal';
+
+import ModalContent from './ModalContent';
+
+interface IModalProps extends PropsWithChildren {
+  isShow: boolean;
   onClose: () => void;
 }
-
-const Modal = (props: IModalProps) => {
-  const { isOpen, onClose, children, ...rest } = props;
+const Modal = ({ isShow, children, onClose }: IModalProps) => {
   return (
-    <CustomModal onClose={onClose} isOpen={isOpen} {...rest} isCentered={true}>
-      <ModalOverlay />
-
-      <ModalContent className="items-center justify-center" borderRadius="20px" width="20rem">
-        <ModalBody>
-          <div className="flex flex-col items-center justify-center">{children}</div>
-        </ModalBody>
-      </ModalContent>
-    </CustomModal>
+    <>
+      {isShow && (
+        <PortalConsumer>
+          <Dimmer isShow={isShow} onClick={onClose} />
+          <ModalContent>{children}</ModalContent>
+        </PortalConsumer>
+      )}
+    </>
   );
 };
 export default Modal;
