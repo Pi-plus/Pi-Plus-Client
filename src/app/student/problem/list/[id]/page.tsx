@@ -8,7 +8,7 @@ import Input from '@/components/Input';
 import MathTitle from '@/components/MathTitle';
 import Modal from '@/components/Modal';
 import Typography from '@/components/Typography';
-import DifficultyLabel from '@/features/math/components/DifficultyLabel';
+import ProblemTitle from '@/features/math/components/ProblemTitle';
 import { useInput, useModal } from '@/hooks';
 
 interface IStudentProblemDetailProps {
@@ -27,20 +27,7 @@ const StudentProblemDetailPage = ({ params }: IStudentProblemDetailProps) => {
       {/*왼쪽 section*/}
       <div className="flex flex-col items-center justify-center w-1/2">
         <MathTitle title="문제 보기" />
-        <div className="w-full flex items-start justify-between p-5">
-          <div className="flex items-center justify-center gap-9">
-            <Image src={defaultImages.book} width={173} height={120} alt="" />
-            <div className="flex flex-col">
-              <Typography label="title1" color="black">
-                {`문제 ${id} 번`}
-              </Typography>
-              <Typography label="title3">개념 : 중2 1학기 실수</Typography>
-            </div>
-          </div>
-
-          {/*난이도 라벨*/}
-          <DifficultyLabel difficulty="MEDIUM" />
-        </div>
+        <ProblemTitle id="1" concept="개념 중1" difficulty="HIGH" />
         <Image src="https://i.imgur.com/3JQKysn.png" width={630} height={500} alt="" />
       </div>
       {/*오른쪽 section*/}
