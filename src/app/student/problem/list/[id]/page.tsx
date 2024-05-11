@@ -3,10 +3,10 @@
 import Image from 'next/image';
 
 import Button from '@/components/Button';
-import Input from '@/components/Input';
 import MathTitle from '@/components/MathTitle';
 import Modal from '@/components/Modal';
 import { SectionTitle } from '@/features/math/components';
+import MathResponse from '@/features/math/components/MathResponse';
 import ProblemTitle from '@/features/math/components/ProblemTitle';
 import { useInput, useModal } from '@/hooks';
 
@@ -39,12 +39,7 @@ const StudentProblemDetailPage = ({ params }: IStudentProblemDetailProps) => {
         />
 
         {/*답안지*/}
-        <div className="w-full">
-          <MathTitle type="secondary" title="답안 입력" />
-          <div className="border border-gray-10 rounded-b-xl py-16 px-12">
-            <Input placeholder="adsg" value={value} onChange={onChange} className="my-5" type="secondary" />
-          </div>
-        </div>
+        <MathResponse title="답안 입력" value={value} onChange={onChange} />
 
         <Button className="my-14" onClick={onOpen}>
           답안 제출
