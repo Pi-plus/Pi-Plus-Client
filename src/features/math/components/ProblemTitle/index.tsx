@@ -4,7 +4,7 @@ import { defaultImages } from '@public/images';
 import type { TMathDifficulty } from '@/apis/math/types';
 import Typography from '@/components/Typography';
 
-import DifficultyLabel from '../DifficultyLabel';
+import DifficultyLabel from './DifficultyLabel';
 
 interface IProblemTitleProps {
   id: string;
