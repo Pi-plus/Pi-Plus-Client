@@ -1,7 +1,7 @@
 import type { CollectionReference, DocumentData } from 'firebase/firestore';
 import { collection, getDocs } from 'firebase/firestore';
 
-import { db } from '@/shared/utils';
+import { db } from '@/utils';
 
 import type { IUserResponse } from './types';
 
