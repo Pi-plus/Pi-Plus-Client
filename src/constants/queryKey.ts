@@ -1,3 +1,3 @@
-import { createQueryKeys } from '@/shared/utils';
+import { createQueryKeys } from '@/utils';
 
 export const USER_KEYS = createQueryKeys('user');
