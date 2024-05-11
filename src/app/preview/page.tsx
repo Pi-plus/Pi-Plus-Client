@@ -5,12 +5,14 @@ import { useState } from 'react';
 
 import Button from '@/components/Button';
 import Input from '@/components/Input';
+import Modal from '@/components/Modal';
 import Select from '@/components/Select';
 import Typography from '@/components/Typography';
-import { useInput } from '@/hooks';
+import { useInput, useModal } from '@/hooks';
 
 const PreviewPage = () => {
   const { onChange, value } = useInput('');
+  const { isOpen, onClose, onOpen } = useModal();
 
   const [select, setSelect] = useState<string>('');
 
@@ -47,6 +49,14 @@ const PreviewPage = () => {
         ]}
         onChange={handleSetSelect}
       />
+      <Typography className="pt-4">modal 컴포넌트</Typography>
+      <Button className="my-5" onClick={onOpen}>
+        버튼
+      </Button>
+
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <Typography>컨텐츠</Typography>
+      </Modal>
     </div>
   );
 };
