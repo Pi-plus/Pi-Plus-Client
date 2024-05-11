@@ -6,13 +6,13 @@ import Typography from '@/components/Typography';
 
 import DifficultyLabel from './DifficultyLabel';
 
-interface IProblemTitleProps {
+interface IMathProblemTitleProps {
   id: string;
   concept: string;
   difficulty: TMathDifficulty;
 }
 
-const ProblemTitle = ({ id, concept, difficulty }: IProblemTitleProps) => {
+const MathProblemContent = ({ id, concept, difficulty }: IMathProblemTitleProps) => {
   return (
     <div className="w-full flex items-start justify-between p-5">
       <div className="flex items-center justify-center gap-9">
@@ -30,4 +30,4 @@ const ProblemTitle = ({ id, concept, difficulty }: IProblemTitleProps) => {
     </div>
   );
 };
-export default ProblemTitle;
+export default MathProblemContent;
