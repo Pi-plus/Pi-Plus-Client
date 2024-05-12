@@ -6,6 +6,7 @@ import { useState } from 'react';
 import Button from '@/components/Button';
 import Input from '@/components/Input';
 import Modal from '@/components/Modal';
+import Popup from '@/components/Popup';
 import Select from '@/components/Select';
 import Typography from '@/components/Typography';
 import { useInput, useModal } from '@/hooks';
@@ -13,6 +14,7 @@ import { useInput, useModal } from '@/hooks';
 const PreviewPage = () => {
   const { onChange, value } = useInput('');
   const { isOpen, onClose, onOpen } = useModal();
+  const { isOpen: popupIsOpen, onClose: popupOnClose, onOpen: popupOnOpen } = useModal();
 
   const [select, setSelect] = useState<string>('');
 
@@ -64,6 +66,22 @@ const PreviewPage = () => {
           <div className="w-[600px] bg-red h-[50px]" />
         </div>
       </Modal>
+
+      <Typography className="pt-4">popup 컴포넌트</Typography>
+      <Button className="my-5" onClick={popupOnOpen}>
+        버튼
+      </Button>
+
+      <Popup
+        isShow={popupIsOpen}
+        onClose={popupOnClose}
+        onConfirm={() => {}}
+        onCancel={popupOnClose}
+        left="확인"
+        right="취소"
+      >
+        <div className="flex w-full h-full bg-red"></div>
+      </Popup>
     </div>
   );
 };
