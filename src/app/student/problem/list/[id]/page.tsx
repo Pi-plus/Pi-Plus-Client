@@ -55,8 +55,15 @@ const StudentProblemDetailPage = ({ params }: IStudentProblemDetailProps) => {
             height={24}
             alt=""
           />
-          <div className="w-1/2">
-            {/*<img src="https://i.imgur.com/jXfcG0Q.png" className="w-1/2 h-auto" alt="Responsive Image" />*/}
+          <div className="w-1/2 h-full">
+            <SectionTitle
+              className="mb-14 mt-10"
+              title="2021 번 문제에 대한 답입니다! "
+              subTitle="단원에 맞는 문제의 해설을 확인해보세요"
+            />
+            <Image src="https://i.imgur.com/jXfcG0Q.png" className="w-full mb-3" width={630} height={600} alt="" />
+          </div>
+          <div className="w-1/2 h-full flex justify-center items-center mt-32">
             <Image
               src="https://i.imgur.com/jXfcG0Q.png"
               width={400}
@@ -65,14 +72,6 @@ const StudentProblemDetailPage = ({ params }: IStudentProblemDetailProps) => {
               className="h-auto w-full"
               layout="responsive"
             />
-          </div>
-          <div className="w-1/2">
-            <SectionTitle
-              className="mb-14 mt-10"
-              title="2021 번 문제에 대한 답입니다! "
-              subTitle="단원에 맞는 문제의 해설을 확인해보세요"
-            />
-            <Image src="https://i.imgur.com/tmiYn1A.png" className="w-full" width={630} height={600} alt="" />
           </div>
         </Modal>
       </div>
