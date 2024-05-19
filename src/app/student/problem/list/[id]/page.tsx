@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { defaultSvg } from '@public/svgs';
 
 import Button from '@/components/Button';
 import MathTitle from '@/components/MathTitle';
@@ -45,9 +46,34 @@ const StudentProblemDetailPage = ({ params }: IStudentProblemDetailProps) => {
           답안 제출
         </Button>
 
-        <Modal isShow={isOpen} onClose={onClose} className="w-[70%] h-[90%]">
-          <Image src="https://i.imgur.com/3JQKysn.png" width={630} height={400} alt="" />
-          <Image src="https://i.imgur.com/F2Doewn.png" width={630} height={400} alt="" />
+        <Modal isShow={isOpen} onClose={onClose} className="w-[90%] h-[90%] p-7 flex items-center justify-between">
+          <Image
+            className="absolute top-6 right-6 cursor-pointer"
+            src={defaultSvg.cancel}
+            onClick={onClose}
+            width={24}
+            height={24}
+            alt=""
+          />
+          <div className="w-1/2">
+            {/*<img src="https://i.imgur.com/jXfcG0Q.png" className="w-1/2 h-auto" alt="Responsive Image" />*/}
+            <Image
+              src="https://i.imgur.com/jXfcG0Q.png"
+              width={400}
+              height={0}
+              alt=""
+              className="h-auto w-full"
+              layout="responsive"
+            />
+          </div>
+          <div className="w-1/2">
+            <SectionTitle
+              className="mb-14 mt-10"
+              title="2021 번 문제에 대한 답입니다! "
+              subTitle="단원에 맞는 문제의 해설을 확인해보세요"
+            />
+            <Image src="https://i.imgur.com/tmiYn1A.png" className="w-full" width={630} height={600} alt="" />
+          </div>
         </Modal>
       </div>
     </main>
