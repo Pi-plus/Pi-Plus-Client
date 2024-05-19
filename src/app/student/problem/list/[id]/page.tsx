@@ -5,9 +5,9 @@ import Image from 'next/image';
 import Button from '@/components/Button';
 import MathTitle from '@/components/MathTitle';
 import { SectionTitle } from '@/features/math/components';
+import MathCorrectPopup from '@/features/math/components/MathCorrectPopup';
 import MathProblemContent from '@/features/math/components/MathProblemContent';
 import MathResponse from '@/features/math/components/MathResponse';
-import MathSolutionPopup from '@/features/math/components/MathSolutionPopup';
 import { useInput, useModal } from '@/hooks';
 
 interface IStudentProblemDetailProps {
@@ -46,13 +46,16 @@ const StudentProblemDetailPage = ({ params }: IStudentProblemDetailProps) => {
         </Button>
 
         {/*문제 해설 팝업*/}
-        <MathSolutionPopup
+        {/*<MathSolutionPopup
           isOpen={isOpen}
           onClose={onClose}
           title="2021 번 문제에 대한 답입니다! "
           mathSrc="https://i.imgur.com/i53bIul.png"
           solutionSrc="https://i.imgur.com/jXfcG0Q.png"
-        />
+        />*/}
+
+        {/*문제 맞을 때 팝업*/}
+        <MathCorrectPopup isOpen={isOpen} onClose={onClose} onConfirm={() => {}} />
       </div>
     </main>
   );
