@@ -4,10 +4,10 @@ import Image from 'next/image';
 
 import Button from '@/components/Button';
 import MathTitle from '@/components/MathTitle';
-import Modal from '@/components/Modal';
 import { SectionTitle } from '@/features/math/components';
 import MathProblemContent from '@/features/math/components/MathProblemContent';
 import MathResponse from '@/features/math/components/MathResponse';
+import MathWrongPopup from '@/features/math/components/MathWrongPopup';
 import { useInput, useModal } from '@/hooks';
 
 interface IStudentProblemDetailProps {
@@ -45,10 +45,20 @@ const StudentProblemDetailPage = ({ params }: IStudentProblemDetailProps) => {
           답안 제출
         </Button>
 
-        <Modal isShow={isOpen} onClose={onClose} className="w-[70%] h-[90%]">
-          <Image src="https://i.imgur.com/3JQKysn.png" width={630} height={400} alt="" />
-          <Image src="https://i.imgur.com/F2Doewn.png" width={630} height={400} alt="" />
-        </Modal>
+        {/*문제 해설 팝업*/}
+        {/*<MathSolutionPopup
+          isOpen={isOpen}
+          onClose={onClose}
+          title="2021 번 문제에 대한 답입니다! "
+          mathSrc="https://i.imgur.com/i53bIul.png"
+          solutionSrc="https://i.imgur.com/jXfcG0Q.png"
+        />*/}
+
+        {/*문제 맞을 때 팝업*/}
+        {/*<MathCorrectPopup isOpen={isOpen} onClose={onClose} onConfirm={() => {}} />*/}
+
+        {/*문제 틀렸을 때 팝업*/}
+        <MathWrongPopup isOpen={isOpen} onClose={onClose} onConfirm={() => {}} />
       </div>
     </main>
   );
