@@ -1,14 +1,13 @@
 'use client';
 
 import Image from 'next/image';
-import { defaultSvg } from '@public/svgs';
 
 import Button from '@/components/Button';
 import MathTitle from '@/components/MathTitle';
-import Modal from '@/components/Modal';
 import { SectionTitle } from '@/features/math/components';
 import MathProblemContent from '@/features/math/components/MathProblemContent';
 import MathResponse from '@/features/math/components/MathResponse';
+import MathSolutionPopup from '@/features/math/components/MathSolutionPopup';
 import { useInput, useModal } from '@/hooks';
 
 interface IStudentProblemDetailProps {
@@ -46,34 +45,14 @@ const StudentProblemDetailPage = ({ params }: IStudentProblemDetailProps) => {
           답안 제출
         </Button>
 
-        <Modal isShow={isOpen} onClose={onClose} className="w-[90%] h-[90%] p-7 flex items-center justify-between">
-          <Image
-            className="absolute top-6 right-6 cursor-pointer"
-            src={defaultSvg.cancel}
-            onClick={onClose}
-            width={24}
-            height={24}
-            alt=""
-          />
-          <div className="w-1/2 h-full">
-            <SectionTitle
-              className="mb-14 mt-10"
-              title="2021 번 문제에 대한 답입니다! "
-              subTitle="단원에 맞는 문제의 해설을 확인해보세요"
-            />
-            <Image src="https://i.imgur.com/jXfcG0Q.png" className="w-full mb-3" width={630} height={600} alt="" />
-          </div>
-          <div className="w-1/2 h-full flex justify-center items-center mt-32">
-            <Image
-              src="https://i.imgur.com/jXfcG0Q.png"
-              width={400}
-              height={0}
-              alt=""
-              className="h-auto w-full"
-              layout="responsive"
-            />
-          </div>
-        </Modal>
+        {/*문제 해설 팝업*/}
+        <MathSolutionPopup
+          isOpen={isOpen}
+          onClose={onClose}
+          title="2021 번 문제에 대한 답입니다! "
+          mathSrc="https://i.imgur.com/i53bIul.png"
+          solutionSrc="https://i.imgur.com/jXfcG0Q.png"
+        />
       </div>
     </main>
   );
