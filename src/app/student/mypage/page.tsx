@@ -1,6 +1,13 @@
-import Typography from '@/components/Typography';
+'use client';
+
+import Lottie from 'react-lottie-player';
+import { defaultLottie } from '@public/lotties';
 
 const StudentMyPage = () => {
-  return <Typography label="body1">학생 마이페이지</Typography>;
+  return (
+    <div>
+      <Lottie loop animationData={defaultLottie.try} play />
+    </div>
+  );
 };
 export default StudentMyPage;
