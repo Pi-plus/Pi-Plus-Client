@@ -1,12 +1,12 @@
 'use client';
 
-import Lottie from 'react-lottie-player';
-import { defaultLottie } from '@public/lotties';
+import MyPageBanner from '@/features/mypage/components/Banner';
 
 const StudentMyPage = () => {
   return (
     <div>
-      <Lottie loop animationData={defaultLottie.try} play />
+      <div></div>
+      <MyPageBanner />
     </div>
   );
 };
