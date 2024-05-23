@@ -6,18 +6,20 @@ import Typography from '@/components/Typography';
 
 interface IMypageTabProps {
   type: 'student' | 'teacher';
+  gender: 'female' | 'male';
   name: string;
   count: number;
   tablist: string[];
 }
-const MypageTab = ({ type, name, count, tablist }: IMypageTabProps) => {
+const MypageTab = ({ type, name, count, tablist, gender }: IMypageTabProps) => {
   const personName = type === 'student' ? `${name} 학생` : `${name} 선생님`;
   const countString = type === 'student' ? `총 푼 문제 수 : ${count} 문제` : `관리하는 학생 수 : ${count} 명`;
+  const imgSrc = gender === 'female' ? defaultImages.girlStudent : defaultImages.boyStudent;
   return (
     <div className="size-full border-r border-gray-20 border-solid">
       {/*프로필*/}
       <div className="w-full border-b border-gray-20 border-solid p-9 flex items-center gap-12 mt-3">
-        <Image src={defaultImages.girlStudent} width={100} height={100} alt="" />
+        <Image src={imgSrc} width={100} height={100} alt="" />
         <div>
           <Typography label="heading1">{personName}</Typography>
           <div className="flex items-center mt-5">
