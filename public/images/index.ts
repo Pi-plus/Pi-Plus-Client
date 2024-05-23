@@ -7,7 +7,9 @@ type TKeyOfDefaultImages =
   | 'onboarding2'
   | 'onboarding3'
   | 'book'
-  | 'studyStudent';
+  | 'studyStudent'
+  | 'girlStudent'
+  | 'boyStudent';
 
 export type Assets = {
   [key in TKeyOfDefaultImages]: string;
@@ -25,4 +27,7 @@ export const defaultImages: Assets = {
 
   book: '/images/book.png',
   studyStudent: '/images/study-student.png',
+
+  girlStudent: '/images/student1.png',
+  boyStudent: '/images/student2.png',
 };
