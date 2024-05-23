@@ -28,6 +28,12 @@ const MypageTab = ({ type, name, count, tablist }: IMypageTabProps) => {
       </div>
 
       {/*탭리스트*/}
+      {tablist.map((tab) => (
+        <div key={tab} className="flex items-center justify-between py-8 px-16 hover:bg-gray-10 cursor-pointer">
+          <Typography label="body1">{tab}</Typography>
+          <Image src={defaultSvg.arrowRight} width={6} height={7} alt="" />
+        </div>
+      ))}
     </div>
   );
 };
