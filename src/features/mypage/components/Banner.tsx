@@ -5,7 +5,7 @@ import Typography from '@/components/Typography';
 
 const MyPageBanner = () => {
   return (
-    <div className="w-full flex items-center bg-[#4bb2fc] h-48 px-10 rounded-xl">
+    <div className="w-full flex items-center bg-blue-20 h-48 px-10 rounded-xl">
       <Lottie loop animationData={defaultLottie.try} play className="w-[180px]" />
       <div className="flex flex-col ml-9">
         <Typography
