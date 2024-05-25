@@ -2,11 +2,11 @@
 
 import type { HTMLAttributes } from 'react';
 import Image from 'next/image';
+import { usePathname, useRouter } from 'next/navigation';
 import { defaultSvg } from '@public/svgs';
 import classNames from 'classnames';
 
 import { MYPAGE_STUDENT_ROUTES, ROUTES, type TValueOfTitlename } from '@/constants';
-import { useNavigate } from '@/hooks';
 
 import Typography from '../Typography';
 
@@ -18,9 +18,9 @@ interface IHeaderTabProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 const HeaderTab = ({ isHover, title, hasArrow, href, ...rest }: IHeaderTabProps) => {
-  const { pathname, push } = useNavigate();
+  const router = useRouter();
+  const pathname = usePathname();
   const focus = pathname.startsWith(href);
-
   return (
     <div {...rest}>
       <Typography
@@ -31,7 +31,7 @@ const HeaderTab = ({ isHover, title, hasArrow, href, ...rest }: IHeaderTabProps)
         })}
         onClick={() => {
           if (title === '마이 페이지') {
-            push({ pathname: ROUTES.STUDENT_MY, query: { m: MYPAGE_STUDENT_ROUTES.PROBLEM_SETTING } });
+            router.push(`${ROUTES.STUDENT_MY}?m=${MYPAGE_STUDENT_ROUTES.PROBLEM_SETTING}`);
           }
         }}
       >
