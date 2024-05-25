@@ -1,4 +1,4 @@
-type TKeyOfDefaultSvg = 'arrowDown' | 'arrowRight' | 'arrowUp' | 'cancel';
+type TKeyOfDefaultSvg = 'arrowDown' | 'arrowRight' | 'arrowUp' | 'cancel' | 'level';
 
 export type Assets = {
   [key in TKeyOfDefaultSvg]: string;
@@ -9,4 +9,5 @@ export const defaultSvg: Assets = {
   arrowRight: '/svgs/arrowRight.svg',
   arrowUp: '/svgs/arrowUp.svg',
   cancel: '/svgs/cancel.svg',
+  level: '/svgs/level.svg',
 };
