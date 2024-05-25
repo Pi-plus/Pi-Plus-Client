@@ -14,3 +14,8 @@ export const SIGN_UP_ROUTES = {
   SELECT: 'select' as Route,
   GOAL: 'goal' as Route,
 } as const;
+
+export const MYPAGE_STUDENT_ROUTES = {
+  PROBLEM_SETTING: 'problemSetting' as Route,
+  ACHIEVEMENT: 'achievement' as Route,
+} as const;
