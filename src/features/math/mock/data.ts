@@ -48,7 +48,7 @@ export const data: TMathDetailResponse = {
     { first: 1, second: 3 },
   ],
   id: '234555',
-  answer_type: '0',
+  answer_type: '3',
   question: 'https://i.imgur.com/F4pspLy.png',
   question_answer: 'https://i.imgur.com/TlxYNAd.png',
   question_chapter: '1',

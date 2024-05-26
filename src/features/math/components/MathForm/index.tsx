@@ -7,6 +7,7 @@ import type { TMathResponse } from '@/apis/math/types';
 import BoxLayout from '@/components/BoxLayout';
 import { MATH_RESPONSE } from '@/constants/enums';
 
+import FractionForm from './FractionForm';
 import MultipleChoiceForm from './MultipleChoiceForm';
 import SubjectiveForm from './SubjectiveForm';
 
@@ -21,6 +22,7 @@ const MathForm = ({ title, answerCount, answerType, isNumber }: IMathForm) => {
     <BoxLayout title={title}>
       {answerType === MATH_RESPONSE.subjectiveResponse && <SubjectiveForm answerCount={answerCount} />}
       {answerType === MATH_RESPONSE.multipleChoiceResponse && <MultipleChoiceForm isNumber={isNumber} />}
+      {answerType === MATH_RESPONSE.fractionResponse && <FractionForm answerCount={answerCount} />}
     </BoxLayout>
   );
 };
