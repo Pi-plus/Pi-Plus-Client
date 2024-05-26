@@ -5,8 +5,8 @@
 
 import { useState } from 'react';
 
+import BoxLayout from '@/components/BoxLayout';
 import Input from '@/components/Input';
-import MathTitle from '@/components/MathTitle';
 
 interface IMathResponse {
   title: string;
@@ -21,21 +21,18 @@ const MathResponse = ({ title, answerCount }: IMathResponse) => {
   };
 
   return (
-    <div className="w-full">
-      <MathTitle type="secondary" title={title} />
-      <div className="border border-gray-10 rounded-b-xl py-16 px-12 flex items-center gap-5">
-        {Array.from({ length: answerCount }).map((_, index) => (
-          <Input
-            key={index}
-            placeholder={`입력란 ${index + 1}`}
-            value={responses[index]}
-            onChange={handleChange(index)}
-            className="my-5"
-            type="secondary"
-          />
-        ))}
-      </div>
-    </div>
+    <BoxLayout title={title}>
+      {Array.from({ length: answerCount }).map((_, index) => (
+        <Input
+          key={index}
+          placeholder={`입력란 ${index + 1}`}
+          value={responses[index]}
+          onChange={handleChange(index)}
+          className="my-5"
+          type="secondary"
+        />
+      ))}
+    </BoxLayout>
   );
 };
 export default MathResponse;
