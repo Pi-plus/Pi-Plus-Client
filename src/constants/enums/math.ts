@@ -5,5 +5,5 @@ export enum MATH_RESPONSE {
   subjectiveResponse = '0',
   multipleChoiceResponse = '1',
   quizResponse = '2',
-  fraction = '3',
+  fractionResponse = '3',
 }
