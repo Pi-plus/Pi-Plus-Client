@@ -1,4 +1,18 @@
-export const data = {
+import type { TMathDifficulty } from '@/apis/math/types';
+
+type TMathDetailResponse = {
+  id: string;
+  answer: number[];
+  answer_type: string;
+  question: string;
+  question_answer: string;
+  question_chapter: string;
+  question_difficulty: TMathDifficulty;
+  textbook_type: string;
+};
+
+export const data: TMathDetailResponse = {
+  id: '2020106011',
   answer: [1, 2, 3],
   answer_type: '1',
   question: 'https://i.imgur.com/6Nphd7q.png',
