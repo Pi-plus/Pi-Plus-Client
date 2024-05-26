@@ -3,30 +3,30 @@ import classNames from 'classnames';
 
 import Typography from '@/components/Typography';
 
-const MultipleChoiceForm = () => {
+const MultipleChoiceForm = ({ isNumber }: { isNumber: boolean }) => {
   const [response, setResponse] = useState<string[]>([]);
-  const numberArrays = ['1', '2', '3', '4', '5'];
-  const handleClick = (num: string) => {
-    if (response.includes(num)) {
-      setResponse((prev) => prev.filter((r) => r !== num));
+  const responseArrays = isNumber ? ['1', '2', '3', '4', '5'] : ['ㄱ', 'ㄴ', 'ㄷ', 'ㄹ', 'ㅁ'];
+  const handleClick = (target: string) => {
+    if (response.includes(target)) {
+      setResponse((prev) => prev.filter((r) => r !== target));
     } else {
-      setResponse((prev) => [...prev, num]);
+      setResponse((prev) => [...prev, target]);
     }
   };
   return (
     <>
-      {numberArrays.map((num) => (
+      {responseArrays.map((res) => (
         <button
           className={classNames(
             'size-[52px] rounded-3xl flex justify-center items-center',
-            { 'bg-blue-20': response.includes(num) },
-            { 'bg-gray-10': !response.includes(num) },
+            { 'bg-blue-20': response.includes(res) },
+            { 'bg-gray-10': !response.includes(res) },
           )}
-          key={num}
-          onClick={() => handleClick(num)}
+          key={res}
+          onClick={() => handleClick(res)}
         >
-          <Typography label="title2" color={response.includes(num) ? 'white' : 'gray40'}>
-            {num}
+          <Typography label="title2" color={response.includes(res) ? 'white' : 'gray40'}>
+            {res}
           </Typography>
         </button>
       ))}

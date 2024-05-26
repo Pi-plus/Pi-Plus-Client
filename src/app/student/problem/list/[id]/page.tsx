@@ -38,7 +38,12 @@ const StudentProblemDetailPage = ({ params }: IStudentProblemDetailProps) => {
         />
 
         {/*답안지*/}
-        <MathForm title="답안 입력" answerCount={data.answer.length} answerType={data.answer_type} />
+        <MathForm
+          title="답안 입력"
+          answerCount={data.answer.length}
+          answerType={data.answer_type}
+          isNumber={typeof data.answer[0] === 'number'}
+        />
 
         <Button className="my-14" onClick={onOpen}>
           답안 제출

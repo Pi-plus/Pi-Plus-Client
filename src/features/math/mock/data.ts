@@ -2,7 +2,7 @@ import type { TMathDifficulty, TMathResponse } from '@/apis/math/types';
 
 type TMathDetailResponse = {
   id: string;
-  answer: number[];
+  answer: number[] | string[];
   answer_type: TMathResponse;
   question: string;
   question_answer: string;

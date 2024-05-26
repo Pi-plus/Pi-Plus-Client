@@ -14,12 +14,13 @@ interface IMathForm {
   title: string;
   answerCount: number;
   answerType: TMathResponse;
+  isNumber: boolean;
 }
-const MathForm = ({ title, answerCount, answerType }: IMathForm) => {
+const MathForm = ({ title, answerCount, answerType, isNumber }: IMathForm) => {
   return (
     <BoxLayout title={title}>
       {answerType === MATH_RESPONSE.subjectiveResponse && <SubjectiveForm answerCount={answerCount} />}
-      {answerType === MATH_RESPONSE.multipleChoiceResponse && <MultipleChoiceForm />}
+      {answerType === MATH_RESPONSE.multipleChoiceResponse && <MultipleChoiceForm isNumber={isNumber} />}
     </BoxLayout>
   );
 };
