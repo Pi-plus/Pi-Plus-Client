@@ -5,29 +5,28 @@ import Image from 'next/image';
 import Button from '@/components/Button';
 import MathTitle from '@/components/MathTitle';
 import { SectionTitle } from '@/features/math/components';
+import { MathSolutionPopup } from '@/features/math/components/MathPopups';
 import MathProblemContent from '@/features/math/components/MathProblemContent';
 import MathResponse from '@/features/math/components/MathResponse';
-import MathWrongPopup from '@/features/math/components/MathWrongPopup';
-import { useInput, useModal } from '@/hooks';
+import { data } from '@/features/math/mock/data';
+import { useModal } from '@/hooks';
 
 interface IStudentProblemDetailProps {
   params: {
-    id: number;
+    id: string;
   };
 }
 
 const StudentProblemDetailPage = ({ params }: IStudentProblemDetailProps) => {
   const { id } = params;
-  console.log(id);
-  const { onChange, value } = useInput('');
   const { isOpen, onClose, onOpen } = useModal();
   return (
     <main className="flex justify-center items-start gap-28 w-full px-16 mt-20">
       {/*왼쪽 section*/}
       <div className="flex flex-col items-center justify-center w-1/2">
         <MathTitle title="문제 보기" />
-        <MathProblemContent id="1" concept="개념 중1" difficulty="HIGH" />
-        <Image src="https://i.imgur.com/3JQKysn.png" width={630} height={500} alt="" />
+        <MathProblemContent id={id} concept={data.question_chapter} difficulty={data.question_difficulty} />
+        <Image src={data.question} width={630} height={500} alt="" />
       </div>
       {/*오른쪽 section*/}
       <div className="w-1/2">
@@ -39,26 +38,26 @@ const StudentProblemDetailPage = ({ params }: IStudentProblemDetailProps) => {
         />
 
         {/*답안지*/}
-        <MathResponse title="답안 입력" value={value} onChange={onChange} />
+        <MathResponse title="답안 입력" answerCount={data.answer.length} />
 
         <Button className="my-14" onClick={onOpen}>
           답안 제출
         </Button>
 
         {/*문제 해설 팝업*/}
-        {/*<MathSolutionPopup
+        <MathSolutionPopup
           isOpen={isOpen}
           onClose={onClose}
           title="2021 번 문제에 대한 답입니다! "
-          mathSrc="https://i.imgur.com/i53bIul.png"
-          solutionSrc="https://i.imgur.com/jXfcG0Q.png"
-        />*/}
+          mathSrc={data.question}
+          solutionSrc={data.question_answer}
+        />
 
         {/*문제 맞을 때 팝업*/}
         {/*<MathCorrectPopup isOpen={isOpen} onClose={onClose} onConfirm={() => {}} />*/}
 
         {/*문제 틀렸을 때 팝업*/}
-        <MathWrongPopup isOpen={isOpen} onClose={onClose} onConfirm={() => {}} />
+        {/*<MathWrongPopup isOpen={isOpen} onClose={onClose} onConfirm={() => {}} />*/}
       </div>
     </main>
   );
