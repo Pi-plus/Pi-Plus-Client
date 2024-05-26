@@ -6,7 +6,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import { defaultSvg } from '@public/svgs';
 import classNames from 'classnames';
 
-import { ROUTES, type TValueOfTitlename } from '@/constants';
+import { MYPAGE_STUDENT_ROUTES, ROUTES, type TValueOfTitlename } from '@/constants';
 
 import Typography from '../Typography';
 
@@ -21,7 +21,6 @@ const HeaderTab = ({ isHover, title, hasArrow, href, ...rest }: IHeaderTabProps)
   const router = useRouter();
   const pathname = usePathname();
   const focus = pathname.startsWith(href);
-
   return (
     <div {...rest}>
       <Typography
@@ -32,7 +31,7 @@ const HeaderTab = ({ isHover, title, hasArrow, href, ...rest }: IHeaderTabProps)
         })}
         onClick={() => {
           if (title === '마이 페이지') {
-            router.push(ROUTES.STUDENT_MY);
+            router.push(`${ROUTES.STUDENT_MY}?m=${MYPAGE_STUDENT_ROUTES.PROBLEM_SETTING}`);
           }
         }}
       >
