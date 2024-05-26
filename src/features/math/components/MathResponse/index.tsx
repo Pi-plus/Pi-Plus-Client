@@ -14,7 +14,6 @@ interface IMathResponse {
 }
 const MathResponse = ({ title, answerCount }: IMathResponse) => {
   const [responses, setResponses] = useState<string[]>(Array(answerCount).fill(''));
-
   const handleChange = (index: number) => (e: React.ChangeEvent<HTMLInputElement>) => {
     const newResponses = [...responses];
     newResponses[index] = e.target.value;
@@ -24,7 +23,7 @@ const MathResponse = ({ title, answerCount }: IMathResponse) => {
   return (
     <div className="w-full">
       <MathTitle type="secondary" title={title} />
-      <div className="border border-gray-10 rounded-b-xl py-16 px-12 flex items-center">
+      <div className="border border-gray-10 rounded-b-xl py-16 px-12 flex items-center gap-5">
         {Array.from({ length: answerCount }).map((_, index) => (
           <Input
             key={index}
