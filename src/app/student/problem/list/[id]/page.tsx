@@ -5,9 +5,9 @@ import Image from 'next/image';
 import Button from '@/components/Button';
 import MathTitle from '@/components/MathTitle';
 import { SectionTitle } from '@/features/math/components';
+import MathForm from '@/features/math/components/MathForm';
 import { MathSolutionPopup } from '@/features/math/components/MathPopups';
 import MathProblemContent from '@/features/math/components/MathProblemContent';
-import MathResponse from '@/features/math/components/MathResponse';
 import { data } from '@/features/math/mock/data';
 import { useModal } from '@/hooks';
 
@@ -38,7 +38,7 @@ const StudentProblemDetailPage = ({ params }: IStudentProblemDetailProps) => {
         />
 
         {/*답안지*/}
-        <MathResponse title="답안 입력" answerCount={data.answer.length} />
+        <MathForm title="답안 입력" answerCount={data.answer.length} answerType={data.answer_type} />
 
         <Button className="my-14" onClick={onOpen}>
           답안 제출

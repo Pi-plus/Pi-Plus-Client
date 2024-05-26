@@ -1,0 +1,26 @@
+/**
+ *
+ * @returns 수학 문제 답안 입력 컴포넌트
+ */
+
+import type { TMathResponse } from '@/apis/math/types';
+import BoxLayout from '@/components/BoxLayout';
+import { MATH_RESPONSE } from '@/constants/enums';
+
+import MultipleForm from './MultipleChoiceForm';
+import SubjectiveForm from './SubjectiveForm';
+
+interface IMathForm {
+  title: string;
+  answerCount: number;
+  answerType: TMathResponse;
+}
+const MathForm = ({ title, answerCount, answerType }: IMathForm) => {
+  return (
+    <BoxLayout title={title}>
+      {answerType === MATH_RESPONSE.subjectiveResponse && <SubjectiveForm answerCount={answerCount} />}
+      {answerType === MATH_RESPONSE.multipleChoiceResponse && <MultipleForm />}
+    </BoxLayout>
+  );
+};
+export default MathForm;
