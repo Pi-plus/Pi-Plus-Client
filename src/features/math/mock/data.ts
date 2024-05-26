@@ -1,9 +1,9 @@
-import type { TMathDifficulty } from '@/apis/math/types';
+import type { TMathDifficulty, TMathResponse } from '@/apis/math/types';
 
 type TMathDetailResponse = {
   id: string;
   answer: number[];
-  answer_type: string;
+  answer_type: TMathResponse;
   question: string;
   question_answer: string;
   question_chapter: string;
