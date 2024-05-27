@@ -29,29 +29,29 @@ type TMathDetailResponse = {
 /**
  * 주관식 더미 데이터
  */
-//export const data: TMathDetailResponse = {
-//  id: '202020',
-//  answer: ['지연', '현정'],
-//  answer_type: '0',
-//  question: 'https://i.imgur.com/2V5qBL4.png',
-//  question_answer: 'https://i.imgur.com/4XVLTx3.png',
-//  question_chapter: '3',
-//  question_difficulty: 'LOW',
-//  textbook_type: '6',
-//};
-/**
- * 분수 더미 데이터
- */
 export const data: TMathDetailResponse = {
-  answer: [
-    { first: 35, second: 99 },
-    { first: 1, second: 3 },
-  ],
-  id: '234555',
-  answer_type: '3',
-  question: 'https://i.imgur.com/F4pspLy.png',
-  question_answer: 'https://i.imgur.com/TlxYNAd.png',
-  question_chapter: '1',
+  id: '202020',
+  answer: ['지연', '현정'],
+  answer_type: '0',
+  question: 'https://i.imgur.com/2V5qBL4.png',
+  question_answer: 'https://i.imgur.com/4XVLTx3.png',
+  question_chapter: '3',
   question_difficulty: 'LOW',
   textbook_type: '6',
 };
+/**
+ * 분수 더미 데이터
+ */
+//export const data: TMathDetailResponse = {
+//  answer: [
+//    { first: 35, second: 99 },
+//    { first: 1, second: 3 },
+//  ],
+//  id: '234555',
+//  answer_type: '3',
+//  question: 'https://i.imgur.com/F4pspLy.png',
+//  question_answer: 'https://i.imgur.com/TlxYNAd.png',
+//  question_chapter: '1',
+//  question_difficulty: 'LOW',
+//  textbook_type: '6',
+//};
