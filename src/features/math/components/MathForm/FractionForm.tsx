@@ -6,14 +6,15 @@ import type { TMathAnswer } from '../../contexts';
 
 const FractionForm = () => {
   const { register, control } = useFormContext<TMathAnswer>();
+  //useController({ name: 'answer', control, defaultValue: Array(2).fill({ value: '' }) });
   const { fields } = useFieldArray({
     control,
     name: 'answer',
   });
-  const length = fields.length / 2;
+
   return (
     <>
-      {Array.from({ length }).map((_, index) => (
+      {fields.map((_, index) => (
         <div key={index}>
           <div className="border-gray-60 border-b-2 pb-3">
             <Input

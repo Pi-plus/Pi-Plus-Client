@@ -7,7 +7,11 @@ import { useIsMounted } from '@/hooks';
 import type { TMathAnswer } from './type';
 
 const MathFormProvider = ({ children }: PropsWithChildren) => {
-  const methods = useForm<TMathAnswer>();
+  const methods = useForm<TMathAnswer>({
+    defaultValues: {
+      answer: Array(2).fill({ value: '' }),
+    },
+  });
   const isMounted = useIsMounted();
   const onSubmit = (data: TMathAnswer) => {
     console.log(data);

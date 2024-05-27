@@ -1,6 +1,6 @@
 'use client';
 
-import { useController, useFormContext } from 'react-hook-form';
+import { useFormContext } from 'react-hook-form';
 import Image from 'next/image';
 
 import Button from '@/components/Button';
@@ -22,11 +22,10 @@ interface IStudentProblemDetailProps {
 const StudentProblemDetailPage = ({ params }: IStudentProblemDetailProps) => {
   const { id } = params;
   const { isOpen, onClose } = useModal();
-  const { control } = useFormContext<TMathAnswer>();
-  const { field } = useController({ name: 'answer', control });
+  const { getValues } = useFormContext<TMathAnswer>();
 
   const handleMathResponseSubmit = () => {
-    console.log(field.value);
+    console.log(getValues('answer'));
   };
   return (
     <main className="flex justify-center items-start gap-28 w-full px-16 mt-20">
@@ -46,7 +45,6 @@ const StudentProblemDetailPage = ({ params }: IStudentProblemDetailProps) => {
         />
 
         {/*답안지*/}
-
         <MathForm
           title="답안 입력"
           answerCount={data.answer.length}
