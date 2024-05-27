@@ -4,7 +4,7 @@ import Input from '@/components/Input';
 
 import type { TMathAnswer } from '../../contexts';
 
-const FractionForm = ({ answerCount }: { answerCount: number }) => {
+const FractionForm = () => {
   const { register, control } = useFormContext<TMathAnswer>();
   const { fields } = useFieldArray({
     control,

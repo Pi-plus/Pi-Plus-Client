@@ -22,7 +22,7 @@ const MathForm = ({ title, answerCount, answerType, isNumber }: IMathForm) => {
     <BoxLayout title={title}>
       {answerType === MATH_RESPONSE.subjectiveResponse && <SubjectiveForm answerCount={answerCount} />}
       {answerType === MATH_RESPONSE.multipleChoiceResponse && <MultipleChoiceForm isNumber={isNumber} />}
-      {answerType === MATH_RESPONSE.fractionResponse && <FractionForm answerCount={answerCount} />}
+      {answerType === MATH_RESPONSE.fractionResponse && <FractionForm />}
     </BoxLayout>
   );
 };
