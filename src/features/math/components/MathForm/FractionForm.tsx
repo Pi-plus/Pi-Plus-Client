@@ -1,20 +1,14 @@
-import { useFieldArray, useFormContext } from 'react-hook-form';
+import { useFormContext } from 'react-hook-form';
 
 import Input from '@/components/Input';
 
 import type { TMathAnswer } from '../../contexts';
 
-const FractionForm = () => {
-  const { register, control } = useFormContext<TMathAnswer>();
-  //useController({ name: 'answer', control, defaultValue: Array(2).fill({ value: '' }) });
-  const { fields } = useFieldArray({
-    control,
-    name: 'answer',
-  });
-
+const FractionForm = ({ length }: { length: number }) => {
+  const { register } = useFormContext<TMathAnswer>();
   return (
     <>
-      {fields.map((_, index) => (
+      {Array.from({ length }).map((_, index) => (
         <div key={index}>
           <div className="border-gray-60 border-b-2 pb-3">
             <Input
