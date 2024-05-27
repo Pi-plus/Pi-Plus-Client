@@ -1,31 +1,40 @@
-import { useState } from 'react';
+import { useFieldArray, useFormContext } from 'react-hook-form';
 import classNames from 'classnames';
 
 import Typography from '@/components/Typography';
 
+import type { TMathAnswer } from '../../contexts';
+
 const MultipleChoiceForm = ({ isNumber }: { isNumber: boolean }) => {
-  const [response, setResponse] = useState<string[]>([]);
   const responseArrays = isNumber ? ['1', '2', '3', '4', '5'] : ['ㄱ', 'ㄴ', 'ㄷ', 'ㄹ', 'ㅁ'];
+  const { control } = useFormContext<TMathAnswer>();
+  const { fields, remove, append } = useFieldArray({
+    control,
+    name: 'answer',
+  });
+
   const handleClick = (target: string) => {
-    if (response.includes(target)) {
-      setResponse((prev) => prev.filter((r) => r !== target));
+    const choiceIndex = fields.findIndex((field) => field.value === target);
+
+    if (choiceIndex !== -1) {
+      remove(choiceIndex);
     } else {
-      setResponse((prev) => [...prev, target]);
+      append({ value: target });
     }
   };
   return (
     <>
-      {responseArrays.map((res) => (
+      {responseArrays.map((res, index) => (
         <button
           className={classNames(
             'size-[52px] rounded-3xl flex justify-center items-center',
-            { 'bg-blue-20': response.includes(res) },
-            { 'bg-gray-10': !response.includes(res) },
+            { 'bg-blue-20': fields.some((field) => field.value === res) },
+            { 'bg-gray-10': !fields.some((field) => field.value === res) },
           )}
-          key={res}
+          key={index}
           onClick={() => handleClick(res)}
         >
-          <Typography label="title2" color={response.includes(res) ? 'white' : 'gray40'}>
+          <Typography label="title2" color={fields.some((field) => field.value === res) ? 'white' : 'gray40'}>
             {res}
           </Typography>
         </button>
