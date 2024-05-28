@@ -8,16 +8,26 @@ interface IMathWrongPopupProps {
   isOpen: boolean;
   onClose: () => void;
   onConfirm: () => void;
+  onCancel: () => void;
 }
-const MathWrongPopup = ({ isOpen, onClose, onConfirm }: IMathWrongPopupProps) => {
+const MathWrongPopup = ({ isOpen, onClose, onConfirm, onCancel }: IMathWrongPopupProps) => {
+  const handleConfirm = () => {
+    onConfirm();
+    onClose();
+  };
+
+  const handleCancel = () => {
+    onCancel();
+    onClose();
+  };
   return (
     <Popup
       isShow={isOpen}
       onClose={onClose}
-      onConfirm={onConfirm}
-      onCancel={onClose}
-      left="다시 풀기"
+      onConfirm={handleConfirm}
+      onCancel={handleCancel}
       right="해설 보기"
+      left="다시 풀기"
     >
       <Lottie loop animationData={defaultLottie.sad} play className="w-[70%] -mt-24" />
       <div className="flex flex-col justify-center items-center -mt-8">

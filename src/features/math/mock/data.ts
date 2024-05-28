@@ -43,8 +43,8 @@ type TMathDetailResponse = {
  */
 export const data: TMathDetailResponse = {
   answer: [
-    { first: 35, second: 99 },
-    { first: 1, second: 3 },
+    { first: 1, second: 2 },
+    { first: 3, second: 4 },
   ],
   id: '234555',
   answer_type: '3',
