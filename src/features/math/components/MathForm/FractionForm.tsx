@@ -13,13 +13,15 @@ const FractionForm = ({ length }: { length: number }) => {
           <div className="border-gray-60 border-b-2 pb-3">
             <Input
               placeholder={`입력란 ${index * 2 + 1}`}
-              type="secondary"
+              color="secondary"
+              type="number"
               {...register(`answer.${index * 2}.value`)}
             />
           </div>
           <Input
             placeholder={`입력란 ${index * 2 + 2}`}
-            type="secondary"
+            color="secondary"
+            type="number"
             {...register(`answer.${index * 2 + 1}.value`)}
             className="mt-3"
           />

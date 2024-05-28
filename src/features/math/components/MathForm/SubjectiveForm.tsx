@@ -14,7 +14,7 @@ const SubjectiveForm = ({ length }: { length: number }) => {
           placeholder={`입력란 ${index + 1}`}
           {...register(`answer.${index}.value`)}
           className="my-5"
-          type="secondary"
+          color="secondary"
         />
       ))}
     </>
