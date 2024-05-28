@@ -4,7 +4,7 @@ import { MATH_RESPONSE } from '@/constants/enums';
 import type { TMathAnswerContent } from '../contexts';
 import type { TFraction } from '../mock/data';
 
-import { getStudentArray } from './getStudentArray';
+import { getFractionStudentArray, getStudentArray } from './getStudentArray';
 
 export const getCorrectResponse = (
   solution: number[] | string[] | TFraction[],
@@ -15,7 +15,8 @@ export const getCorrectResponse = (
   const mathResponse = getStudentArray(response);
   switch (type) {
     case MATH_RESPONSE.fractionResponse:
-      console.log(response, solution);
+      const fractionSolution = getFractionStudentArray(solution as TFraction[]);
+      console.log(mathResponse, fractionSolution);
 
     case MATH_RESPONSE.multipleChoiceResponse:
       if (solution.length !== response.length) {

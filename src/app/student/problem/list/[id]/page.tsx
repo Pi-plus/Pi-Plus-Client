@@ -11,6 +11,7 @@ import { MathSolutionPopup } from '@/features/math/components/MathPopups';
 import MathProblemContent from '@/features/math/components/MathProblemContent';
 import type { TMathAnswer } from '@/features/math/contexts';
 import { data } from '@/features/math/mock/data';
+import { getCorrectResponse } from '@/features/math/utils';
 import { useModal } from '@/hooks';
 
 interface IStudentProblemDetailProps {
@@ -25,7 +26,9 @@ const StudentProblemDetailPage = ({ params }: IStudentProblemDetailProps) => {
   const { getValues } = useFormContext<TMathAnswer>();
 
   const handleMathResponseSubmit = () => {
-    console.log(getValues('answer'));
+    const studentAnswer = getValues('answer');
+
+    console.log(getCorrectResponse(data.answer, studentAnswer, data.answer_type));
   };
   return (
     <main className="flex justify-center items-start gap-28 w-full px-16 mt-20">
