@@ -5,6 +5,7 @@ import Image from 'next/image';
 
 import Button from '@/components/Button';
 import MathTitle from '@/components/MathTitle';
+import { MATH_RESPONSE } from '@/constants/enums';
 import { SectionTitle } from '@/features/math/components';
 import MathForm from '@/features/math/components/MathForm';
 import { MathCorrectPopup, MathSolutionPopup, MathWrongPopup } from '@/features/math/components/MathPopups';
@@ -22,20 +23,34 @@ interface IStudentProblemDetailProps {
 
 const StudentProblemDetailPage = ({ params }: IStudentProblemDetailProps) => {
   const { id } = params;
-  const { getValues } = useFormContext<TMathAnswer>();
+  const { getValues, setValue } = useFormContext<TMathAnswer>();
   const { isOpen: isSolutionOpen, onClose: onSolutionClose, onOpen: onSolutionOpen } = useModal();
   const { isOpen: isCorrectOpen, onClose: onCorrectClose, onOpen: onCorrectOpen } = useModal();
   const { isOpen: isWrongOpen, onClose: onWrongClose, onOpen: onWrongOpen } = useModal();
+
+  const inputCount = data.answer_type === MATH_RESPONSE.fractionResponse ? data.answer.length * 2 : data.answer.length;
 
   const handleMathResponseSubmit = () => {
     const studentAnswer = getValues('answer');
     // 문제 맞았을 때
     if (getCorrectResponse(data.answer, studentAnswer, data.answer_type)) {
       onCorrectOpen();
+      setValue(
+        'answer',
+        Array.from({ length: inputCount }, () => ({ value: '' })),
+      );
       // 문제 틀렸을 때
     } else {
       onWrongOpen();
     }
+  };
+
+  const handleWrongCancel = () => {
+    onSolutionOpen();
+    setValue(
+      'answer',
+      Array.from({ length: inputCount }, () => ({ value: '' })),
+    );
   };
   return (
     <main className="flex justify-center items-start gap-28 w-full px-16 mt-20">
@@ -79,7 +94,12 @@ const StudentProblemDetailPage = ({ params }: IStudentProblemDetailProps) => {
         <MathCorrectPopup isOpen={isCorrectOpen} onClose={onCorrectClose} onConfirm={onSolutionOpen} />
 
         {/*문제 틀렸을 때 팝업*/}
-        <MathWrongPopup isOpen={isWrongOpen} onClose={onWrongClose} onConfirm={() => {}} onCancel={onSolutionOpen} />
+        <MathWrongPopup
+          isOpen={isWrongOpen}
+          onClose={onWrongClose}
+          onConfirm={onWrongClose}
+          onCancel={handleWrongCancel}
+        />
       </div>
     </main>
   );
