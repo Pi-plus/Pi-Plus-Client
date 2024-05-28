@@ -15,7 +15,12 @@ export const getCorrectResponse = (
   switch (type) {
     case MATH_RESPONSE.fractionResponse:
       const fractionSolution = getFractionStudentArray(solution as TFraction[]);
-      console.log(mathResponse, fractionSolution);
+      for (let i = 0; i < mathResponse.length; i++) {
+        if (mathResponse[i] !== fractionSolution[i]) {
+          return false;
+        }
+      }
+      return true;
 
     case MATH_RESPONSE.multipleChoiceResponse:
       if (solution.length !== response.length) {

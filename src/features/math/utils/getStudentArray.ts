@@ -8,11 +8,11 @@ export const getStudentArray = (data: TMathAnswerContent): string[] => {
   return result;
 };
 
-export const getFractionStudentArray = (data: TFraction[]) => {
-  const result: number[] = [];
+export const getFractionStudentArray = (data: TFraction[]): string[] => {
+  const result: string[] = [];
   data.forEach((answer) => {
-    result.push(answer.first);
-    result.push(answer.second);
+    result.push(String(answer.first));
+    result.push(String(answer.second));
   });
   return result;
 };
