@@ -20,9 +20,9 @@ interface IMathForm {
 const MathForm = ({ title, answerCount, answerType, isNumber }: IMathForm) => {
   return (
     <BoxLayout title={title}>
-      {answerType === MATH_RESPONSE.subjectiveResponse && <SubjectiveForm answerCount={answerCount} />}
+      {answerType === MATH_RESPONSE.subjectiveResponse && <SubjectiveForm length={answerCount} />}
       {answerType === MATH_RESPONSE.multipleChoiceResponse && <MultipleChoiceForm isNumber={isNumber} />}
-      {answerType === MATH_RESPONSE.fractionResponse && <FractionForm answerCount={answerCount} />}
+      {answerType === MATH_RESPONSE.fractionResponse && <FractionForm length={answerCount} />}
     </BoxLayout>
   );
 };
