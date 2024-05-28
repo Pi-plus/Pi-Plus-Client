@@ -12,9 +12,9 @@ const SubjectiveForm = ({ length }: { length: number }) => {
         <Input
           key={index}
           placeholder={`입력란 ${index + 1}`}
-          {...register(`answer.${index}.value`)}
+          {...register(`answer.${index}.value`, { required: true })}
           className="my-5"
-          type="secondary"
+          color="secondary"
         />
       ))}
     </>

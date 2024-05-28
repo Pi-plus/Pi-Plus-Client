@@ -7,7 +7,7 @@ import type { TMathAnswer } from '../../contexts';
 
 const MultipleChoiceForm = ({ isNumber }: { isNumber: boolean }) => {
   const responseArrays = isNumber ? ['1', '2', '3', '4', '5'] : ['ㄱ', 'ㄴ', 'ㄷ', 'ㄹ', 'ㅁ'];
-  const { control } = useFormContext<TMathAnswer>();
+  const { control, register } = useFormContext<TMathAnswer>();
   const { fields, remove, append } = useFieldArray({
     control,
     name: 'answer',
@@ -23,7 +23,7 @@ const MultipleChoiceForm = ({ isNumber }: { isNumber: boolean }) => {
     }
   };
   return (
-    <>
+    <div {...register(`answer`, { required: true })} className="flex items-center gap-5 justify-center">
       {responseArrays.map((res, index) => (
         <button
           className={classNames(
@@ -39,7 +39,7 @@ const MultipleChoiceForm = ({ isNumber }: { isNumber: boolean }) => {
           </Typography>
         </button>
       ))}
-    </>
+    </div>
   );
 };
 export default MultipleChoiceForm;

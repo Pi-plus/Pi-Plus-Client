@@ -36,7 +36,7 @@ const PreviewPage = () => {
       </Button>
       <Typography className="pt-4">input 컴포넌트</Typography>
       <Input placeholder="adsg" value={value} onChange={onChange} className="my-5" />
-      <Input placeholder="adsg" value={value} onChange={onChange} className="my-5" type="secondary" />
+      <Input placeholder="adsg" value={value} onChange={onChange} className="my-5" color="secondary" />
       <Input placeholder="adsg" value={value} onChange={onChange} errorMessage="에러!" />
 
       <Typography className="pt-4">select 컴포넌트</Typography>
