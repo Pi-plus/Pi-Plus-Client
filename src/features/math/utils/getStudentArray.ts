@@ -1,5 +1,6 @@
+import type { TFraction } from '@/apis/math/types';
+
 import type { TMathAnswerContent } from '../contexts';
-import type { TFraction } from '../mock/data';
 
 export const getStudentArray = (data: TMathAnswerContent): string[] => {
   const result: string[] = [];

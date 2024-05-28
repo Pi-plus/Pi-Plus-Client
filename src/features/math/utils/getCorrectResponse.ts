@@ -1,8 +1,7 @@
-import type { TMathResponse } from '@/apis/math/types';
+import type { TFraction, TMathResponse } from '@/apis/math/types';
 import { MATH_RESPONSE } from '@/constants/enums';
 
 import type { TMathAnswerContent } from '../contexts';
-import type { TFraction } from '../mock/data';
 
 import { getFractionStudentArray, getStudentArray } from './getStudentArray';
 
