@@ -23,35 +23,38 @@ interface IStudentProblemDetailProps {
 
 const StudentProblemDetailPage = ({ params }: IStudentProblemDetailProps) => {
   const { id } = params;
-  const { getValues, setValue } = useFormContext<TMathAnswer>();
+  const {
+    getValues,
+    setValue,
+    formState: { isDirty, isValid },
+  } = useFormContext<TMathAnswer>();
   const { isOpen: isSolutionOpen, onClose: onSolutionClose, onOpen: onSolutionOpen } = useModal();
   const { isOpen: isCorrectOpen, onClose: onCorrectClose, onOpen: onCorrectOpen } = useModal();
   const { isOpen: isWrongOpen, onClose: onWrongClose, onOpen: onWrongOpen } = useModal();
 
   const inputCount = data.answer_type === MATH_RESPONSE.fractionResponse ? data.answer.length * 2 : data.answer.length;
 
+  const handleEmptyFormState = () => {
+    const initiaArray =
+      data.answer_type === MATH_RESPONSE.multipleChoiceResponse
+        ? []
+        : Array.from({ length: inputCount }, () => ({ value: '' }));
+    setValue('answer', initiaArray);
+  };
+
   const handleMathResponseSubmit = () => {
     const studentAnswer = getValues('answer');
+    handleEmptyFormState();
     // 문제 맞았을 때
     if (getCorrectResponse(data.answer, studentAnswer, data.answer_type)) {
       onCorrectOpen();
-      setValue(
-        'answer',
-        Array.from({ length: inputCount }, () => ({ value: '' })),
-      );
+
       // 문제 틀렸을 때
     } else {
       onWrongOpen();
     }
   };
 
-  const handleWrongCancel = () => {
-    onSolutionOpen();
-    setValue(
-      'answer',
-      Array.from({ length: inputCount }, () => ({ value: '' })),
-    );
-  };
   return (
     <main className="flex justify-center items-start gap-28 w-full px-16 mt-20">
       {/*왼쪽 section*/}
@@ -77,7 +80,7 @@ const StudentProblemDetailPage = ({ params }: IStudentProblemDetailProps) => {
           isNumber={typeof data.answer[0] === 'number'}
         />
 
-        <Button className="my-14" onClick={handleMathResponseSubmit}>
+        <Button className="my-14" onClick={handleMathResponseSubmit} disabled={!isDirty || !isValid}>
           답안 제출
         </Button>
 
@@ -98,7 +101,7 @@ const StudentProblemDetailPage = ({ params }: IStudentProblemDetailProps) => {
           isOpen={isWrongOpen}
           onClose={onWrongClose}
           onConfirm={onWrongClose}
-          onCancel={handleWrongCancel}
+          onCancel={onSolutionOpen}
         />
       </div>
     </main>
