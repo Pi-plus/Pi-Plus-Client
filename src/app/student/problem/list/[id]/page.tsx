@@ -7,7 +7,7 @@ import Button from '@/components/Button';
 import MathTitle from '@/components/MathTitle';
 import { SectionTitle } from '@/features/math/components';
 import MathForm from '@/features/math/components/MathForm';
-import { MathSolutionPopup } from '@/features/math/components/MathPopups';
+import { MathCorrectPopup, MathSolutionPopup, MathWrongPopup } from '@/features/math/components/MathPopups';
 import MathProblemContent from '@/features/math/components/MathProblemContent';
 import type { TMathAnswer } from '@/features/math/contexts';
 import { data } from '@/features/math/mock/data';
@@ -22,13 +22,20 @@ interface IStudentProblemDetailProps {
 
 const StudentProblemDetailPage = ({ params }: IStudentProblemDetailProps) => {
   const { id } = params;
-  const { isOpen, onClose } = useModal();
   const { getValues } = useFormContext<TMathAnswer>();
+  const { isOpen: isSolutionOpen, onClose: onSolutionClose, onOpen: onSolutionOpen } = useModal();
+  const { isOpen: isCorrectOpen, onClose: onCorrectClose, onOpen: onCorrectOpen } = useModal();
+  const { isOpen: isWrongOpen, onClose: onWrongClose, onOpen: onWrongOpen } = useModal();
 
   const handleMathResponseSubmit = () => {
     const studentAnswer = getValues('answer');
-
-    console.log(getCorrectResponse(data.answer, studentAnswer, data.answer_type));
+    // 문제 맞았을 때
+    if (getCorrectResponse(data.answer, studentAnswer, data.answer_type)) {
+      onCorrectOpen();
+      // 문제 틀렸을 때
+    } else {
+      onWrongOpen();
+    }
   };
   return (
     <main className="flex justify-center items-start gap-28 w-full px-16 mt-20">
@@ -61,18 +68,18 @@ const StudentProblemDetailPage = ({ params }: IStudentProblemDetailProps) => {
 
         {/*문제 해설 팝업*/}
         <MathSolutionPopup
-          isOpen={isOpen}
-          onClose={onClose}
+          isOpen={isSolutionOpen}
+          onClose={onSolutionClose}
           title="2021 번 문제에 대한 답입니다! "
           mathSrc={data.question}
           solutionSrc={data.question_answer}
         />
 
         {/*문제 맞을 때 팝업*/}
-        {/*<MathCorrectPopup isOpen={isOpen} onClose={onClose} onConfirm={() => {}} />*/}
+        <MathCorrectPopup isOpen={isCorrectOpen} onClose={onCorrectClose} onConfirm={onSolutionOpen} />
 
         {/*문제 틀렸을 때 팝업*/}
-        {/*<MathWrongPopup isOpen={isOpen} onClose={onClose} onConfirm={() => {}} />*/}
+        <MathWrongPopup isOpen={isWrongOpen} onClose={onWrongClose} onConfirm={() => {}} onCancel={onSolutionOpen} />
       </div>
     </main>
   );
