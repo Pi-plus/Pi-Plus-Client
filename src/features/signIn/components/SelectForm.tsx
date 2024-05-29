@@ -5,14 +5,25 @@ import { defaultImages } from '@public/images';
 import Button from '@/components/Button';
 import MultiTitle from '@/components/MultiTitle';
 import SelectButton from '@/components/SelectButton';
+import { ROUTES, SIGN_UP_ROUTES } from '@/constants';
 import type { TUserRole } from '@/constants/enums';
 import { USER_ROLE } from '@/constants/enums';
+import { useNavigate } from '@/hooks';
 
 const SelectForm = () => {
+  const { push } = useNavigate();
   const [select, setSelect] = useState<TUserRole | ''>('');
+  const ROLE_ARRAY = [USER_ROLE.TEACHER, USER_ROLE.STUDENT];
 
   const handleClickSelectButton = (role: TUserRole) => {
     setSelect(role);
+  };
+
+  const handleNavigateNext = () => {
+    push({
+      pathname: ROUTES.SIGN_UP,
+      query: { step: select === USER_ROLE.STUDENT ? SIGN_UP_ROUTES.STUDENT : SIGN_UP_ROUTES.TEACHER },
+    });
   };
   return (
     <>
@@ -21,18 +32,16 @@ const SelectForm = () => {
         <Image src={defaultImages.studentTeacher} width={460} height={250} alt="" />
       </div>
       <div className="flex items-center justify-center gap-4 w-full mt-8 px-32">
-        <SelectButton
-          isSelected={select === USER_ROLE.TEACHER}
-          label={USER_ROLE.TEACHER}
-          onClick={() => handleClickSelectButton(USER_ROLE.TEACHER)}
-        />
-        <SelectButton
-          isSelected={select === USER_ROLE.STUDENT}
-          label={USER_ROLE.STUDENT}
-          onClick={() => handleClickSelectButton(USER_ROLE.STUDENT)}
-        />
+        {ROLE_ARRAY.map((role) => (
+          <SelectButton
+            key={role}
+            isSelected={select === role}
+            label={role}
+            onClick={() => handleClickSelectButton(role)}
+          />
+        ))}
       </div>
-      <Button className="mt-12" disabled={select === ''} onClick={() => {}}>
+      <Button className="mt-12" disabled={select === ''} onClick={handleNavigateNext}>
         다음
       </Button>
     </>
