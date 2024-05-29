@@ -1,6 +1,6 @@
 import type { Config } from 'tailwindcss';
 
-import { colors, fontSize, fontWeight, lineHeight } from './style/theme';
+import { boxShadow, colors, fontSize, fontWeight, lineHeight } from './style/theme';
 
 const config: Config = {
   content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
@@ -15,6 +15,7 @@ const config: Config = {
       lineHeight,
       fontWeight,
       fontSize,
+      boxShadow,
     },
   },
   plugins: [],
