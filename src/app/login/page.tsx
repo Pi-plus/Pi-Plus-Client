@@ -1,6 +1,14 @@
-import Typography from '@/components/Typography';
+'use client';
+
+import PiPlusInfo from '@/components/PiPlusInfo';
 
 const LoginPage = () => {
-  return <Typography label="body1">로그인 페이지</Typography>;
+  return (
+    <div className="w-full flex-1 flex justify-center items-center">
+      <div className="w-1/2">
+        <PiPlusInfo />
+      </div>
+    </div>
+  );
 };
 export default LoginPage;
