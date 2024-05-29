@@ -12,7 +12,8 @@ export const ROUTES = {
 
 export const SIGN_UP_ROUTES = {
   SELECT: 'select' as Route,
-  GOAL: 'goal' as Route,
+  STUDENT: 'student' as Route,
+  TEACHER: 'teacher' as Route,
 } as const;
 
 export const MYPAGE_STUDENT_ROUTES = {
