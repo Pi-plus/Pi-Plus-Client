@@ -7,9 +7,14 @@ import { COMMON_STYLE, INPUT_STYLE } from './constant';
 import type { InputProps } from './type';
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ color = 'default', errorMessage, className, ...rest }: InputProps, ref) => {
+  ({ color = 'default', errorMessage, className, title, ...rest }: InputProps, ref) => {
     return (
-      <>
+      <div className="w-full">
+        {title && (
+          <Typography label="body2" color="gray70" className="mb-3 ml">
+            {title}
+          </Typography>
+        )}
         <input
           className={classNames(className, COMMON_STYLE, INPUT_STYLE[color], {
             'border-2 border-red text-red outline-0': Boolean(errorMessage),
@@ -23,7 +28,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             {errorMessage}
           </Typography>
         )}
-      </>
+      </div>
     );
   },
 );
