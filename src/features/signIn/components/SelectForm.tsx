@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 import Image from 'next/image';
 import { defaultImages } from '@public/images';
@@ -31,7 +33,7 @@ const SelectForm = () => {
       <div className="flex justify-center items-center">
         <Image src={defaultImages.studentTeacher} width={460} height={250} alt="" />
       </div>
-      <div className="flex items-center justify-center gap-4 w-full mt-8 px-32">
+      <div className="flex items-center justify-center gap-4 w-full mt-8">
         {ROLE_ARRAY.map((role) => (
           <SelectButton
             key={role}

@@ -12,7 +12,7 @@ const SelectButton = ({ isSelected, label, ...rest }: ISelectButtonProps) => {
   return (
     <button
       {...rest}
-      className={classNames('rounded-[30px] py-4 w-full', {
+      className={classNames('rounded-[30px] py-4 w-[160px]', {
         'bg-blue-30': isSelected,
         'bg-gray-10': !isSelected,
       })}
