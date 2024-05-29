@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Button from '@/components/Button';
 import Input from '@/components/Input';
 import Typography from '@/components/Typography';
-import { ROUTES } from '@/constants';
+import { ROUTES, SIGN_UP_ROUTES } from '@/constants';
 
 const LoginForm = () => {
   return (
@@ -17,7 +17,7 @@ const LoginForm = () => {
         <Input placeholder="비밀번호를 입력해주세요" title="비밀번호" />
         <div className="flex justify-center items-center my-14">
           <Typography>아직 회원아니신가요?</Typography>
-          <Link href={ROUTES.SIGN_UP}>
+          <Link href={`${ROUTES.SIGN_UP}?step=${SIGN_UP_ROUTES.SELECT}`}>
             <Typography color="blue30" className="ml-2 hover:text-blue-40">
               회원가입
             </Typography>
