@@ -26,7 +26,7 @@ const Button = ({
       {loading ? (
         <Typography color="gray30">로딩중..</Typography>
       ) : (
-        <Typography label="body1" color={disabled ? 'gray30' : BUTTON_STYLE[type].textColor}>
+        <Typography label="body1" color={disabled ? 'gray50' : BUTTON_STYLE[type].textColor}>
           {children}
         </Typography>
       )}
