@@ -8,7 +8,9 @@ const PiPlusFormLayout = ({ children }: PropsWithChildren) => {
       <div className="w-1/2">
         <PiPlusInfo />
       </div>
-      <div className="w-1/2 px-14 h-full">{children}</div>
+      <div className="w-1/2 px-14 h-full py-7">
+        <div className="bg-gray-5 rounded-md flex flex-col px-16 py-9 shadow-sm">{children}</div>
+      </div>
     </div>
   );
 };
