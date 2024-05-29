@@ -11,7 +11,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
     return (
       <div className="w-full">
         {title && (
-          <Typography label="body2" color="gray70" className="mb-3 ml">
+          <Typography label="body2" color="gray70" className="mb-3 ml-2">
             {title}
           </Typography>
         )}
