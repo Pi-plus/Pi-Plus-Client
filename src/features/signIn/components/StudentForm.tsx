@@ -11,7 +11,7 @@ const StudentForm = () => {
         <Input title="학교" placeholder="학교를 입력해 주세요" />
         <Input title="목표 문제" placeholder="목표 문제를 입력해 주세요" />
       </div>
-      <Button className="mt-12">완료</Button>
+      <Button className="mt-16">완료</Button>
     </>
   );
 };
