@@ -30,6 +30,7 @@ const SignUpForm = () => {
           required: isRequiredEmail,
           pattern: isEmail(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i),
         })}
+        className="mb-4"
         placeholder="이메일을 입력해주세요"
         title="이메일"
         type="email"
