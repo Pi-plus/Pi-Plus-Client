@@ -8,6 +8,7 @@ export const useSignUpForm = () => {
     register,
     getValues,
     setError,
+    setValue,
     formState: { isDirty, isValid, errors },
   } = useForm<ISignUpRequest>({
     mode: 'onChange',
@@ -36,6 +37,7 @@ export const useSignUpForm = () => {
     register,
     getValues,
     setError,
+    setValue,
     errors,
     isDisabled,
     isMinLength,
