@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import userApi from '@/apis/users';
 import Button from '@/components/Button';
 import Input from '@/components/Input';
@@ -8,6 +10,7 @@ import { useNavigate } from '@/hooks';
 import { useSignUpForm } from '../hooks';
 
 const SignUpForm = () => {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const { push } = useNavigate();
   const {
     register,
@@ -22,10 +25,12 @@ const SignUpForm = () => {
   } = useSignUpForm();
 
   const handleClickSignIn = () => {
+    setIsLoading(true);
     const formValues = getValues();
     userApi.post(formValues).then((result) => {
       if (result) {
         // TODO: 토스트로 에러 처리하기
+        setIsLoading(false);
       } else {
         setValue('email', '');
         setValue('password', '');
@@ -61,7 +66,7 @@ const SignUpForm = () => {
         title="비밀번호"
         errorMessage={errors.password?.message}
       />
-      <Button className="mt-10" disabled={isDisabled}>
+      <Button className="mt-10" disabled={isDisabled} loading={isLoading}>
         다음
       </Button>
     </form>
