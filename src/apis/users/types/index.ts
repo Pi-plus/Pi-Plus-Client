@@ -16,11 +16,3 @@ export type TUserResponse = {
  */
 type TUserProperties = 'user_role' | 'user_name' | 'user_school' | 'user_goal';
 export type TUserRequest = Pick<TUserResponse, TUserProperties>;
-
-/**
- * @descript 회원가입할 때 폼 상태 타입
- */
-export interface ISignUpRequest {
-  email: string;
-  password: string;
-}

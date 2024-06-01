@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 
-import type { ISignUpRequest } from '@/apis/users/types';
+import type { ISignUpRequest } from '@/apis/auth/types';
 
 export const useSignUpForm = () => {
   const {
