@@ -5,9 +5,10 @@ import piPlusLottie from './pi-plus.json';
 import sadLottie from './sad.json';
 import studyLottie from './study.json';
 import teacherLottie from './teacher.json';
+import trophyLottie from './trophy.json';
 import tryLottie from './try.json';
 
-type TKeyOfDefaultLottie = 'clap' | 'emptyBox' | 'matching' | 'study' | 'teacher' | 'sad' | 'try' | 'piPlus';
+type TKeyOfDefaultLottie = 'clap' | 'emptyBox' | 'matching' | 'study' | 'teacher' | 'sad' | 'try' | 'piPlus' | 'trophy';
 
 export type Assets = {
   [key in TKeyOfDefaultLottie]: object;
@@ -22,4 +23,5 @@ export const defaultLottie: Assets = {
   sad: sadLottie,
   try: tryLottie,
   piPlus: piPlusLottie,
+  trophy: trophyLottie,
 };
