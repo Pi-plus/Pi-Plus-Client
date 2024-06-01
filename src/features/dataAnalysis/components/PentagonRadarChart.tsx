@@ -10,14 +10,14 @@ export const data = {
     {
       label: '수학 영역별 분석',
       data: [20, 9, 3, 5, 2],
-      backgroundColor: 'rgba(21, 101, 222, 0.2)',
-      borderColor: '#4b7cf9',
+      backgroundColor: 'rgba(53, 162, 235, 0.5)',
+      borderColor: 'rgba(0, 70, 116, 0.5)',
       borderWidth: 1,
     },
   ],
 };
 
 const PentagonRadarChart = () => {
-  return <Radar data={data} className="w-[500px]" />;
+  return <Radar data={data} />;
 };
 export default PentagonRadarChart;
