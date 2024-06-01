@@ -16,7 +16,7 @@ import { useNavigate } from '@/hooks';
 
 const SelectForm = () => {
   const { push } = useNavigate();
-  const [select, setSelect] = useState<TUserRole | ''>('');
+  const [select, setSelect] = useState<TUserRole>('선생님');
   const { register, getValues, setValue } = useFormContext<TUserRequest>();
 
   const ROLE_ARRAY = [USER_ROLE.TEACHER, USER_ROLE.STUDENT];
@@ -52,7 +52,7 @@ const SelectForm = () => {
           />
         ))}
       </div>
-      <Button className="mt-12" disabled={select === ''} onClick={handleNavigateNext}>
+      <Button className="mt-12" onClick={handleNavigateNext}>
         다음
       </Button>
     </>
