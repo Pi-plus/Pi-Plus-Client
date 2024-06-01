@@ -2,6 +2,7 @@
 
 import MathContentInfo from './MathContentInfo';
 import MathCountInfo from './MathCountInfo';
+import MathGoalInfo from './MathGoalInfo';
 import TrophyTitle from './TrophyTitle';
 
 const AchievementSection = () => {
@@ -10,6 +11,7 @@ const AchievementSection = () => {
       <TrophyTitle />
       <MathCountInfo />
       <MathContentInfo />
+      <MathGoalInfo />
     </div>
   );
 };
