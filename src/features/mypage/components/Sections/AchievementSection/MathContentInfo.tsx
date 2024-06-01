@@ -1,4 +1,5 @@
 import Typography from '@/components/Typography';
+import HorizontalBarChart from '@/features/dataAnalysis/components/HorizontalBarChart';
 import PentagonRadarChart from '@/features/dataAnalysis/components/PentagonRadarChart';
 
 const MathContentInfo = () => {
@@ -9,9 +10,13 @@ const MathContentInfo = () => {
       </Typography>
       <div className="bg-blue-20 h-2 -mt-2 relative z-10 w-[137px]" />
       <Typography className="mt-6">오각형 방사 그래프를 통해 수학 내용 영역별 성취도를 확인해보세요</Typography>
-      <div className="flex items-center">
-        <PentagonRadarChart />
-        <div>표 자리</div>
+      <div className="grid grid-cols-2 items-center w-full">
+        <div>
+          <PentagonRadarChart />
+        </div>
+        <div>
+          <HorizontalBarChart />
+        </div>
       </div>
     </div>
   );
