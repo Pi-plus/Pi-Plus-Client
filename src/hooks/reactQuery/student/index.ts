@@ -1,1 +1,1 @@
-export * from './useGetStudentData';
+export * from './useStudentQuery';
