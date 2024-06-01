@@ -5,7 +5,7 @@ import { DevTool } from '@hookform/devtools';
 import type { TUserRequest } from '@/apis/users/types';
 import { useIsMounted } from '@/hooks';
 
-const SignupFormProvider = ({ children }: PropsWithChildren) => {
+const UserInfoFormProvider = ({ children }: PropsWithChildren) => {
   const methods = useForm<TUserRequest>({
     defaultValues: { user_gender: '남자', user_goal: 0, user_name: '', user_role: '학생', user_school: '' },
   });
@@ -22,4 +22,4 @@ const SignupFormProvider = ({ children }: PropsWithChildren) => {
     </FormProvider>
   );
 };
-export default SignupFormProvider;
+export default UserInfoFormProvider;

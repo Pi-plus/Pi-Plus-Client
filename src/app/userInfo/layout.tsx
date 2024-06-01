@@ -2,9 +2,9 @@
 
 import type { PropsWithChildren } from 'react';
 
-import SignupFormProvider from '@/features/signup/contexts/SignupFormProvider';
+import UserInfoFormProvider from '@/features/userInfo/contexts/UserInfoFormProvider';
 
 const UserInfoLayout = ({ children }: PropsWithChildren) => {
-  return <SignupFormProvider>{children}</SignupFormProvider>;
+  return <UserInfoFormProvider>{children}</UserInfoFormProvider>;
 };
 export default UserInfoLayout;

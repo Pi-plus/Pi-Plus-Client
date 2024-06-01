@@ -7,7 +7,7 @@ import { defaultImages } from '@public/images';
 import Button from '@/components/Button';
 import MultiTitle from '@/components/MultiTitle';
 import SelectButton from '@/components/SelectButton';
-import { ROUTES, SIGN_UP_ROUTES } from '@/constants';
+import { ROUTES, USERINFO_ROUTES } from '@/constants';
 import type { TUserRole } from '@/constants/enums';
 import { USER_ROLE } from '@/constants/enums';
 import { useNavigate } from '@/hooks';
@@ -23,8 +23,8 @@ const SelectForm = () => {
 
   const handleNavigateNext = () => {
     push({
-      pathname: ROUTES.SIGN_UP,
-      query: { step: select === USER_ROLE.STUDENT ? SIGN_UP_ROUTES.STUDENT : SIGN_UP_ROUTES.TEACHER },
+      pathname: ROUTES.USERINFO,
+      query: { step: select === USER_ROLE.STUDENT ? USERINFO_ROUTES.STUDENT : USERINFO_ROUTES.TEACHER },
     });
   };
   return (
