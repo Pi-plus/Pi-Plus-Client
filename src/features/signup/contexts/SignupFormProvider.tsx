@@ -7,7 +7,7 @@ import { useIsMounted } from '@/hooks';
 
 const SignupFormProvider = ({ children }: PropsWithChildren) => {
   const methods = useForm<TUserRequest>({
-    defaultValues: { user_gender: '여자', user_goal: 0, user_name: '', user_role: '학생', user_school: '' },
+    defaultValues: { user_gender: '남자', user_goal: 0, user_name: '', user_role: '학생', user_school: '' },
   });
   const isMounted = useIsMounted();
   const onSubmit = (data: TUserRequest) => {
