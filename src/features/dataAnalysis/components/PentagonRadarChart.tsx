@@ -18,6 +18,6 @@ export const data = {
 };
 
 const PentagonRadarChart = () => {
-  return <Radar data={data} />;
+  return <Radar data={data} className="w-[500px]" />;
 };
 export default PentagonRadarChart;
