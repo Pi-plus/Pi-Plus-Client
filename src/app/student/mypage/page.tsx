@@ -1,7 +1,8 @@
 'use client';
 
 import { MYPAGE_STUDENT_ROUTES, MYPAGE_STUDENT_TABS } from '@/constants';
-import { AchievementSection, ProblemSettingSection } from '@/features/mypage/components/Sections';
+import { ProblemSettingSection } from '@/features/mypage/components/Sections';
+import AchievementSection from '@/features/mypage/components/Sections/AchievementSection';
 import MypageTab from '@/features/mypage/components/Tab';
 import { useNavigate } from '@/hooks';
 
