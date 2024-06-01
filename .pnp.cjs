@@ -38,6 +38,7 @@ const RAW_RUNTIME_STATE =
           ["@typescript-eslint/eslint-plugin", "virtual:e3e3d80051096c48b0c32d8cd2609bc7a2dc35a152b59841426dfa41198d5431929d1b46d768d58200db56cfc1a2d54ff30f8dc319460369e0403195451a63b4#npm:7.1.1"],\
           ["@typescript-eslint/parser", "virtual:e3e3d80051096c48b0c32d8cd2609bc7a2dc35a152b59841426dfa41198d5431929d1b46d768d58200db56cfc1a2d54ff30f8dc319460369e0403195451a63b4#npm:7.1.1"],\
           ["autoprefixer", "virtual:e3e3d80051096c48b0c32d8cd2609bc7a2dc35a152b59841426dfa41198d5431929d1b46d768d58200db56cfc1a2d54ff30f8dc319460369e0403195451a63b4#npm:10.4.18"],\
+          ["chart.js", "npm:4.4.3"],\
           ["classnames", "npm:2.5.1"],\
           ["eslint", "npm:8.57.0"],\
           ["eslint-config-next", "virtual:e3e3d80051096c48b0c32d8cd2609bc7a2dc35a152b59841426dfa41198d5431929d1b46d768d58200db56cfc1a2d54ff30f8dc319460369e0403195451a63b4#npm:14.1.3"],\
@@ -55,6 +56,7 @@ const RAW_RUNTIME_STATE =
           ["postcss", "npm:8.4.35"],\
           ["prettier", "npm:3.2.5"],\
           ["react", "npm:18.2.0"],\
+          ["react-chartjs-2", "virtual:e3e3d80051096c48b0c32d8cd2609bc7a2dc35a152b59841426dfa41198d5431929d1b46d768d58200db56cfc1a2d54ff30f8dc319460369e0403195451a63b4#npm:5.2.0"],\
           ["react-dom", "virtual:e3e3d80051096c48b0c32d8cd2609bc7a2dc35a152b59841426dfa41198d5431929d1b46d768d58200db56cfc1a2d54ff30f8dc319460369e0403195451a63b4#npm:18.2.0"],\
           ["react-hook-form", "virtual:e3e3d80051096c48b0c32d8cd2609bc7a2dc35a152b59841426dfa41198d5431929d1b46d768d58200db56cfc1a2d54ff30f8dc319460369e0403195451a63b4#npm:7.51.5"],\
           ["react-lottie-player", "virtual:e3e3d80051096c48b0c32d8cd2609bc7a2dc35a152b59841426dfa41198d5431929d1b46d768d58200db56cfc1a2d54ff30f8dc319460369e0403195451a63b4#npm:2.0.0"],\
@@ -3945,6 +3947,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["@kurkle/color", [\
+      ["npm:0.3.2", {\
+        "packageLocation": "./.yarn/cache/@kurkle-color-npm-0.3.2-98f2086013-10c0.zip/node_modules/@kurkle/color/",\
+        "packageDependencies": [\
+          ["@kurkle/color", "npm:0.3.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["@next/env", [\
       ["npm:14.1.3", {\
         "packageLocation": "./.yarn/cache/@next-env-npm-14.1.3-d31325b45d-10c0.zip/node_modules/@next/env/",\
@@ -5407,6 +5418,16 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/chalk-npm-5.3.0-d181999efb-10c0.zip/node_modules/chalk/",\
         "packageDependencies": [\
           ["chalk", "npm:5.3.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["chart.js", [\
+      ["npm:4.4.3", {\
+        "packageLocation": "./.yarn/cache/chart.js-npm-4.4.3-26ab2c8866-10c0.zip/node_modules/chart.js/",\
+        "packageDependencies": [\
+          ["chart.js", "npm:4.4.3"],\
+          ["@kurkle/color", "npm:0.3.2"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -8940,6 +8961,7 @@ const RAW_RUNTIME_STATE =
           ["@typescript-eslint/eslint-plugin", "virtual:e3e3d80051096c48b0c32d8cd2609bc7a2dc35a152b59841426dfa41198d5431929d1b46d768d58200db56cfc1a2d54ff30f8dc319460369e0403195451a63b4#npm:7.1.1"],\
           ["@typescript-eslint/parser", "virtual:e3e3d80051096c48b0c32d8cd2609bc7a2dc35a152b59841426dfa41198d5431929d1b46d768d58200db56cfc1a2d54ff30f8dc319460369e0403195451a63b4#npm:7.1.1"],\
           ["autoprefixer", "virtual:e3e3d80051096c48b0c32d8cd2609bc7a2dc35a152b59841426dfa41198d5431929d1b46d768d58200db56cfc1a2d54ff30f8dc319460369e0403195451a63b4#npm:10.4.18"],\
+          ["chart.js", "npm:4.4.3"],\
           ["classnames", "npm:2.5.1"],\
           ["eslint", "npm:8.57.0"],\
           ["eslint-config-next", "virtual:e3e3d80051096c48b0c32d8cd2609bc7a2dc35a152b59841426dfa41198d5431929d1b46d768d58200db56cfc1a2d54ff30f8dc319460369e0403195451a63b4#npm:14.1.3"],\
@@ -8957,6 +8979,7 @@ const RAW_RUNTIME_STATE =
           ["postcss", "npm:8.4.35"],\
           ["prettier", "npm:3.2.5"],\
           ["react", "npm:18.2.0"],\
+          ["react-chartjs-2", "virtual:e3e3d80051096c48b0c32d8cd2609bc7a2dc35a152b59841426dfa41198d5431929d1b46d768d58200db56cfc1a2d54ff30f8dc319460369e0403195451a63b4#npm:5.2.0"],\
           ["react-dom", "virtual:e3e3d80051096c48b0c32d8cd2609bc7a2dc35a152b59841426dfa41198d5431929d1b46d768d58200db56cfc1a2d54ff30f8dc319460369e0403195451a63b4#npm:18.2.0"],\
           ["react-hook-form", "virtual:e3e3d80051096c48b0c32d8cd2609bc7a2dc35a152b59841426dfa41198d5431929d1b46d768d58200db56cfc1a2d54ff30f8dc319460369e0403195451a63b4#npm:7.51.5"],\
           ["react-lottie-player", "virtual:e3e3d80051096c48b0c32d8cd2609bc7a2dc35a152b59841426dfa41198d5431929d1b46d768d58200db56cfc1a2d54ff30f8dc319460369e0403195451a63b4#npm:2.0.0"],\
@@ -9269,6 +9292,32 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["react", "npm:18.2.0"],\
           ["loose-envify", "npm:1.4.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["react-chartjs-2", [\
+      ["npm:5.2.0", {\
+        "packageLocation": "./.yarn/cache/react-chartjs-2-npm-5.2.0-03632f5179-10c0.zip/node_modules/react-chartjs-2/",\
+        "packageDependencies": [\
+          ["react-chartjs-2", "npm:5.2.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:e3e3d80051096c48b0c32d8cd2609bc7a2dc35a152b59841426dfa41198d5431929d1b46d768d58200db56cfc1a2d54ff30f8dc319460369e0403195451a63b4#npm:5.2.0", {\
+        "packageLocation": "./.yarn/__virtual__/react-chartjs-2-virtual-6858aacdee/0/cache/react-chartjs-2-npm-5.2.0-03632f5179-10c0.zip/node_modules/react-chartjs-2/",\
+        "packageDependencies": [\
+          ["react-chartjs-2", "virtual:e3e3d80051096c48b0c32d8cd2609bc7a2dc35a152b59841426dfa41198d5431929d1b46d768d58200db56cfc1a2d54ff30f8dc319460369e0403195451a63b4#npm:5.2.0"],\
+          ["@types/chart.js", null],\
+          ["@types/react", "npm:18.2.64"],\
+          ["chart.js", "npm:4.4.3"],\
+          ["react", "npm:18.2.0"]\
+        ],\
+        "packagePeers": [\
+          "@types/chart.js",\
+          "@types/react",\
+          "chart.js",\
+          "react"\
         ],\
         "linkType": "HARD"\
       }]\
