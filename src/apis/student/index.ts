@@ -3,7 +3,7 @@ import { addDoc, collection, getDocs } from 'firebase/firestore';
 
 import { db } from '@/utils';
 
-import type { TUserRequest, TUserResponse } from '../users/types';
+import type { TUserResponse } from '../users/types';
 
 const studentRef: CollectionReference<DocumentData, DocumentData> = collection(db, 'student');
 
@@ -14,7 +14,7 @@ const studentApi = {
     return result;
   },
 
-  post: async (body: TUserRequest) => {
+  post: async (body: TUserResponse) => {
     const result = await addDoc(studentRef, body);
     return result;
   },
