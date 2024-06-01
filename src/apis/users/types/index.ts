@@ -9,7 +9,7 @@ export type TUserResponse = {
   user_name?: string;
 
   user_school?: string;
-  user_goal?: string;
+  user_goal?: number;
   solve_problem?: object[];
   wrong_problem?: object[];
 };
