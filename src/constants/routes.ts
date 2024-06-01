@@ -11,13 +11,6 @@ export const ROUTES = {
   TEACHER_MATCHING: '/teacher/matching',
 } as const;
 
-export const SIGN_UP_ROUTES = {
-  FORM: 'form' as Route,
-  SELECT: 'select' as Route,
-  STUDENT: 'student' as Route,
-  TEACHER: 'teacher' as Route,
-} as const;
-
 export const USERINFO_ROUTES = {
   SELECT: 'select' as Route,
   STUDENT: 'student' as Route,
