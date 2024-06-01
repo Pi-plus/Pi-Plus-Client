@@ -5,10 +5,10 @@ import { collection, getDocs } from 'firebase/firestore';
 
 import { auth, db } from '@/utils';
 
-import type { ISignUpRequest, IUserResponse } from './types';
+import type { ISignUpRequest, TUserResponse } from './types';
 
 const userApi = {
-  get: async (): Promise<IUserResponse[]> => {
+  get: async (): Promise<TUserResponse[]> => {
     const usersRef: CollectionReference<DocumentData, DocumentData> = collection(db, 'user');
     const data = await getDocs(usersRef);
     const result = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
