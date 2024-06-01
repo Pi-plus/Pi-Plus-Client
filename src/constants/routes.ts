@@ -2,6 +2,7 @@ import type { Route } from 'next';
 
 export const ROUTES = {
   LOGIN: '/login',
+  USERINFO: '/userInfo',
   SIGN_UP: '/signup',
   HOME: '/',
   STUDENT_MY: '/student/mypage',
@@ -12,6 +13,12 @@ export const ROUTES = {
 
 export const SIGN_UP_ROUTES = {
   FORM: 'form' as Route,
+  SELECT: 'select' as Route,
+  STUDENT: 'student' as Route,
+  TEACHER: 'teacher' as Route,
+} as const;
+
+export const USERINFO_ROUTES = {
   SELECT: 'select' as Route,
   STUDENT: 'student' as Route,
   TEACHER: 'teacher' as Route,
