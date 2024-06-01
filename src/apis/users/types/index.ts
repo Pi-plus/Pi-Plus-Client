@@ -1,9 +1,10 @@
 import type { TUserRole } from '@/constants/enums';
+import type { TUserGenderValues } from '@/constants/enums/gender';
 
 export type TUserResponse = {
   id: string;
   user_role?: TUserRole;
-  user_gender?: string;
+  user_gender?: TUserGenderValues;
 
   user_name?: string;
 
