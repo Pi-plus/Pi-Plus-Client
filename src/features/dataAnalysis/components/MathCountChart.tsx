@@ -14,7 +14,7 @@ const MathCountChart = ({ wrongCount, correctCount }: IMathCountChartProps) => {
 
   return (
     <>
-      <PieChart width={280} height={280}>
+      <PieChart width={280} height={200}>
         <Pie data={mathCountData} dataKey="value" nameKey="name" innerRadius={60} outerRadius={80} cx={80} cy={100} />
         <Legend height={110} layout="vertical" verticalAlign="middle" align="right" iconSize={7} />
         <Tooltip />
