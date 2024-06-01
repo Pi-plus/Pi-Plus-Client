@@ -21,14 +21,16 @@ export const useSignUpForm = () => {
     };
   }, []);
 
-  const isEmail = useCallback(() => {
+  const isEmail = useCallback((pattern: RegExp) => {
     return {
-      pattern: {
-        value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
-        message: '유효한 이메일 주소를 입력해야 합니다.',
-      },
+      value: pattern,
+      message: '이메일 형식이 아닙니다.',
     };
   }, []);
+
+  const isRequiredEmail = '이메일을 무조건 입력해주어야 합니다.';
+
+  const isRequiredPassword = '비밀번호를 무조건 입력해주어야 합니다.';
 
   return {
     register,
@@ -38,5 +40,7 @@ export const useSignUpForm = () => {
     isDisabled,
     isMinLength,
     isEmail,
+    isRequiredEmail,
+    isRequiredPassword,
   };
 };
