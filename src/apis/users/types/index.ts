@@ -1,10 +1,8 @@
 import type { TUserRole } from '@/constants/enums';
-import type { TUserGenderValues } from '@/constants/enums/gender';
 
 export type TUserResponse = {
   id: string;
   user_role?: TUserRole;
-  user_gender?: TUserGenderValues;
 
   user_name?: string;
 
@@ -16,7 +14,7 @@ export type TUserResponse = {
 /**
  * @description 회원가입 할 때 유저 정보 폼 상태 타입
  */
-type TUserProperties = 'user_role' | 'user_gender' | 'user_name' | 'user_school' | 'user_goal';
+type TUserProperties = 'user_role' | 'user_name' | 'user_school' | 'user_goal';
 export type TUserRequest = Pick<TUserResponse, TUserProperties>;
 
 /**
