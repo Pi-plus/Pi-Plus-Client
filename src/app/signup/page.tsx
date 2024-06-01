@@ -2,7 +2,7 @@
 
 import PiPlusFormLayout from '@/components/PiPlusFormLayout';
 import { SIGN_UP_ROUTES } from '@/constants';
-import { SelectForm, SignUpForm, StudentForm, TeacherForm } from '@/features/signIn/components';
+import { SelectForm, SignUpForm, StudentForm, TeacherForm } from '@/features/signup/components';
 import { useNavigate } from '@/hooks';
 
 const SignUpPage = () => {
