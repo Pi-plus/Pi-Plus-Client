@@ -7,7 +7,7 @@ import Typography from '../Typography';
 const HeaderLoginOption = () => {
   return (
     <div className="flex items-center mb-5">
-      <Link href={`${ROUTES.SIGN_UP}?step=${SIGN_UP_ROUTES.SELECT}`}>
+      <Link href={`${ROUTES.SIGN_UP}?step=${SIGN_UP_ROUTES.FORM}`}>
         <Typography
           label="caption1"
           color="gray60"

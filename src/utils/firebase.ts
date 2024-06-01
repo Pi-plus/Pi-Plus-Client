@@ -1,5 +1,6 @@
 import { getAnalytics } from 'firebase/analytics';
 import { getApp, getApps, initializeApp } from 'firebase/app';
+import { getAuth } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
@@ -14,8 +15,10 @@ const firebaseConfig = {
 
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
 
+const auth = getAuth(app);
+
 const analytics = app.name && typeof window !== 'undefined' ? getAnalytics(app) : null;
 
 const db = getFirestore(app);
 
-export { analytics, app, db, firebaseConfig };
+export { analytics, app, auth, db, firebaseConfig };

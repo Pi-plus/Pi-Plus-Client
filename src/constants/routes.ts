@@ -11,6 +11,7 @@ export const ROUTES = {
 } as const;
 
 export const SIGN_UP_ROUTES = {
+  FORM: 'form' as Route,
   SELECT: 'select' as Route,
   STUDENT: 'student' as Route,
   TEACHER: 'teacher' as Route,

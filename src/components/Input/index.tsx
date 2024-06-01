@@ -9,14 +9,14 @@ import type { InputProps } from './type';
 const Input = forwardRef<HTMLInputElement, InputProps>(
   ({ color = 'default', errorMessage, className, title, ...rest }: InputProps, ref) => {
     return (
-      <div className="w-full">
+      <div className={classNames('w-full', className)}>
         {title && (
           <Typography label="body2" color="gray70" className="ml-2">
             {title}
           </Typography>
         )}
         <input
-          className={classNames(className, COMMON_STYLE, INPUT_STYLE[color], {
+          className={classNames(COMMON_STYLE, INPUT_STYLE[color], {
             'border-2 border-red text-red outline-0': Boolean(errorMessage),
             'border border-none outline-0 focus:outline-0': !Boolean(errorMessage),
             'mt-3': Boolean(title),
