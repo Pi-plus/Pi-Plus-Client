@@ -9,3 +9,8 @@ export interface IUserResponse {
   user_role?: TUserRole;
   user_school?: string;
 }
+
+export interface ISignUpRequest {
+  email: string;
+  password: string;
+}
