@@ -1,10 +1,11 @@
+import type { AuthError } from 'firebase/auth';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import type { CollectionReference, DocumentData } from 'firebase/firestore';
 import { collection, getDocs } from 'firebase/firestore';
 
 import { auth, db } from '@/utils';
 
-import type { IUserResponse } from './types';
+import type { ISignUpRequest, IUserResponse } from './types';
 
 const userApi = {
   get: async (): Promise<IUserResponse[]> => {
@@ -14,23 +15,12 @@ const userApi = {
     return result;
   },
 
-  post: async () => {
+  post: async (body: ISignUpRequest) => {
     try {
-      const createdUser = await createUserWithEmailAndPassword(auth, 'hansoom3315@naver.com', '1234');
-      console.log(createdUser);
+      await createUserWithEmailAndPassword(auth, body.email, body.password);
     } catch (error) {
-      console.error(error);
-      switch (error.code) {
-        case 'auth/weak-password':
-          console.log(error.code, '비밀번호는 6자리 이상이어야 합니다');
-          break;
-        case 'auth/invalid-email':
-          console.log(error.code, '잘못된 이메일 주소입니다');
-          break;
-        case 'auth/email-already-in-use':
-          console.log(error.code, '이미 가입되어 있는 계정입니다');
-          break;
-      }
+      const authError = error as AuthError;
+      return authError;
     }
   },
 };
