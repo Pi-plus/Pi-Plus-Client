@@ -4,8 +4,13 @@ import type { TUserRequest } from '@/apis/users/types';
 import Button from '@/components/Button';
 import Input from '@/components/Input';
 import MultiTitle from '@/components/MultiTitle';
+import { ROUTES } from '@/constants';
+import { useNavigate } from '@/hooks';
+import { usePostTeacherMutation } from '@/hooks/reactQuery/teacher';
 
 const TeacherForm = () => {
+  const { push } = useNavigate();
+  const { mutateAsync, isPending } = usePostTeacherMutation();
   const {
     register,
     getValues,
@@ -14,7 +19,8 @@ const TeacherForm = () => {
   const isDisabled = !isDirty || !isValid;
   const handleOnClickTeacherSubmit = () => {
     const formState = getValues();
-    console.log('최종 폼 상태', formState);
+    mutateAsync({ user_name: formState.user_name });
+    push(ROUTES.LOGIN);
   };
   return (
     <>
@@ -26,7 +32,7 @@ const TeacherForm = () => {
         errorMessage={errors.user_name?.message}
       />
 
-      <Button className="mt-20" disabled={isDisabled} onClick={handleOnClickTeacherSubmit}>
+      <Button className="mt-20" disabled={isDisabled} onClick={handleOnClickTeacherSubmit} loading={isPending}>
         완료
       </Button>
     </>

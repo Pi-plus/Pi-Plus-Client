@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import userApi from '@/apis/users';
+import authApi from '@/apis/auth';
 import Button from '@/components/Button';
 import Input from '@/components/Input';
 import MultiTitle from '@/components/MultiTitle';
@@ -27,7 +27,7 @@ const SignUpForm = () => {
   const handleClickSignIn = () => {
     setIsLoading(true);
     const formValues = getValues();
-    userApi.post(formValues).then((result) => {
+    authApi.post(formValues).then((result) => {
       if (result) {
         // TODO: 토스트로 에러 처리하기
         setIsLoading(false);
