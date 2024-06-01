@@ -7,7 +7,7 @@ import MathCountChart from '@/features/dataAnalysis/components/MathCountChart';
 const MathCountInfo = () => {
   return (
     <div className="w-full grid grid-cols-2 gap-5 items-center justify-center mt-5">
-      <div className="flex flex-col p-5 shadow-content rounded-lg">
+      <div className="flex flex-col p-5 shadow-content rounded-lg h-[315px]">
         <Typography label="title1" className="relative z-20">
           학생 성취도
         </Typography>
