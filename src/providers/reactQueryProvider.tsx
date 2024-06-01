@@ -11,6 +11,8 @@ function ReactQueryProvider({ children }: { children: React.ReactNode }) {
         defaultOptions: {
           queries: {
             refetchOnWindowFocus: false,
+            gcTime: Infinity,
+            staleTime: Infinity,
           },
         },
       }),
