@@ -3,6 +3,7 @@ import Link from 'next/link';
 
 import authApi from '@/apis/auth';
 import Button from '@/components/Button';
+import ErrorMessage from '@/components/ErrorMessage';
 import Input from '@/components/Input';
 import MultiTitle from '@/components/MultiTitle';
 import Typography from '@/components/Typography';
@@ -67,7 +68,9 @@ const LoginForm = () => {
         type="password"
         errorMessage={errors.password?.message}
       />
-      <div className="flex justify-center items-center my-14">
+      <ErrorMessage message="에러메시지" />
+
+      <div className="flex justify-center items-center my-12">
         <Typography>아직 회원아니신가요?</Typography>
         <Link href={ROUTES.SIGN_UP}>
           <Typography color="blue30" className="ml-2 hover:text-blue-40">
