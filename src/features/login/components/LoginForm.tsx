@@ -7,8 +7,9 @@ import Input from '@/components/Input';
 import MultiTitle from '@/components/MultiTitle';
 import Typography from '@/components/Typography';
 import { ROUTES } from '@/constants';
-import { useSignUpForm } from '@/features/signup/hooks';
 import { useNavigate } from '@/hooks';
+
+import { useLoginForm } from '../hooks';
 
 const LoginForm = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -23,7 +24,7 @@ const LoginForm = () => {
     isEmail,
     isRequiredEmail,
     isRequiredPassword,
-  } = useSignUpForm();
+  } = useLoginForm();
 
   const handleClickLogin = () => {
     setIsLoading(true);
