@@ -1,13 +1,13 @@
 import Link from 'next/link';
 
-import { ROUTES } from '@/constants';
+import { ROUTES, SIGN_UP_ROUTES } from '@/constants';
 
 import Typography from '../Typography';
 
 const HeaderLoginOption = () => {
   return (
     <div className="flex items-center mb-5">
-      <Link href={ROUTES.SIGN_UP}>
+      <Link href={`${ROUTES.SIGN_UP}?step=${SIGN_UP_ROUTES.SELECT}`}>
         <Typography
           label="caption1"
           color="gray60"

@@ -40,6 +40,7 @@ const RAW_RUNTIME_STATE =
           ["autoprefixer", "virtual:e3e3d80051096c48b0c32d8cd2609bc7a2dc35a152b59841426dfa41198d5431929d1b46d768d58200db56cfc1a2d54ff30f8dc319460369e0403195451a63b4#npm:10.4.18"],\
           ["chart.js", "npm:4.4.3"],\
           ["classnames", "npm:2.5.1"],\
+          ["cookies-next", "npm:4.2.1"],\
           ["eslint", "npm:8.57.0"],\
           ["eslint-config-next", "virtual:e3e3d80051096c48b0c32d8cd2609bc7a2dc35a152b59841426dfa41198d5431929d1b46d768d58200db56cfc1a2d54ff30f8dc319460369e0403195451a63b4#npm:14.1.3"],\
           ["eslint-config-prettier", "virtual:e3e3d80051096c48b0c32d8cd2609bc7a2dc35a152b59841426dfa41198d5431929d1b46d768d58200db56cfc1a2d54ff30f8dc319460369e0403195451a63b4#npm:9.1.0"],\
@@ -4317,6 +4318,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["@types/cookie", [\
+      ["npm:0.6.0", {\
+        "packageLocation": "./.yarn/cache/@types-cookie-npm-0.6.0-1f4c3f48f0-10c0.zip/node_modules/@types/cookie/",\
+        "packageDependencies": [\
+          ["@types/cookie", "npm:0.6.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["@types/d3-array", [\
       ["npm:3.2.1", {\
         "packageLocation": "./.yarn/cache/@types-d3-array-npm-3.2.1-40c200ccb1-10c0.zip/node_modules/@types/d3-array/",\
@@ -5618,6 +5628,26 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/convert-source-map-npm-1.9.0-e294555f4b-10c0.zip/node_modules/convert-source-map/",\
         "packageDependencies": [\
           ["convert-source-map", "npm:1.9.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["cookie", [\
+      ["npm:0.6.0", {\
+        "packageLocation": "./.yarn/cache/cookie-npm-0.6.0-362d6a2e45-10c0.zip/node_modules/cookie/",\
+        "packageDependencies": [\
+          ["cookie", "npm:0.6.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["cookies-next", [\
+      ["npm:4.2.1", {\
+        "packageLocation": "./.yarn/cache/cookies-next-npm-4.2.1-3099a195e5-10c0.zip/node_modules/cookies-next/",\
+        "packageDependencies": [\
+          ["cookies-next", "npm:4.2.1"],\
+          ["@types/cookie", "npm:0.6.0"],\
+          ["cookie", "npm:0.6.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -8963,6 +8993,7 @@ const RAW_RUNTIME_STATE =
           ["autoprefixer", "virtual:e3e3d80051096c48b0c32d8cd2609bc7a2dc35a152b59841426dfa41198d5431929d1b46d768d58200db56cfc1a2d54ff30f8dc319460369e0403195451a63b4#npm:10.4.18"],\
           ["chart.js", "npm:4.4.3"],\
           ["classnames", "npm:2.5.1"],\
+          ["cookies-next", "npm:4.2.1"],\
           ["eslint", "npm:8.57.0"],\
           ["eslint-config-next", "virtual:e3e3d80051096c48b0c32d8cd2609bc7a2dc35a152b59841426dfa41198d5431929d1b46d768d58200db56cfc1a2d54ff30f8dc319460369e0403195451a63b4#npm:14.1.3"],\
           ["eslint-config-prettier", "virtual:e3e3d80051096c48b0c32d8cd2609bc7a2dc35a152b59841426dfa41198d5431929d1b46d768d58200db56cfc1a2d54ff30f8dc319460369e0403195451a63b4#npm:9.1.0"],\

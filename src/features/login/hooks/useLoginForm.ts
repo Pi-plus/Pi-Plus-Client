@@ -1,15 +1,18 @@
 import { useCallback } from 'react';
-import { useFormContext } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 
-import type { TSignupForm } from '../types/signupFormType';
+import type { IEmailPasswordForm } from '@/apis/auth/types';
 
-export const useSignUpForm = () => {
+export const useLoginForm = () => {
   const {
     register,
     getValues,
+    setError,
     setValue,
     formState: { isDirty, isValid, errors },
-  } = useFormContext<TSignupForm>();
+  } = useForm<IEmailPasswordForm>({
+    mode: 'onChange',
+  });
   const isDisabled = !isDirty || !isValid;
 
   const isMinLength = useCallback((minLength: number) => {
@@ -33,6 +36,7 @@ export const useSignUpForm = () => {
   return {
     register,
     getValues,
+    setError,
     setValue,
     errors,
     isDisabled,

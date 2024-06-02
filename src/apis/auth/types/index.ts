@@ -1,7 +1,7 @@
 /**
- * @descript 회원가입할 때 폼 상태 타입
+ * @description firebase 의 로그인과 회원가입 폼 상태 타입
  */
-export interface ISignUpRequest {
+export interface IEmailPasswordForm {
   email: string;
   password: string;
 }

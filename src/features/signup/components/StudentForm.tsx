@@ -1,26 +1,17 @@
-import { useFormContext } from 'react-hook-form';
-
-import type { TUserRequest } from '@/apis/users/types';
 import Button from '@/components/Button';
 import Input from '@/components/Input';
 import MultiTitle from '@/components/MultiTitle';
-import { ROUTES } from '@/constants';
+import { ROUTES, SIGN_UP_ROUTES } from '@/constants';
 import { useNavigate } from '@/hooks';
-import { usePostStudentMutation } from '@/hooks/reactQuery/student';
+
+import { useSignUpForm } from '../hooks';
 
 const StudentForm = () => {
   const { push } = useNavigate();
-  const { mutateAsync, isPending } = usePostStudentMutation();
-  const {
-    register,
-    getValues,
-    formState: { isDirty, isValid, errors },
-  } = useFormContext<TUserRequest>();
-  const isDisabled = !isDirty || !isValid;
+  const { register, errors, isDisabled } = useSignUpForm();
+
   const handleOnClickStudentSubmit = () => {
-    const formState = getValues();
-    mutateAsync({ ...formState, solve_problem: [], wrong_problem: [] });
-    push(ROUTES.LOGIN);
+    push({ pathname: ROUTES.SIGN_UP, query: { step: SIGN_UP_ROUTES.FORM } });
   };
   return (
     <>
@@ -46,8 +37,8 @@ const StudentForm = () => {
           errorMessage={errors.user_goal?.message}
         />
       </div>
-      <Button onClick={handleOnClickStudentSubmit} loading={isPending} disabled={isDisabled} className="mt-16">
-        완료
+      <Button onClick={handleOnClickStudentSubmit} disabled={isDisabled} className="mt-16">
+        다음
       </Button>
     </>
   );

@@ -4,8 +4,12 @@ import authApi from '@/apis/auth';
 import Button from '@/components/Button';
 import Input from '@/components/Input';
 import MultiTitle from '@/components/MultiTitle';
-import { ROUTES, USERINFO_ROUTES } from '@/constants';
+import { ROUTES } from '@/constants';
+import { USER_ROLE } from '@/constants/enums';
 import { useNavigate } from '@/hooks';
+import { usePostStudentMutation } from '@/hooks/reactQuery/student';
+import { usePostTeacherMutation } from '@/hooks/reactQuery/teacher';
+import { setRole } from '@/utils/cookie/manageCookie.client';
 
 import { useSignUpForm } from '../hooks';
 
@@ -23,30 +27,35 @@ const SignUpForm = () => {
     isRequiredEmail,
     isRequiredPassword,
   } = useSignUpForm();
+  const { mutateAsync: mutateStudentAsync } = usePostStudentMutation();
+  const { mutateAsync: mutateTeacherAsync } = usePostTeacherMutation();
 
-  const handleClickSignIn = () => {
+  const handleClickSignUp = () => {
     setIsLoading(true);
-    const formValues = getValues();
-    authApi.post(formValues).then((result) => {
-      if (result) {
-        // TODO: 토스트로 에러 처리하기
-        setIsLoading(false);
+    const { email, password, user_role, user_name, ...rest } = getValues();
+
+    authApi.post({ email, password }).then((res) => {
+      if (user_role === USER_ROLE.STUDENT) {
+        setRole(user_role);
+        mutateStudentAsync({
+          user_name,
+          ...rest,
+          solve_problem: [],
+          wrong_problem: [],
+          uid: res.user.uid,
+        });
       } else {
-        setValue('email', '');
-        setValue('password', '');
-        push({ pathname: ROUTES.USERINFO, query: { step: USERINFO_ROUTES.SELECT } });
+        mutateTeacherAsync({ user_name, manage_student: [], uid: res.user.uid });
       }
+      push(ROUTES.LOGIN);
+      setValue('email', '');
+      setValue('password', '');
+      setIsLoading(false);
     });
   };
 
   return (
-    <form
-      onSubmit={(e) => {
-        e.preventDefault();
-        handleClickSignIn();
-      }}
-      className="flex flex-col"
-    >
+    <>
       <MultiTitle title="계정 회원가입을 해주세요" subTitle="생성할 계정의 이메일 및 비밀번호를 입력해주세요" />
       <Input
         {...register('email', {
@@ -66,10 +75,10 @@ const SignUpForm = () => {
         title="비밀번호"
         errorMessage={errors.password?.message}
       />
-      <Button className="mt-10" disabled={isDisabled} loading={isLoading}>
-        다음
+      <Button className="mt-10" disabled={isDisabled} loading={isLoading} onClick={handleClickSignUp}>
+        회원가입
       </Button>
-    </form>
+    </>
   );
 };
 export default SignUpForm;
