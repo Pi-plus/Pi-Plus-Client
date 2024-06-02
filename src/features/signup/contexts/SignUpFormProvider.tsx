@@ -2,15 +2,16 @@ import type { PropsWithChildren } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { DevTool } from '@hookform/devtools';
 
-import type { TUserRequest } from '@/apis/users/types';
 import { useIsMounted } from '@/hooks';
 
+import type { TSignupForm } from '../types/signupFormType';
+
 const SignUpFormProvider = ({ children }: PropsWithChildren) => {
-  const methods = useForm<TUserRequest>({
-    defaultValues: { user_goal: 0, user_name: '', user_role: '선생님', user_school: '' },
+  const methods = useForm<TSignupForm>({
+    defaultValues: { user_goal: 0, user_name: '', user_role: '선생님', user_school: '', email: '', password: '' },
   });
   const isMounted = useIsMounted();
-  const onSubmit = (data: TUserRequest) => {
+  const onSubmit = (data: TSignupForm) => {
     console.log(data);
   };
   return (
