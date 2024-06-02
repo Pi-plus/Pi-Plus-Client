@@ -1,3 +1,5 @@
+'use client';
+
 import { EmptyPage } from '@/components/Pages';
 import { useNavigate } from '@/hooks';
 
@@ -5,6 +7,7 @@ import MathTable from './MathTable';
 
 const MathListPage = () => {
   const { query } = useNavigate();
+
   return (
     <>
       {query.math === 'middle1-1' ? (

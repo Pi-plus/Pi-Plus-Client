@@ -1,6 +1,7 @@
 import { useRouter } from 'next/navigation';
 
-import { ROUTES } from '@/constants';
+import { MATH_DIFFICULTY, MIDDLE_11_BIG_CHAPTER, MIDDLE_11_SMALL_CHAPTER, ROUTES } from '@/constants';
+import type { TMathBigChapter, TMathSmallChapter } from '@/constants/math';
 import { useMathQuery } from '@/hooks/reactQuery/math';
 
 const MathTable = () => {
@@ -21,24 +22,22 @@ const MathTable = () => {
           </tr>
         </thead>
         <tbody>
-          <tr
-            className="w-full border-b border-gray-10 h-[48px] hover:bg-gray-5 cursor-pointer"
-            onClick={() => {
-              push(`${ROUTES.STUDENT_LIST}/${1}`);
-            }}
-          >
-            <td className="text-center">10101번</td>
-            <td className="text-center">중학교 1학년</td>
-            <td className="text-center">2.2 단원명</td>
-            <td className="text-center">상</td>
-          </tr>
-
-          <tr className="w-full border-b border-gray-10 h-[48px] hover:bg-gray-5 cursor-pointer">
-            <td className="text-center">10102번</td>
-            <td className="text-center">중학교 2학년</td>
-            <td className="text-center">2.3 단원명</td>
-            <td className="text-center">중</td>
-          </tr>
+          {data?.map((math) => (
+            <tr
+              key={math.id}
+              className="w-full border-b border-gray-10 h-[48px] hover:bg-gray-5 cursor-pointer"
+              onClick={() => {
+                push(`${ROUTES.STUDENT_LIST}/${math.id}`);
+              }}
+            >
+              <td className="text-center">{math.id} 번</td>
+              <td className="text-center">
+                {MIDDLE_11_BIG_CHAPTER[math.question_chapter?.charAt(0) as TMathBigChapter]}
+              </td>
+              <td className="text-center">{MIDDLE_11_SMALL_CHAPTER[math.question_chapter as TMathSmallChapter]}</td>
+              <td className="text-center">{MATH_DIFFICULTY[math.question_difficulty ?? 'HIGH'].label}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
