@@ -14,6 +14,7 @@ import { useLoginForm } from '../hooks';
 
 const LoginForm = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<string>('');
   const { push } = useNavigate();
   const {
     register,
@@ -32,9 +33,10 @@ const LoginForm = () => {
     const formValues = getValues();
     authApi.login(formValues).then((result) => {
       if (result) {
-        // TODO: 토스트로 에러 처리하기
+        setErrorMessage(result as string);
         setIsLoading(false);
       } else {
+        setErrorMessage('');
         setValue('email', '');
         setValue('password', '');
         push(ROUTES.HOME);
@@ -68,7 +70,7 @@ const LoginForm = () => {
         type="password"
         errorMessage={errors.password?.message}
       />
-      <ErrorMessage message="에러메시지" />
+      <ErrorMessage message={errorMessage} />
 
       <div className="flex justify-center items-center my-12">
         <Typography>아직 회원아니신가요?</Typography>
