@@ -2,6 +2,7 @@ import type { AuthError } from 'firebase/auth';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 
 import { auth } from '@/utils';
+import { setUid } from '@/utils/cookie/manageCookie.client';
 
 import type { IEmailPasswordForm } from './types';
 
@@ -13,8 +14,7 @@ const authApi = {
   login: async (body: IEmailPasswordForm) => {
     try {
       const result = await signInWithEmailAndPassword(auth, body.email, body.password);
-      console.log(result);
-      console.log('uid', result.user.uid);
+      setUid(result.user.uid);
     } catch (error) {
       const authError = error as AuthError;
       switch (authError.code) {
