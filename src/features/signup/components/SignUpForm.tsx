@@ -9,6 +9,7 @@ import { USER_ROLE } from '@/constants/enums';
 import { useNavigate } from '@/hooks';
 import { usePostStudentMutation } from '@/hooks/reactQuery/student';
 import { usePostTeacherMutation } from '@/hooks/reactQuery/teacher';
+import { setRole } from '@/utils/cookie/manageCookie.client';
 
 import { useSignUpForm } from '../hooks';
 
@@ -35,6 +36,7 @@ const SignUpForm = () => {
 
     authApi.post({ email, password }).then((res) => {
       if (user_role === USER_ROLE.STUDENT) {
+        setRole(user_role);
         mutateStudentAsync({
           user_name,
           ...rest,
