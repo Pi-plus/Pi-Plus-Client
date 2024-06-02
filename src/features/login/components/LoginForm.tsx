@@ -7,7 +7,7 @@ import ErrorMessage from '@/components/ErrorMessage';
 import Input from '@/components/Input';
 import MultiTitle from '@/components/MultiTitle';
 import Typography from '@/components/Typography';
-import { ROUTES } from '@/constants';
+import { ROUTES, SIGN_UP_ROUTES } from '@/constants';
 import { useNavigate } from '@/hooks';
 
 import { useLoginForm } from '../hooks';
@@ -74,7 +74,7 @@ const LoginForm = () => {
 
       <div className="flex justify-center items-center my-12">
         <Typography>아직 회원아니신가요?</Typography>
-        <Link href={ROUTES.SIGN_UP}>
+        <Link href={`${ROUTES.SIGN_UP}?step=${SIGN_UP_ROUTES.SELECT}`}>
           <Typography color="blue30" className="ml-2 hover:text-blue-40">
             회원가입
           </Typography>
