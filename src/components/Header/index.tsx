@@ -10,7 +10,6 @@ import type { THoverPathname, TValueOfPathname } from '@/constants';
 import { HEADER_TABS, ROUTES } from '@/constants';
 
 import HeaderContent from './HeaderContent';
-import HeaderLoginOption from './HeaderLoginOption';
 import HeaderTab from './HeaderTab';
 
 const Header = () => {
@@ -30,8 +29,8 @@ const Header = () => {
           <Image src={defaultImages.logo} className="cursor-pointer" width={241} height={90} alt="" />
         </Link>
         {pathname !== ROUTES.LOGIN && pathname !== ROUTES.SIGN_UP && (
-          <div className="flex flex-col items-end">
-            <HeaderLoginOption />
+          <div className="flex flex-col items-end mt-3">
+            {/*<HeaderLoginOption />*/}
             <div className="flex gap-20 items-center">
               {HEADER_TABS.map((header) => (
                 <HeaderTab
