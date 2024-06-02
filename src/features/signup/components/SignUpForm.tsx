@@ -4,7 +4,7 @@ import authApi from '@/apis/auth';
 import Button from '@/components/Button';
 import Input from '@/components/Input';
 import MultiTitle from '@/components/MultiTitle';
-import { ROUTES, USERINFO_ROUTES } from '@/constants';
+import { ROUTES } from '@/constants';
 import { useNavigate } from '@/hooks';
 
 import { useSignUpForm } from '../hooks';
@@ -34,7 +34,7 @@ const SignUpForm = () => {
       } else {
         setValue('email', '');
         setValue('password', '');
-        push({ pathname: ROUTES.USERINFO, query: { step: USERINFO_ROUTES.SELECT } });
+        push(ROUTES.LOGIN);
       }
     });
   };
