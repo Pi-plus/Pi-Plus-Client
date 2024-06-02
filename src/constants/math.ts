@@ -18,3 +18,8 @@ export const MIDDLE_11_SMALL_CHAPTER = {
   '302': '3-2. 일차방정식의 풀이',
   '303': '3-3. 일차방정식의 활용',
 } as const;
+/**
+ * @descript 수학 대단원 소단원 타입
+ */
+export type TMathBigChapter = keyof typeof MIDDLE_11_BIG_CHAPTER;
+export type TMathSmallChapter = keyof typeof MIDDLE_11_SMALL_CHAPTER;
