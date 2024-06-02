@@ -1,18 +1,15 @@
 import { useCallback } from 'react';
-import { useForm } from 'react-hook-form';
+import { useFormContext } from 'react-hook-form';
 
-import type { ISignUpRequest } from '@/apis/auth/types';
+import type { TSignupForm } from '../types/signupFormType';
 
 export const useSignUpForm = () => {
   const {
     register,
     getValues,
-    setError,
     setValue,
     formState: { isDirty, isValid, errors },
-  } = useForm<ISignUpRequest>({
-    mode: 'onChange',
-  });
+  } = useFormContext<TSignupForm>();
   const isDisabled = !isDirty || !isValid;
 
   const isMinLength = useCallback((minLength: number) => {
@@ -36,7 +33,6 @@ export const useSignUpForm = () => {
   return {
     register,
     getValues,
-    setError,
     setValue,
     errors,
     isDisabled,
