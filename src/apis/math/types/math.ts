@@ -14,12 +14,13 @@ export type TFraction = { first: number; second: number };
 export type TMathTag = '0' | '1' | '2' | '3' | '4';
 
 export interface IMathResponse {
-  answer: number[] | string[] | TFraction[];
-  answer_type: TMathResponse;
-  question: string;
-  question_answer: string;
-  question_chapter: string;
-  question_difficulty: TMathDifficulty;
-  tag: TMathTag;
-  textbook_type: string;
+  id?: string;
+  answer?: number[] | string[] | TFraction[];
+  answer_type?: TMathResponse;
+  question?: string;
+  question_answer?: string;
+  question_chapter?: string;
+  question_difficulty?: TMathDifficulty;
+  tag?: TMathTag;
+  textbook_type?: string;
 }
