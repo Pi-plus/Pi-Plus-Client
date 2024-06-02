@@ -9,13 +9,10 @@ import { defaultLottie } from '@public/lotties';
 import Button from '@/components/Button';
 import Typography from '@/components/Typography';
 import { LandingLayout, LandingSection } from '@/features/landing/components';
-import { getRole } from '@/utils/cookie/manageCookie.client';
 
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
 
 const HomePage = () => {
-  const res = getRole();
-  console.log(res);
   return (
     <main className="flex-col items-center justify-between flex gap-24">
       <Carousel className="mt-10 w-[80%]" autoPlay showThumbs={false} showStatus={false}>
