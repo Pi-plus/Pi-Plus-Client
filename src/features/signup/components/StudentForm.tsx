@@ -3,18 +3,14 @@ import Input from '@/components/Input';
 import MultiTitle from '@/components/MultiTitle';
 import { ROUTES, SIGN_UP_ROUTES } from '@/constants';
 import { useNavigate } from '@/hooks';
-import { usePostStudentMutation } from '@/hooks/reactQuery/student';
 
 import { useSignUpForm } from '../hooks';
 
 const StudentForm = () => {
   const { push } = useNavigate();
-  const { mutateAsync, isPending } = usePostStudentMutation();
-  const { register, getValues, errors, isDisabled } = useSignUpForm();
+  const { register, errors, isDisabled } = useSignUpForm();
 
   const handleOnClickStudentSubmit = () => {
-    const formState = getValues();
-    mutateAsync({ ...formState, solve_problem: [], wrong_problem: [] });
     push({ pathname: ROUTES.SIGN_UP, query: { step: SIGN_UP_ROUTES.FORM } });
   };
   return (
@@ -41,7 +37,7 @@ const StudentForm = () => {
           errorMessage={errors.user_goal?.message}
         />
       </div>
-      <Button onClick={handleOnClickStudentSubmit} loading={isPending} disabled={isDisabled} className="mt-16">
+      <Button onClick={handleOnClickStudentSubmit} disabled={isDisabled} className="mt-16">
         다음
       </Button>
     </>
