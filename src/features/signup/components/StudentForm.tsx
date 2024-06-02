@@ -42,7 +42,7 @@ const StudentForm = () => {
         />
       </div>
       <Button onClick={handleOnClickStudentSubmit} loading={isPending} disabled={isDisabled} className="mt-16">
-        완료
+        다음
       </Button>
     </>
   );

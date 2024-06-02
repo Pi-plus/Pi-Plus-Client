@@ -27,7 +27,7 @@ const TeacherForm = () => {
       />
 
       <Button className="mt-20" disabled={isDisabled} onClick={handleOnClickTeacherSubmit} loading={isPending}>
-        완료
+        다음
       </Button>
     </>
   );

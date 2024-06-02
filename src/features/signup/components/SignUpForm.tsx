@@ -67,7 +67,7 @@ const SignUpForm = () => {
         errorMessage={errors.password?.message}
       />
       <Button className="mt-10" disabled={isDisabled} loading={isLoading}>
-        다음
+        회원가입
       </Button>
     </form>
   );
