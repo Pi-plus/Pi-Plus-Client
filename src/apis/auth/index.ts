@@ -7,13 +7,8 @@ import type { IEmailPasswordForm } from './types';
 
 const authApi = {
   post: async (body: IEmailPasswordForm) => {
-    try {
-      const result = await createUserWithEmailAndPassword(auth, body.email, body.password);
-      console.log('uid', result.user.uid);
-    } catch (error) {
-      const authError = error as AuthError;
-      return authError;
-    }
+    const result = await createUserWithEmailAndPassword(auth, body.email, body.password);
+    return result;
   },
   login: async (body: IEmailPasswordForm) => {
     try {
