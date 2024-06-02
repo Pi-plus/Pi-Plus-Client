@@ -3,19 +3,19 @@
 import Lottie from 'react-lottie-player';
 import { Carousel } from 'react-responsive-carousel';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { defaultImages } from '@public/images';
 import { defaultLottie } from '@public/lotties';
 
 import Button from '@/components/Button';
 import Typography from '@/components/Typography';
+import { ROUTES } from '@/constants';
 import { LandingLayout, LandingSection } from '@/features/landing/components';
-import { getRole } from '@/utils/cookie/manageCookie.client';
 
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
 
 const HomePage = () => {
-  const res = getRole();
-  console.log(res);
+  const { push } = useRouter();
   return (
     <main className="flex-col items-center justify-between flex gap-24">
       <Carousel className="mt-10 w-[80%]" autoPlay showThumbs={false} showStatus={false}>
@@ -37,7 +37,13 @@ const HomePage = () => {
               오답 문제 및 성취도를 확인할 수 있어요
             </Typography>
           </LandingSection>
-          <Button onClick={() => {}}>파이플러스 시작하기</Button>
+          <Button
+            onClick={() => {
+              push(ROUTES.LOGIN);
+            }}
+          >
+            파이플러스 시작하기
+          </Button>
         </div>
       </LandingLayout>
 
@@ -80,7 +86,13 @@ const HomePage = () => {
             </Typography>
           </LandingSection>
 
-          <Button onClick={() => {}}>학생 매칭하러 가기</Button>
+          <Button
+            onClick={() => {
+              push(ROUTES.TEACHER_MATCHING);
+            }}
+          >
+            학생 매칭하러 가기
+          </Button>
         </div>
       </LandingLayout>
     </main>
