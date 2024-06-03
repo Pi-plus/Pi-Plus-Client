@@ -17,7 +17,7 @@ export type TStudentResponse = {
   user_name?: string;
 
   user_school?: string;
-  user_goal?: number;
+  user_goal?: string;
   solve_problem?: TProblemContent[];
   wrong_problem?: TProblemContent[];
 

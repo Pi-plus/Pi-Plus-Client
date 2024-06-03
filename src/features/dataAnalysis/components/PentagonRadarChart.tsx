@@ -4,20 +4,32 @@ import { Chart as ChartJS, Filler, Legend, LineElement, PointElement, RadialLine
 
 ChartJS.register(RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend);
 
-export const data = {
-  labels: ['수와 연산', '도형', '측정', '규칙성', '자료와 가능성'],
-  datasets: [
-    {
-      label: '수학 영역별 분석',
-      data: [20, 9, 3, 5, 2],
-      backgroundColor: 'rgba(53, 162, 235, 0.5)',
-      borderColor: 'rgba(0, 70, 116, 0.5)',
-      borderWidth: 1,
-    },
-  ],
-};
+const PentagonRadarChart = ({ data }: { data: number[] }) => {
+  const mathData = {
+    labels: ['수와 연산', '도형', '측정', '규칙성', '자료와 가능성'],
+    datasets: [
+      {
+        label: '수학 영역별 분석',
+        data,
+        backgroundColor: 'rgba(53, 162, 235, 0.5)',
+        borderColor: 'rgba(0, 70, 116, 0.5)',
+        borderWidth: 1,
+      },
+    ],
+  };
 
-const PentagonRadarChart = () => {
-  return <Radar data={data} />;
+  const options = {
+    scales: {
+      r: {
+        min: 0,
+        max: 100,
+        ticks: {
+          stepSize: 10,
+        },
+      },
+    },
+  };
+
+  return <Radar data={mathData} options={options} />;
 };
 export default PentagonRadarChart;

@@ -11,7 +11,7 @@ interface IMypageTabProps {
   type: 'student' | 'teacher';
   gender: 'female' | 'male';
   name: string;
-  count: number;
+  count: string;
   tablist: TMyPageTab[];
 }
 const MypageTab = ({ type, name, count, tablist, gender }: IMypageTabProps) => {

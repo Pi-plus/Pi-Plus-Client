@@ -1,11 +1,12 @@
 'use client';
 
 import { MYPAGE_STUDENT_ROUTES, MYPAGE_STUDENT_TABS } from '@/constants';
-import { ProblemSettingSection } from '@/features/mypage/components/Sections';
-import AchievementSection from '@/features/mypage/components/Sections/AchievementSection';
 import MypageTab from '@/features/mypage/components/Tab';
 import { useNavigate } from '@/hooks';
 import { useStudentQuery } from '@/hooks/reactQuery/student';
+
+import AchievementSection from './AchievementSection';
+import ProblemSettingSection from './ProblemSection';
 
 const StudentPrivatePage = () => {
   const { query } = useNavigate();

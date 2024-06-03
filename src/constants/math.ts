@@ -23,3 +23,14 @@ export const MIDDLE_11_SMALL_CHAPTER = {
  */
 export type TMathBigChapter = keyof typeof MIDDLE_11_BIG_CHAPTER;
 export type TMathSmallChapter = keyof typeof MIDDLE_11_SMALL_CHAPTER;
+
+/**
+ * @description 수학 문제 영역별 태그 의미
+ */
+export const MATH_TAG = {
+  '0': '수와 연산',
+  '1': '도형',
+  '2': '측정',
+  '3': '규칙성',
+  '4': '자료와 가능성',
+} as const;

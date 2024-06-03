@@ -8,7 +8,7 @@ import type { TSignupForm } from '../types/signupFormType';
 
 const SignUpFormProvider = ({ children }: PropsWithChildren) => {
   const methods = useForm<TSignupForm>({
-    defaultValues: { user_goal: 0, user_name: '', user_role: '선생님', user_school: '', email: '', password: '' },
+    defaultValues: { user_goal: '0', user_name: '', user_role: '선생님', user_school: '', email: '', password: '' },
   });
   const isMounted = useIsMounted();
   const onSubmit = (data: TSignupForm) => {
