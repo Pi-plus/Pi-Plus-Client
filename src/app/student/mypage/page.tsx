@@ -6,12 +6,10 @@ import AchievementSection from '@/features/mypage/components/Sections/Achievemen
 import MypageTab from '@/features/mypage/components/Tab';
 import { useNavigate } from '@/hooks';
 import { useStudentQuery } from '@/hooks/reactQuery/student';
-import { getUid } from '@/utils/cookie/manageCookie.client';
 
 const StudentMyPage = () => {
   const { query } = useNavigate();
-  const uid = getUid();
-  const { data } = useStudentQuery(uid as string);
+  const { data } = useStudentQuery();
   return (
     <div className="flex flex-1">
       {data &&
