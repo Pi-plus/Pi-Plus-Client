@@ -10,7 +10,6 @@ const getItemOrNull = async <T>(key: TCookieKey): Promise<T | null> => {
   const cookieStore = cookies();
   try {
     const data = cookieStore.get(key)?.value;
-    console.log(data);
     return data ? (data as T) : null;
   } catch (error) {
     return null;
