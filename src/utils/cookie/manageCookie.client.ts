@@ -31,8 +31,8 @@ const setItem = <T>(key: TCookieKey, items: T) => {
 /**
  *  uid 값을 가져옴
  */
-export const getUid = async () => {
-  return getItemOrNull<string>(CookieKey.uid);
+export const getUid = () => {
+  return getCookie(CookieKey.uid);
 };
 
 /**
