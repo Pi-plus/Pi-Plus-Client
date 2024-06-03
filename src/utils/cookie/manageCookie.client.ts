@@ -4,18 +4,6 @@ import type { TCookieKey } from './cookieKey';
 import { CookieKey } from './cookieKey';
 
 /**
- * 쿠키에서 아이템을 가져옴
- */
-const getItemOrNull = async <T>(key: TCookieKey) => {
-  try {
-    const data = getCookie(key);
-    return data ? (data as T) : null;
-  } catch (error) {
-    return null;
-  }
-};
-
-/**
  * 쿠키에 아이템을 저장
  */
 const setItem = <T>(key: TCookieKey, items: T) => {
