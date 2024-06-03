@@ -34,7 +34,7 @@ const StudentMyPage = () => {
                   wrongList={student.wrong_problem ?? []}
                 />
               )}
-              {query.m === MYPAGE_STUDENT_ROUTES.ACHIEVEMENT && <AchievementSection data={student} />}
+              {query.m === MYPAGE_STUDENT_ROUTES.ACHIEVEMENT && <AchievementSection />}
             </div>
           </div>
         ))}
