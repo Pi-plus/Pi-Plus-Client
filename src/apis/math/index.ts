@@ -1,5 +1,5 @@
 import type { CollectionReference, DocumentData } from 'firebase/firestore';
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, doc, getDoc, getDocs } from 'firebase/firestore';
 
 import { db } from '@/utils';
 
@@ -26,6 +26,17 @@ const mathApi = {
       return mathResponse;
     });
     return result;
+  },
+
+  getById: async (id: string): Promise<IMathResponse | null> => {
+    const docRef = doc(mathRef, id);
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+      const docData = docSnap.data();
+      return docData as IMathResponse;
+    } else {
+      return null;
+    }
   },
 };
 export default mathApi;
