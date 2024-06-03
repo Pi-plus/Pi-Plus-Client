@@ -6,7 +6,7 @@ import { MATH_KEYS } from '@/constants';
 
 export const useMathQuery = () => {
   return useQuery<IMathResponse[], Error>({
-    queryKey: MATH_KEYS.details(),
+    queryKey: MATH_KEYS.lists(),
     queryFn: mathApi.get,
   });
 };
