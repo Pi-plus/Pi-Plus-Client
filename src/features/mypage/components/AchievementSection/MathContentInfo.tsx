@@ -1,13 +1,15 @@
 import Typography from '@/components/Typography';
 import HorizontalBarChart from '@/features/dataAnalysis/components/HorizontalBarChart';
 import PentagonRadarChart from '@/features/dataAnalysis/components/PentagonRadarChart';
+import { useStudentQuery } from '@/hooks/reactQuery/student';
 
-import { data } from '../../mocks/data';
 import { getMathTagCountList, getMathTagPercentCountList } from '../../utils/getMathData';
 
 const MathContentInfo = () => {
-  const tagsPercentCount = getMathTagPercentCountList(data.solve_problem ?? [], data.wrong_problem ?? []);
-  const tagsCount = getMathTagCountList(data.solve_problem ?? [], data.wrong_problem ?? []);
+  const { data } = useStudentQuery();
+  const [studentData] = data ?? [{}];
+  const tagsPercentCount = getMathTagPercentCountList(studentData.solve_problem ?? [], studentData.wrong_problem ?? []);
+  const tagsCount = getMathTagCountList(studentData.solve_problem ?? [], studentData.wrong_problem ?? []);
   return (
     <div className="w-full flex flex-col p-5 items-start justify-start mt-5 shadow-content rounded-lg">
       <Typography label="title1" className="relative z-20">

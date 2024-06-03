@@ -3,13 +3,15 @@ import { defaultLottie } from '@public/lotties';
 
 import Typography from '@/components/Typography';
 import MathCountChart from '@/features/dataAnalysis/components/MathCountChart';
+import { useStudentQuery } from '@/hooks/reactQuery/student';
 
-import { data } from '../../mocks/data';
 import { getMathCountComparison, getMathPercent } from '../../utils/getMathData';
 
 const MathCountInfo = () => {
-  const solveCount = data.solve_problem?.length as number;
-  const wrongCount = data.wrong_problem?.length as number;
+  const { data } = useStudentQuery();
+  const [studentData] = data ?? [{}];
+  const solveCount = studentData.solve_problem?.length as number;
+  const wrongCount = studentData.wrong_problem?.length as number;
   const [solvePercent, wrongPercent] = getMathPercent(solveCount, wrongCount);
   return (
     <div className="w-full grid grid-cols-2 gap-5 items-center justify-center mt-5">
@@ -24,7 +26,7 @@ const MathCountInfo = () => {
       <div className="flex flex-col p-5 shadow-content rounded-lg h-[315px] justify-center items-center">
         <Lottie loop animationData={defaultLottie.clap} className="w-[100px]" play />
         <Typography className="my-4" label="title1">
-          {`${data.user_name}님, 수고하셨습니다`}
+          {`${studentData.user_name}님, 수고하셨습니다`}
         </Typography>
         <Typography>{getMathCountComparison(solveCount, wrongCount)}</Typography>
         <Typography>틀린 문제는 다시 문제 관리 탭에서 다시 풀어보세요</Typography>
