@@ -4,9 +4,9 @@ import mathApi from '@/apis/math';
 import type { IMathResponse } from '@/apis/math/types';
 import { MATH_KEYS } from '@/constants';
 
-export const useMathQuery = () => {
-  return useQuery<IMathResponse[], Error>({
-    queryKey: MATH_KEYS.lists(),
-    queryFn: mathApi.get,
+export const useMathDetailQuery = (id: string) => {
+  return useQuery<IMathResponse | null, Error>({
+    queryKey: MATH_KEYS.detail([{ id }]),
+    queryFn: () => mathApi.getById(id),
   });
 };
