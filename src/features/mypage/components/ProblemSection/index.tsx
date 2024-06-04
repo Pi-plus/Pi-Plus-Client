@@ -12,8 +12,9 @@ interface IProblemSettingProps {
   wrongList: TProblemContent[];
 }
 const ProblemSettingSection = ({ solveList, wrongList }: IProblemSettingProps) => {
-  const wrongCount = solveList?.length ?? 0;
-  const solveCount = (wrongList?.length ?? 0) + wrongCount;
+  const wrongCount = wrongList?.length ?? 0;
+  const solveCount = solveList?.length ?? 0;
+  const totalCount = solveCount + wrongCount;
 
   return (
     <>
@@ -25,7 +26,7 @@ const ProblemSettingSection = ({ solveList, wrongList }: IProblemSettingProps) =
 
       <div className="bg-gray-10 rounded-[20px] flex py-4">
         <div className="w-1/2 flex flex-col items-center justify-center border-r border-gray-20 py-5">
-          <Typography label="body1">{solveCount}</Typography>
+          <Typography label="body1">{totalCount}</Typography>
           <Typography label="body1">총 푼 문제 수</Typography>
         </div>
         <div className="w-1/2 flex flex-col items-center justify-center py-5">
@@ -35,9 +36,9 @@ const ProblemSettingSection = ({ solveList, wrongList }: IProblemSettingProps) =
       </div>
       <MathTitle type="secondary" title="맞은 문제" className="mt-12" />
       <div className="flex items-center gap-9 border border-gray-10 rounded-b-xl py-16 px-12 flex-wrap">
-        {solveList.length > 0 ? (
+        {solveCount > 0 ? (
           solveList.map((item) => (
-            <Link key={item.id} href={`${ROUTES.STUDENT_LIST}?id=${item.id}`}>
+            <Link key={item.id} href={`${ROUTES.STUDENT_LIST}/${item.id}`}>
               <Typography label="title3" key={item.id} className="cursor-pointer hover:font-semibold">
                 {`${item.id}번`}
               </Typography>
@@ -52,11 +53,13 @@ const ProblemSettingSection = ({ solveList, wrongList }: IProblemSettingProps) =
 
       <MathTitle type="secondary" title="틀린 문제" className="mt-12" />
       <div className="flex items-center gap-9 border border-gray-10 rounded-b-xl py-16 px-12 flex-wrap">
-        {wrongList.length > 0 ? (
+        {wrongCount > 0 ? (
           wrongList.map((item) => (
-            <Typography label="title3" key={item.id} color="red" className="cursor-pointer hover:font-semibold">
-              {`${item.id} 번`}
-            </Typography>
+            <Link key={item.id} href={`${ROUTES.STUDENT_LIST}/${item.id}`}>
+              <Typography label="title3" key={item.id} color="red" className="cursor-pointer hover:font-semibold">
+                {`${item.id} 번`}
+              </Typography>
+            </Link>
           ))
         ) : (
           <div className="flex w-full gap-9 items-center">
