@@ -37,9 +37,11 @@ export const studentApi = {
         const user = docSnapshot.data() as TStudentResponse;
         const { solve_problem, wrong_problem, ...rest } = user;
         const updatedWrongProblems = (wrong_problem || []).filter((problem) => problem.id !== body.id);
+        const isAlreadySolved = (solve_problem || []).some((problem) => problem.id === body.id);
+        const updatedSolveProblems = isAlreadySolved ? solve_problem : [...(solve_problem || []), body];
         const result = {
           ...rest,
-          solve_problem: [...(solve_problem || []), body],
+          solve_problem: updatedSolveProblems,
           wrong_problem: updatedWrongProblems,
         };
         const updateStudentRef = doc(db, 'student', docSnapshot.id);
