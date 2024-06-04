@@ -3,6 +3,7 @@
 import { useFormContext } from 'react-hook-form';
 import Image from 'next/image';
 
+import type { TMathTag } from '@/apis/math/types';
 import Button from '@/components/Button';
 import MathTitle from '@/components/MathTitle';
 import { MATH_RESPONSE } from '@/constants/enums';
@@ -12,13 +13,14 @@ import type { TMathAnswer } from '@/features/math/contexts';
 import { getCorrectResponse } from '@/features/math/utils';
 import { useModal } from '@/hooks';
 import { useMathDetailQuery } from '@/hooks/reactQuery/math';
+import { useSolveProblemPutStudentMutation, useWrongProblemPutStudentMutation } from '@/hooks/reactQuery/student';
 
 import MathForm from './MathForm';
 import { MathCorrectPopup, MathSolutionPopup, MathWrongPopup } from './MathPopups';
 
 const MathDetailPage = ({ id }: { id: string }) => {
   const { data } = useMathDetailQuery(id);
-  console.log(data);
+  console.log(data?.answer);
   const {
     getValues,
     setValue,
@@ -27,6 +29,14 @@ const MathDetailPage = ({ id }: { id: string }) => {
   const { isOpen: isSolutionOpen, onClose: onSolutionClose, onOpen: onSolutionOpen } = useModal();
   const { isOpen: isCorrectOpen, onClose: onCorrectClose, onOpen: onCorrectOpen } = useModal();
   const { isOpen: isWrongOpen, onClose: onWrongClose, onOpen: onWrongOpen } = useModal();
+  const { mutate: solveMutate } = useSolveProblemPutStudentMutation({
+    id,
+    tag: data?.tag as TMathTag,
+  });
+  const { mutate: wrongMutate } = useWrongProblemPutStudentMutation({
+    id,
+    tag: data?.tag ?? '0',
+  });
 
   const answer = data?.answer ?? [];
   const inputCount = data?.answer_type === MATH_RESPONSE.fractionResponse ? answer.length * 2 : answer.length;
@@ -45,9 +55,11 @@ const MathDetailPage = ({ id }: { id: string }) => {
     // 문제 맞았을 때
     if (data && getCorrectResponse(data.answer ?? [], studentAnswer, data.answer_type ?? '0')) {
       onCorrectOpen();
+      solveMutate();
       // 문제 틀렸을 때
     } else {
       onWrongOpen();
+      wrongMutate();
     }
   };
 
