@@ -49,4 +49,27 @@ export const studentApi = {
       });
     }
   },
+
+  wrongProblemPut: async (body: TProblemContent) => {
+    const uid = getUid();
+    const q = query(studentRef, where('uid', '==', uid));
+    const querySnapshot = await getDocs(q);
+
+    if (!querySnapshot.empty) {
+      querySnapshot.forEach(async (docSnapshot) => {
+        const user = docSnapshot.data() as TStudentResponse;
+        const { solve_problem, wrong_problem, ...rest } = user;
+        const updatedSolveProblems = (solve_problem || []).filter((problem) => problem.id !== body.id);
+        const isAlreadySolved = (wrong_problem || []).some((problem) => problem.id === body.id);
+        const updatedWrongProblems = isAlreadySolved ? wrong_problem : [...(wrong_problem || []), body];
+        const result = {
+          ...rest,
+          solve_problem: updatedSolveProblems,
+          wrong_problem: updatedWrongProblems,
+        };
+        const updateStudentRef = doc(db, 'student', docSnapshot.id);
+        await updateDoc(updateStudentRef, result);
+      });
+    }
+  },
 };
