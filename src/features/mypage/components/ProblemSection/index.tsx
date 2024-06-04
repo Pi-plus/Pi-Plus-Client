@@ -51,7 +51,7 @@ const ProblemSettingSection = ({ solveList, wrongList }: IProblemSettingProps) =
       </div>
 
       <MathTitle type="secondary" title="틀린 문제" className="mt-12" />
-      <div className="flex items-center justify-center border border-gray-10 rounded-b-xl py-16 px-12">
+      <div className="flex items-center gap-9 border border-gray-10 rounded-b-xl py-16 px-12 flex-wrap">
         {wrongList.length > 0 ? (
           wrongList.map((item) => (
             <Typography label="title3" key={item.id} color="red">
