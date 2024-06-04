@@ -3,6 +3,8 @@ import { defaultImages } from '@public/images';
 
 import type { TMathDifficulty } from '@/apis/math/types';
 import Typography from '@/components/Typography';
+import type { TMathSmallChapter } from '@/constants';
+import { getMathChapter } from '@/utils';
 
 import DifficultyLabel from './DifficultyLabel';
 
@@ -13,6 +15,7 @@ interface IMathProblemTitleProps {
 }
 
 const MathProblemContent = ({ id, concept, difficulty }: IMathProblemTitleProps) => {
+  const [bigChapter, smallChapter] = getMathChapter(concept as TMathSmallChapter);
   return (
     <div className="w-full flex items-start justify-between p-5">
       <div className="flex items-center justify-center gap-9">
@@ -21,7 +24,8 @@ const MathProblemContent = ({ id, concept, difficulty }: IMathProblemTitleProps)
           <Typography label="title1" color="black">
             {`문제 ${id} 번`}
           </Typography>
-          <Typography label="title3">{concept}</Typography>
+          <Typography label="title3">{bigChapter}</Typography>
+          <Typography label="title3">{smallChapter}</Typography>
         </div>
       </div>
 
