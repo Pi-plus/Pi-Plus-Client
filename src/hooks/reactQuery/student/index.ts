@@ -1,3 +1,3 @@
 export * from './usePostStudentMutation';
-export * from './useProblemPutStudentMutation';
+export * from './useSolveProblemPutStudentMutation';
 export * from './useStudentQuery';
