@@ -54,7 +54,7 @@ const ProblemSettingSection = ({ solveList, wrongList }: IProblemSettingProps) =
       <div className="flex items-center gap-9 border border-gray-10 rounded-b-xl py-16 px-12 flex-wrap">
         {wrongList.length > 0 ? (
           wrongList.map((item) => (
-            <Typography label="title3" key={item.id} color="red">
+            <Typography label="title3" key={item.id} color="red" className="cursor-pointer hover:font-semibold">
               {`${item.id} 번`}
             </Typography>
           ))
