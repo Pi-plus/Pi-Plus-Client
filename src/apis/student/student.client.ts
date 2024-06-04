@@ -27,7 +27,7 @@ export const studentApi = {
     return userData;
   },
 
-  problemPut: async (body: TProblemContent, isSolve: boolean) => {
+  solveProblemPut: async (body: TProblemContent) => {
     const uid = getUid();
     const q = query(studentRef, where('uid', '==', uid));
     const querySnapshot = await getDocs(q);
@@ -36,17 +36,15 @@ export const studentApi = {
       querySnapshot.forEach(async (docSnapshot) => {
         const user = docSnapshot.data() as TStudentResponse;
         const { solve_problem, wrong_problem, ...rest } = user;
+        const updatedWrongProblems = (wrong_problem || []).filter((problem) => problem.id !== body.id);
         const result = {
           ...rest,
-          wrong_problem: isSolve ? wrong_problem : [...(wrong_problem || []), body],
-          solve_problem: isSolve ? [...(solve_problem || []), body] : solve_problem,
+          solve_problem: [...(solve_problem || []), body],
+          wrong_problem: updatedWrongProblems,
         };
         const updateStudentRef = doc(db, 'student', docSnapshot.id);
         await updateDoc(updateStudentRef, result);
-        console.log(`${isSolve ? 'Solved' : 'Wrong'} problem updated successfully for user ${uid}`);
       });
-    } else {
-      console.error(`No user found with uid ${uid}`);
     }
   },
 };
