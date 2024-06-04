@@ -8,7 +8,7 @@ const MathTable = () => {
   const columns = ['문제번호', '학년', '단원명', '난이도'];
   const { push } = useRouter();
   const { data } = useMathQuery();
-  console.log(data);
+
   return (
     <div className="w-full flex justify-center mt-9">
       <table className="w-[80%]">
