@@ -27,7 +27,7 @@ export const studentApi = {
     return userData;
   },
 
-  problemPost: async (body: TProblemContent, isSolve: boolean) => {
+  problemPut: async (body: TProblemContent, isSolve: boolean) => {
     const uid = getUid();
     const q = query(studentRef, where('uid', '==', uid));
     const querySnapshot = await getDocs(q);

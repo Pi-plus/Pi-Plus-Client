@@ -5,6 +5,6 @@ import type { TProblemContent } from '@/apis/student/types';
 
 export const useProblemPutStudentMutation = (body: TProblemContent, isSolve: boolean) => {
   return useMutation({
-    mutationFn: () => studentApi.problemPost(body, isSolve),
+    mutationFn: () => studentApi.problemPut(body, isSolve),
   });
 };
