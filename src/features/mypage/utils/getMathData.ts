@@ -8,9 +8,8 @@ export const getMathPercent = (solveCount: number, wrongCount: number) => {
     return [0, 0];
   } else {
     const totalCount = solveCount + wrongCount;
-    const solvePercent = (solveCount / totalCount) * 100 ?? 0;
-    const wrongPercent = (wrongCount / totalCount) * 100 ?? 0;
-
+    const solvePercent = Math.round((solveCount / totalCount) * 100) ?? 0;
+    const wrongPercent = Math.round((wrongCount / totalCount) * 100) ?? 0;
     return [solvePercent, wrongPercent];
   }
 };

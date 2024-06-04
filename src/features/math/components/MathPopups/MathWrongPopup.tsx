@@ -27,7 +27,7 @@ const MathWrongPopup = ({ isOpen, onClose, onConfirm, onCancel }: IMathWrongPopu
       onConfirm={handleConfirm}
       onCancel={handleCancel}
       right="해설 보기"
-      left="다시 풀기"
+      left="닫기"
     >
       <Lottie loop animationData={defaultLottie.sad} play className="w-[70%] -mt-24" />
       <div className="flex flex-col justify-center items-center -mt-8">

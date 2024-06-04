@@ -1,14 +1,17 @@
 import { useRouter } from 'next/navigation';
 
-import { MATH_DIFFICULTY, MIDDLE_11_BIG_CHAPTER, MIDDLE_11_SMALL_CHAPTER, ROUTES } from '@/constants';
-import type { TMathBigChapter, TMathSmallChapter } from '@/constants/math';
+import Typography from '@/components/Typography';
+import { MATH_DIFFICULTY, ROUTES } from '@/constants';
+import type { TMathSmallChapter } from '@/constants/math';
 import { useMathQuery } from '@/hooks/reactQuery/math';
+import { getMathChapter } from '@/utils';
 
 const MathTable = () => {
   const columns = ['문제번호', '학년', '단원명', '난이도'];
   const { push } = useRouter();
   const { data } = useMathQuery();
-  console.log(data);
+  const [bigChapter, smallChapter] = getMathChapter(data![0].question_chapter as TMathSmallChapter);
+
   return (
     <div className="w-full flex justify-center mt-9">
       <table className="w-[80%]">
@@ -31,10 +34,15 @@ const MathTable = () => {
               }}
             >
               <td className="text-center">{math.id} 번</td>
-              <td className="text-center">
-                {MIDDLE_11_BIG_CHAPTER[math.question_chapter?.charAt(0) as TMathBigChapter]}
+              <td className="text-center">중학교 1학년 1학기</td>
+              <td className="text-center flex flex-col">
+                <Typography label="title3" className="mt-1">
+                  {bigChapter}
+                </Typography>
+                <Typography label="caption1" className="my-1">
+                  {smallChapter}
+                </Typography>
               </td>
-              <td className="text-center">{MIDDLE_11_SMALL_CHAPTER[math.question_chapter as TMathSmallChapter]}</td>
               <td className="text-center">{MATH_DIFFICULTY[math.question_difficulty ?? 'HIGH'].label}</td>
             </tr>
           ))}
