@@ -14,19 +14,23 @@ const Header = () => {
   const { pathname } = useNavigate();
   const { role } = useRoleStore();
 
-  return (
-    <>
-      {pathname === ROUTES.LOGIN || pathname === ROUTES.SIGN_UP ? (
-        <RootHeader tabs={HOME_TAB} />
-      ) : (
-        <>
-          {!role && <RootHeader tabs={HOME_TAB} />}
-          {role === USER_ROLE.STUDENT && <StudentHeader />}
-          {role === USER_ROLE.TEACHER && <RootHeader tabs={TEACHER_TAB} />}
-        </>
-      )}
-    </>
-  );
+  if (pathname === ROUTES.LOGIN || pathname === ROUTES.SIGN_UP) {
+    return <RootHeader tabs={HOME_TAB} />;
+  }
+
+  if (!role) {
+    return <RootHeader tabs={HOME_TAB} />;
+  }
+
+  if (role === USER_ROLE.STUDENT) {
+    return <StudentHeader />;
+  }
+
+  if (role === USER_ROLE.TEACHER) {
+    return <RootHeader tabs={TEACHER_TAB} />;
+  }
+
+  return null;
 };
 
 export default Header;
