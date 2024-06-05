@@ -45,6 +45,7 @@ const SignUpForm = () => {
           uid: res.user.uid,
         });
       } else {
+        setRole(user_role);
         mutateTeacherAsync({ user_name, manage_student: [], uid: res.user.uid });
       }
       push(ROUTES.LOGIN);
