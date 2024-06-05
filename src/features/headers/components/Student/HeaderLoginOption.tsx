@@ -1,8 +1,7 @@
 import Link from 'next/link';
 
+import Typography from '@/components/Typography';
 import { ROUTES, SIGN_UP_ROUTES } from '@/constants';
-
-import Typography from '../Typography';
 
 const HeaderLoginOption = () => {
   return (

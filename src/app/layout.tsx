@@ -1,8 +1,9 @@
+import { Suspense } from 'react';
 import type { Metadata } from 'next';
 import classNames from 'classnames';
 
 import { PortalProvider } from '@/components/GlobalPortal';
-import Header from '@/components/Header';
+import Header from '@/features/headers/components';
 import { ChakraUIProvider, ReactQueryProvider } from '@/providers';
 
 import { pretendard } from './fonts';
@@ -26,7 +27,9 @@ export default function RootLayout({
           <PortalProvider>
             <ChakraUIProvider>
               <div className="flex flex-col min-h-screen w-full">
-                <Header />
+                <Suspense>
+                  <Header />
+                </Suspense>
                 {children}
               </div>
             </ChakraUIProvider>

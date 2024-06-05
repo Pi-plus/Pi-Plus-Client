@@ -6,9 +6,8 @@ import { usePathname, useRouter } from 'next/navigation';
 import { defaultSvg } from '@public/svgs';
 import classNames from 'classnames';
 
+import Typography from '@/components/Typography';
 import { MYPAGE_STUDENT_ROUTES, ROUTES, type TValueOfTitlename } from '@/constants';
-
-import Typography from '../Typography';
 
 interface IHeaderTabProps extends HTMLAttributes<HTMLDivElement> {
   isHover: boolean;

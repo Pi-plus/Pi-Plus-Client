@@ -12,7 +12,7 @@ import { HEADER_TABS, ROUTES } from '@/constants';
 import HeaderContent from './HeaderContent';
 import HeaderTab from './HeaderTab';
 
-const Header = () => {
+const StudentHeader = () => {
   const pathname = usePathname();
   const [hover, setHover] = useState<'' | THoverPathname>('');
   const handleHoverHeaderTab = (pathname: TValueOfPathname) => {
@@ -51,4 +51,4 @@ const Header = () => {
     </>
   );
 };
-export default Header;
+export default StudentHeader;
