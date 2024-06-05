@@ -16,6 +16,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a lo
 
 const HomePage = () => {
   const { push } = useRouter();
+
   return (
     <main className="flex-col items-center justify-between flex gap-24">
       <Carousel className="mt-10 w-[80%]" autoPlay showThumbs={false} showStatus={false}>

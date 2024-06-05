@@ -9,13 +9,14 @@ import { USER_ROLE } from '@/constants/enums';
 import { useNavigate } from '@/hooks';
 import { usePostStudentMutation } from '@/hooks/reactQuery/student';
 import { usePostTeacherMutation } from '@/hooks/reactQuery/teacher';
-import { setRole } from '@/utils/cookie/manageCookie.client';
+import { useRoleStore } from '@/stores';
 
 import { useSignUpForm } from '../hooks';
 
 const SignUpForm = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const { push } = useNavigate();
+  const { setRole } = useRoleStore();
   const {
     register,
     getValues,
