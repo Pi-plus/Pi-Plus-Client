@@ -16,4 +16,5 @@ export type TMyPageTab = { title: string; pathname: string; href: string };
 export const MYPAGE_STUDENT_TABS: TMyPageTab[] = [
   { title: '문제 관리', pathname: MYPAGE_STUDENT_ROUTES.PROBLEM_SETTING, href: ROUTES.STUDENT_MY },
   { title: '성취도 확인', pathname: MYPAGE_STUDENT_ROUTES.ACHIEVEMENT, href: ROUTES.STUDENT_MY },
+  { title: '개인 정보 확인', pathname: MYPAGE_STUDENT_ROUTES.MYINFO, href: ROUTES.STUDENT_MY },
 ];
