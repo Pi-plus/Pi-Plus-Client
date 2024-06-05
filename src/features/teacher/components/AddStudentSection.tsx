@@ -9,7 +9,7 @@ import { useInput } from '@/hooks';
 const AddStudentSection = () => {
   const { value, onChange } = useInput('');
   return (
-    <div className="w-full flex flex-col justify-center items-center px-36">
+    <div className="size-full flex flex-col justify-center items-center px-36">
       <Lottie loop className="w-[40%]" animationData={defaultLottie.teacher} play />
       <Typography label="heading2" className="text-center">
         학생의 고유한 코드를 입력해 관리하는 학생으로 추가해보세요
