@@ -1,7 +1,7 @@
-import Typography from '@/components/Typography';
+import TeacherMyPage from '@/features/teacher/components/Page';
 
 const TeacherMatchingPage = () => {
-  return <Typography>선생님 학생 매칭 페이지</Typography>;
+  return <TeacherMyPage />;
 };
 
 export default TeacherMatchingPage;

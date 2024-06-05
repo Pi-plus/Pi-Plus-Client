@@ -9,12 +9,12 @@ import { useNavigate } from '@/hooks';
 
 interface IMypageTabProps {
   type: 'student' | 'teacher';
-  gender: 'female' | 'male';
+  gender?: 'female' | 'male';
   name: string;
   count: string;
   tablist: TMyPageTab[];
 }
-const MypageTab = ({ type, name, count, tablist, gender }: IMypageTabProps) => {
+const MypageTab = ({ type, name, count, tablist, gender = 'female' }: IMypageTabProps) => {
   const { push, query } = useNavigate();
   const personName = type === 'student' ? `${name} 학생` : `${name} 선생님`;
   const countString = type === 'student' ? `목표 문제 수 : ${count} 문제` : `관리하는 학생 수 : ${count} 명`;

@@ -3,7 +3,7 @@ import { defaultLottie } from '@public/lotties';
 
 import Typography from '@/components/Typography';
 
-const MyPageBanner = () => {
+const MyPageBanner = ({ title, subTitle }: { title: string; subTitle: string }) => {
   return (
     <div className="w-full flex items-center bg-blue-20 h-48 px-10 rounded-xl">
       <Lottie loop animationData={defaultLottie.try} play className="w-[180px]" />
@@ -16,10 +16,10 @@ const MyPageBanner = () => {
           Right Now
         </Typography>
         <Typography label="heading2" color="white">
-          틀린 문제도 다시 한 번 복습해보세요
+          {title}
         </Typography>
         <Typography label="title3" color="white" className="mt-3">
-          틀린 문제 번호를 클릭하면 해당 문제 페이지로 이동합니다!
+          {subTitle}
         </Typography>
       </div>
     </div>

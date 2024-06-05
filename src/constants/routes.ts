@@ -23,3 +23,8 @@ export const MYPAGE_STUDENT_ROUTES = {
   ACHIEVEMENT: 'achievement' as Route,
   MYINFO: 'myinfo' as Route,
 } as const;
+
+export const MYPAGE_TEACHER_ROUTES = {
+  MANAGE_STUDENT: 'manageStudent' as Route,
+  ADD_STUDENT: 'addStudent' as Route,
+} as const;
