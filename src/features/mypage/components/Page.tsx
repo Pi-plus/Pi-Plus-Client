@@ -6,6 +6,7 @@ import { useNavigate } from '@/hooks';
 import { useStudentQuery } from '@/hooks/reactQuery/student';
 
 import AchievementSection from './AchievementSection';
+import MyInfoSection from './MyInfoSection';
 import ProblemSettingSection from './ProblemSection';
 
 const StudentPrivatePage = () => {
@@ -34,6 +35,8 @@ const StudentPrivatePage = () => {
                 />
               )}
               {query.m === MYPAGE_STUDENT_ROUTES.ACHIEVEMENT && <AchievementSection />}
+
+              {query.m === MYPAGE_STUDENT_ROUTES.MYINFO && <MyInfoSection id={student.uid as string} />}
             </div>
           </div>
         ))}

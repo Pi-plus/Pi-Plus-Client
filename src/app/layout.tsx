@@ -1,4 +1,5 @@
 import { Suspense } from 'react';
+import { Toaster } from 'react-hot-toast';
 import type { Metadata } from 'next';
 import classNames from 'classnames';
 
@@ -26,6 +27,7 @@ export default function RootLayout({
         <ReactQueryProvider>
           <PortalProvider>
             <ChakraUIProvider>
+              <Toaster position="top-center" reverseOrder={false} />
               <div className="flex flex-col min-h-screen w-full">
                 <Suspense>
                   <Header />
