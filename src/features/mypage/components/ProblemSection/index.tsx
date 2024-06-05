@@ -18,7 +18,10 @@ const ProblemSettingSection = ({ solveList, wrongList }: IProblemSettingProps) =
 
   return (
     <>
-      <MyPageBanner />
+      <MyPageBanner
+        title="틀린 문제도 다시 한 번 복습해보세요"
+        subTitle="틀린 문제 번호를 클릭하면 해당 문제 페이지로 이동합니다!"
+      />
 
       <Typography label="heading1" className="mt-12 mb-4" as="h2">
         문제 관리 리스트
