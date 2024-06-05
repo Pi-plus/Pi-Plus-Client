@@ -1,4 +1,4 @@
-import { MYPAGE_STUDENT_ROUTES, ROUTES } from './routes';
+import { MYPAGE_STUDENT_ROUTES, MYPAGE_TEACHER_ROUTES, ROUTES } from './routes';
 
 export type THoverPathname = 'concept' | 'problem';
 export type TValueOfPathname = THoverPathname | 'mypage';
@@ -17,4 +17,8 @@ export const MYPAGE_STUDENT_TABS: TMyPageTab[] = [
   { title: '문제 관리', pathname: MYPAGE_STUDENT_ROUTES.PROBLEM_SETTING, href: ROUTES.STUDENT_MY },
   { title: '성취도 확인', pathname: MYPAGE_STUDENT_ROUTES.ACHIEVEMENT, href: ROUTES.STUDENT_MY },
   { title: '개인 정보 확인', pathname: MYPAGE_STUDENT_ROUTES.MYINFO, href: ROUTES.STUDENT_MY },
+];
+export const MYPAGE_TEACHER_TABS: TMyPageTab[] = [
+  { title: '관리하는 학생', pathname: MYPAGE_TEACHER_ROUTES.MANAGE_STUDENT, href: ROUTES.TEACHER_MATCHING },
+  { title: '학생 추가', pathname: MYPAGE_TEACHER_ROUTES.ADD_STUDENT, href: ROUTES.TEACHER_MATCHING },
 ];

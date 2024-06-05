@@ -1,4 +1,4 @@
-import { ROUTES, SIGN_UP_ROUTES } from '@/constants';
+import { MYPAGE_TEACHER_ROUTES, ROUTES, SIGN_UP_ROUTES } from '@/constants';
 
 export type TTabContent = {
   label: string;
@@ -45,6 +45,6 @@ export const HOME_TAB: TTabContent[] = [
 export const TEACHER_TAB: TTabContent[] = [
   {
     label: '학생 관리',
-    href: ROUTES.TEACHER_MATCHING,
+    href: `${ROUTES.TEACHER_MATCHING}?m=${MYPAGE_TEACHER_ROUTES.MANAGE_STUDENT}`,
   },
 ];
