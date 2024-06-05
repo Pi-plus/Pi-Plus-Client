@@ -1,6 +1,6 @@
 'use client';
 
-import type { PropsWithChildren } from 'react';
+import { type PropsWithChildren } from 'react';
 
 import PiPlusFormLayout from '@/components/PiPlusFormLayout';
 import { SignUpFormProvider } from '@/features/signup/contexts';
