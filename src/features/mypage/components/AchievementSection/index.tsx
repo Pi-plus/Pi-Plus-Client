@@ -9,13 +9,12 @@ import TrophyTitle from './TrophyTitle';
 
 const AchievementSection = () => {
   const { data } = useStudentQuery();
-  const [studentData] = data ?? [{}];
   return (
     <div className="w-full px-5">
-      <TrophyTitle data={studentData} />
-      <MathCountInfo data={studentData} />
-      <MathContentInfo data={studentData} />
-      <MathGoalInfo data={studentData} />
+      <TrophyTitle data={data} />
+      <MathCountInfo data={data} />
+      <MathContentInfo data={data} />
+      <MathGoalInfo data={data} />
     </div>
   );
 };
