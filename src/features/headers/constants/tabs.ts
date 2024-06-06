@@ -46,5 +46,6 @@ export const TEACHER_TAB: TTabContent[] = [
   {
     label: '학생 관리',
     href: `${ROUTES.TEACHER_MATCHING}?m=${MYPAGE_TEACHER_ROUTES.MANAGE_STUDENT}`,
+    baseUrl: ROUTES.TEACHER_MATCHING,
   },
 ];
