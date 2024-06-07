@@ -1,10 +1,12 @@
+import type { IManageStudent } from '@/apis/teacher/types';
 import Typography from '@/components/Typography';
 import MyPageBanner from '@/features/mypage/components/Banner';
+import { getStudentInfo } from '@/features/teacher/utils';
 
 import StudentCard from './StudentCard';
 
-const ManageStudentSection = () => {
-  const array = [1, 2, 3, 4, 5];
+const ManageStudentSection = ({ manage }: { manage: IManageStudent[] }) => {
+  const studentCount = getStudentInfo(manage);
   return (
     <div>
       <MyPageBanner
@@ -18,19 +20,21 @@ const ManageStudentSection = () => {
 
       <div className="bg-gray-10 rounded-[20px] flex py-4">
         <div className="w-1/2 flex flex-col items-center justify-center border-r border-gray-20 py-5">
-          <Typography label="body1">12</Typography>
+          <Typography label="body1">{manage.length}</Typography>
           <Typography label="body1">관리하는 학생 수</Typography>
         </div>
         <div className="w-1/2 flex flex-col items-center justify-center py-5">
-          <Typography label="body1">30</Typography>
+          <Typography label="body1">{studentCount}</Typography>
           <Typography label="body1">담당 학교 수</Typography>
         </div>
       </div>
 
       <div className="w-full grid grid-cols-3 gap-4 mt-9">
-        {array.map((item) => (
-          <StudentCard key={item} />
-        ))}
+        {manage.length > 0 && manage.map((item) => <StudentCard key={item.uid} {...manage} />)}
+      </div>
+
+      <div className="w-full flex justify-center items-center mt-8">
+        {manage.length === 0 && <Typography label="title3">아직 관리하는 학생이 없어요</Typography>}
       </div>
     </div>
   );
