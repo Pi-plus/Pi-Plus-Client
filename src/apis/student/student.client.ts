@@ -27,6 +27,18 @@ export const studentApi = {
     return userData;
   },
 
+  getById: async (uid: string) => {
+    const q = query(studentRef, where('uid', '==', uid));
+    const querySnapshot = await getDocs(q);
+    const userData: TStudentResponse[] = [];
+
+    querySnapshot.forEach((doc) => {
+      userData.push({ id: doc.id, ...doc.data() });
+    });
+
+    return userData;
+  },
+
   solveProblemPut: async (body: TProblemContent) => {
     const uid = getUid();
     const q = query(studentRef, where('uid', '==', uid));
