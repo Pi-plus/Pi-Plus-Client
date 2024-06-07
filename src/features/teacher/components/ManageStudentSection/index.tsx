@@ -7,6 +7,7 @@ import StudentCard from './StudentCard';
 
 const ManageStudentSection = ({ manage }: { manage: IManageStudent[] }) => {
   const studentCount = getStudentInfo(manage);
+
   return (
     <div>
       <MyPageBanner
@@ -30,7 +31,7 @@ const ManageStudentSection = ({ manage }: { manage: IManageStudent[] }) => {
       </div>
 
       <div className="w-full grid grid-cols-3 gap-4 mt-9">
-        {manage.length > 0 && manage.map((item) => <StudentCard key={item.uid} {...manage} />)}
+        {manage.length > 0 && manage.map((item) => <StudentCard key={item.uid} {...item} />)}
       </div>
 
       <div className="w-full flex justify-center items-center mt-8">
