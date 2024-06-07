@@ -35,7 +35,6 @@ const teacherApi = {
   manageStudentPut: async (studentUid: string) => {
     const uid = getUid();
     const studentData = await studentApi.getById(studentUid);
-    console.log('학생 정보 받기', studentData[0]);
     const studentObject = {
       uid: studentUid,
       user_name: studentData[0].user_name,
