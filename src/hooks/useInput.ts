@@ -15,5 +15,5 @@ export const useInput = <T>(initialValue: string, validator?: T) => {
     }
   };
 
-  return { value, onChange };
+  return { value, onChange, setValue };
 };
