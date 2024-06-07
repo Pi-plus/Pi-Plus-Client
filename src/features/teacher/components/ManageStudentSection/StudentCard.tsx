@@ -12,7 +12,7 @@ const StudentCard = (props: IManageStudent) => {
   const { onClose, isOpen, onOpen } = useModal();
   return (
     <div className="flex flex-col justify-center items-center bg-blue-10 rounded-lg p-5">
-      <StudentAchievePopup onClose={onClose} isOpen={isOpen} />
+      <StudentAchievePopup onClose={onClose} isOpen={isOpen} uid={props.uid ?? ''} />
       <Image src={defaultImages.girlStudent} width={100} height={100} alt="" />
       <Typography label="heading2">{`${props.user_name} 학생`}</Typography>
       <Typography label="body1">{props.user_school}</Typography>
