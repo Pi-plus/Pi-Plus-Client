@@ -5,7 +5,11 @@ import classNames from 'classnames';
 
 import Typography from '@/components/Typography';
 import type { TMyPageTab } from '@/constants';
+import { LOGIN_ROUTES, ROUTES } from '@/constants';
 import { useNavigate } from '@/hooks';
+import { useRoleStore } from '@/stores';
+import { showSuccessToast } from '@/utils';
+import { clearUserData } from '@/utils/cookie/manageCookie.client';
 
 interface IMypageTabProps {
   type: 'student' | 'teacher';
@@ -19,7 +23,7 @@ const MypageTab = ({ type, name, count, tablist, gender = 'female' }: IMypageTab
   const personName = type === 'student' ? `${name} 학생` : `${name} 선생님`;
   const countString = type === 'student' ? `목표 문제 수 : ${count} 문제` : `관리하는 학생 수 : ${count} 명`;
   const imgSrc = gender === 'female' ? defaultImages.girlStudent : defaultImages.boyStudent;
-
+  const { setRole } = useRoleStore();
   return (
     <div className="size-full border-r border-gray-20 border-solid">
       {/*프로필*/}
@@ -54,6 +58,17 @@ const MypageTab = ({ type, name, count, tablist, gender = 'female' }: IMypageTab
           <Image src={defaultSvg.arrowRight} width={6} height={7} alt="" />
         </button>
       ))}
+      <button
+        className="flex items-center justify-between py-8 px-16 hover:bg-gray-10 cursor-pointer w-full"
+        onClick={() => {
+          push({ pathname: ROUTES.LOGIN, query: { step: LOGIN_ROUTES.SELECT } });
+          clearUserData();
+          setRole('');
+          showSuccessToast('성공적으로 로그아웃 되었어요');
+        }}
+      >
+        <Typography label="body1">로그아웃</Typography>
+      </button>
     </div>
   );
 };
