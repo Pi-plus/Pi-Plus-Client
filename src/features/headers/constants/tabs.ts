@@ -1,4 +1,4 @@
-import { MYPAGE_TEACHER_ROUTES, ROUTES, SIGN_UP_ROUTES } from '@/constants';
+import { LOGIN_ROUTES, MYPAGE_TEACHER_ROUTES, ROUTES, SIGN_UP_ROUTES } from '@/constants';
 
 export type TTabContent = {
   label: string;
@@ -11,7 +11,8 @@ export type TTabContent = {
 export const LOGIN_TAB: TTabContent[] = [
   {
     label: '로그인',
-    href: ROUTES.LOGIN,
+    href: `${ROUTES.LOGIN}?step=${LOGIN_ROUTES.SELECT}`,
+    baseUrl: ROUTES.LOGIN,
   },
 ];
 
@@ -30,7 +31,8 @@ export const SIGN_UP_TAB: TTabContent[] = [
 export const HOME_TAB: TTabContent[] = [
   {
     label: '로그인',
-    href: ROUTES.LOGIN,
+    href: `${ROUTES.LOGIN}?step=${LOGIN_ROUTES.SELECT}`,
+    baseUrl: ROUTES.LOGIN,
   },
   {
     label: '회원가입',
