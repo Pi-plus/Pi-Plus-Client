@@ -9,7 +9,7 @@ import { defaultLottie } from '@public/lotties';
 
 import Button from '@/components/Button';
 import Typography from '@/components/Typography';
-import { ROUTES } from '@/constants';
+import { LOGIN_ROUTES, ROUTES } from '@/constants';
 import { LandingLayout, LandingSection } from '@/features/landing/components';
 
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
@@ -40,7 +40,7 @@ const HomePage = () => {
           </LandingSection>
           <Button
             onClick={() => {
-              push(ROUTES.LOGIN);
+              push(`${ROUTES.LOGIN}?step=${LOGIN_ROUTES.SELECT}`);
             }}
           >
             파이플러스 시작하기

@@ -4,7 +4,7 @@ import authApi from '@/apis/auth';
 import Button from '@/components/Button';
 import Input from '@/components/Input';
 import MultiTitle from '@/components/MultiTitle';
-import { ROUTES } from '@/constants';
+import { LOGIN_ROUTES, ROUTES } from '@/constants';
 import { USER_ROLE } from '@/constants/enums';
 import { useNavigate } from '@/hooks';
 import { usePostStudentMutation } from '@/hooks/reactQuery/student';
@@ -49,7 +49,7 @@ const SignUpForm = () => {
         setRole(user_role);
         mutateTeacherAsync({ user_name, manage_student: [], uid: res.user.uid });
       }
-      push(ROUTES.LOGIN);
+      push({ pathname: ROUTES.LOGIN, query: { step: LOGIN_ROUTES.SELECT } });
       setValue('email', '');
       setValue('password', '');
       setIsLoading(false);
