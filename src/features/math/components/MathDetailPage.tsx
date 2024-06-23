@@ -6,6 +6,7 @@ import Image from 'next/image';
 import type { TMathTag } from '@/apis/math/types';
 import Button from '@/components/Button';
 import MathTitle from '@/components/MathTitle';
+import Typography from '@/components/Typography';
 import { MATH_RESPONSE } from '@/constants/enums';
 import { SectionTitle } from '@/features/math/components';
 import MathProblemContent from '@/features/math/components/MathProblemContent';
@@ -17,7 +18,6 @@ import { useSolveProblemPutStudentMutation, useWrongProblemPutStudentMutation } 
 
 import MathForm from './MathForm';
 import { MathCorrectPopup, MathSolutionPopup, MathWrongPopup } from './MathPopups';
-import Typography from '@/components/Typography';
 
 const MathDetailPage = ({ id }: { id: string }) => {
   const { data } = useMathDetailQuery(id);
@@ -105,8 +105,8 @@ const MathDetailPage = ({ id }: { id: string }) => {
             isOpen={isSolutionOpen}
             onClose={onSolutionClose}
             content={
-              <>
-                <div className="w-1/2 h-full">
+              <div className="grid grid-cols-2 gap-10 h-full">
+                <div>
                   <SectionTitle
                     className="mb-14 mt-10"
                     title={`${id} 번 문제에 대한 답입니다!`}
@@ -114,7 +114,7 @@ const MathDetailPage = ({ id }: { id: string }) => {
                   />
                   <Image src={data.question!} className="w-full mb-3" width={630} height={600} alt="" />
                 </div>
-                <div className="w-1/2 flex justify-center items-center mt-10">
+                <div className="flex justify-center items-center">
                   <Image
                     src={data.question_answer!}
                     width={400}
@@ -124,7 +124,7 @@ const MathDetailPage = ({ id }: { id: string }) => {
                     layout="responsive"
                   />
                 </div>
-              </>
+              </div>
             }
           />
         )}
