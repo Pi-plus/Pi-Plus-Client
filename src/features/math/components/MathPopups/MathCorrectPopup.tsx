@@ -8,8 +8,9 @@ interface IMathCorrectPopupProps {
   isOpen: boolean;
   onClose: () => void;
   onConfirm: () => void;
+  title: string;
 }
-const MathCorrectPopup = ({ isOpen, onClose, onConfirm }: IMathCorrectPopupProps) => {
+const MathCorrectPopup = ({ isOpen, onClose, onConfirm, title }: IMathCorrectPopupProps) => {
   const handleConfirm = () => {
     onConfirm();
     onClose();
@@ -19,7 +20,7 @@ const MathCorrectPopup = ({ isOpen, onClose, onConfirm }: IMathCorrectPopupProps
       <div className="flex flex-col justify-center items-center">
         <Lottie loop animationData={defaultLottie.clap} play className="w-[70%]" />
         <Typography label="heading3" color="black" className="mt-8">
-          정답입니다!
+          {title}
         </Typography>
       </div>
     </Popup>

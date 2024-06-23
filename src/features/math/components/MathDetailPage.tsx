@@ -17,6 +17,7 @@ import { useSolveProblemPutStudentMutation, useWrongProblemPutStudentMutation } 
 
 import MathForm from './MathForm';
 import { MathCorrectPopup, MathSolutionPopup, MathWrongPopup } from './MathPopups';
+import Typography from '@/components/Typography';
 
 const MathDetailPage = ({ id }: { id: string }) => {
   const { data } = useMathDetailQuery(id);
@@ -26,16 +27,14 @@ const MathDetailPage = ({ id }: { id: string }) => {
     setValue,
     formState: { isDirty, isValid },
   } = useFormContext<TMathAnswer>();
-  const { isOpen: isSolutionOpen, onClose: onSolutionClose, onOpen: onSolutionOpen } = useModal();
-  const { isOpen: isCorrectOpen, onClose: onCorrectClose, onOpen: onCorrectOpen } = useModal();
-  const { isOpen: isWrongOpen, onClose: onWrongClose, onOpen: onWrongOpen } = useModal();
+
   const { mutate: solveMutate } = useSolveProblemPutStudentMutation({
     id,
     tag: data?.tag as TMathTag,
   });
   const { mutate: wrongMutate } = useWrongProblemPutStudentMutation({
     id,
-    tag: data?.tag ?? '0',
+    tag: data?.tag as TMathTag,
   });
 
   const answer = data?.answer ?? [];
@@ -48,6 +47,10 @@ const MathDetailPage = ({ id }: { id: string }) => {
         : Array.from({ length: inputCount }, () => ({ value: '' }));
     setValue('answer', initiaArray);
   };
+
+  const { isOpen: isSolutionOpen, onClose: onSolutionClose, onOpen: onSolutionOpen } = useModal();
+  const { isOpen: isCorrectOpen, onClose: onCorrectClose, onOpen: onCorrectOpen } = useModal();
+  const { isOpen: isWrongOpen, onClose: onWrongClose, onOpen: onWrongOpen } = useModal();
 
   const handleMathResponseSubmit = () => {
     const studentAnswer = getValues('answer');
@@ -101,21 +104,53 @@ const MathDetailPage = ({ id }: { id: string }) => {
           <MathSolutionPopup
             isOpen={isSolutionOpen}
             onClose={onSolutionClose}
-            title="2021 번 문제에 대한 답입니다! "
-            mathSrc={data.question!}
-            solutionSrc={data.question_answer!}
+            content={
+              <>
+                <div className="w-1/2 h-full">
+                  <SectionTitle
+                    className="mb-14 mt-10"
+                    title={`${id} 번 문제에 대한 답입니다!`}
+                    subTitle="단원에 맞는 문제의 해설을 확인해보세요"
+                  />
+                  <Image src={data.question!} className="w-full mb-3" width={630} height={600} alt="" />
+                </div>
+                <div className="w-1/2 flex justify-center items-center mt-10">
+                  <Image
+                    src={data.question_answer!}
+                    width={400}
+                    height={0}
+                    alt=""
+                    className="h-auto w-full"
+                    layout="responsive"
+                  />
+                </div>
+              </>
+            }
           />
         )}
 
         {/*문제 맞을 때 팝업*/}
-        <MathCorrectPopup isOpen={isCorrectOpen} onClose={onCorrectClose} onConfirm={onSolutionOpen} />
+        <MathCorrectPopup
+          isOpen={isCorrectOpen}
+          onClose={onCorrectClose}
+          onConfirm={onSolutionOpen}
+          title={'정답입니다!'}
+        />
 
         {/*문제 틀렸을 때 팝업*/}
         <MathWrongPopup
           isOpen={isWrongOpen}
           onClose={onWrongClose}
-          onConfirm={onWrongClose}
-          onCancel={onSolutionOpen}
+          onConfirm={onSolutionOpen}
+          title="오답이에요ㅠㅠ"
+          content={
+            <>
+              <Typography label="title2" className="mt-4">
+                다시 풀어보면 맞을 수 있을 거에요!
+              </Typography>
+              <Typography label="title2">한번 더 시도해보아요!</Typography>
+            </>
+          }
         />
       </div>
     </main>
