@@ -7,14 +7,13 @@ import type { TMathTag } from '@/apis/math/types';
 import Button from '@/components/Button';
 import MathTitle from '@/components/MathTitle';
 import Typography from '@/components/Typography';
-import { MATH_RESPONSE } from '@/constants/enums';
 import { SectionTitle } from '@/features/math/components';
 import { MathPopupFactory } from '@/features/math/components/MathPopups';
 import MathProblemContent from '@/features/math/components/MathProblemContent';
 import { MATH_POPUPS } from '@/features/math/constants';
 import type { TMathAnswer } from '@/features/math/contexts';
 import { useMathPopups } from '@/features/math/hooks';
-import { getCorrectResponse } from '@/features/math/utils';
+import { getCorrectResponse, getInitialMathResponse } from '@/features/math/utils';
 import { useMathDetailQuery } from '@/hooks/reactQuery/math';
 import { useSolveProblemPutStudentMutation, useWrongProblemPutStudentMutation } from '@/hooks/reactQuery/student';
 
@@ -33,17 +32,10 @@ const MathDetailPage = ({ id }: { id: string }) => {
   } = useFormContext<TMathAnswer>();
   const { mutate: solveMutate } = useSolveProblemPutStudentMutation(postBody);
   const { mutate: wrongMutate } = useWrongProblemPutStudentMutation(postBody);
-
-  const answer = data?.answer ?? [];
-  const inputCount = data?.answer_type === MATH_RESPONSE.fractionResponse ? answer.length * 2 : answer.length;
   const { openPopup, closePopup } = useMathPopups();
-
+  const { initialAnswer, answer } = getInitialMathResponse(data!);
   const handleEmptyFormState = () => {
-    const initiaArray =
-      data?.answer_type === MATH_RESPONSE.multipleChoiceResponse
-        ? []
-        : Array.from({ length: inputCount }, () => ({ value: '' }));
-    setValue('answer', initiaArray);
+    setValue('answer', initialAnswer);
   };
 
   // 해설 팝업 여는 함수
@@ -67,7 +59,6 @@ const MathDetailPage = ({ id }: { id: string }) => {
         closePopup(MATH_POPUPS.correct);
       },
       onConfirm: () => {
-        console.log('실행은 되니?');
         handleOpenMathSolutionPopup();
       },
     });
@@ -89,7 +80,6 @@ const MathDetailPage = ({ id }: { id: string }) => {
         closePopup(MATH_POPUPS.wrong);
       },
       onConfirm: () => {
-        console.log('실행은 되니?');
         handleOpenMathSolutionPopup();
       },
     });
@@ -99,7 +89,7 @@ const MathDetailPage = ({ id }: { id: string }) => {
     const studentAnswer = getValues('answer');
     handleEmptyFormState();
     // 문제 맞았을 때
-    if (data && getCorrectResponse(data.answer ?? [], studentAnswer, data.answer_type ?? '0')) {
+    if (data && getCorrectResponse(answer, studentAnswer, data.answer_type ?? '0')) {
       handleOpenMathCorrectPopup();
       solveMutate();
       // 문제 틀렸을 때
@@ -111,7 +101,6 @@ const MathDetailPage = ({ id }: { id: string }) => {
 
   return (
     <main className="flex justify-center items-start gap-28 w-full px-16 mt-20">
-      {/*왼쪽 section*/}
       {data && (
         <div className="flex flex-col items-center justify-center w-1/2">
           <MathTitle title="문제 보기" />
@@ -119,10 +108,7 @@ const MathDetailPage = ({ id }: { id: string }) => {
           <Image src={data.question!} width={630} height={500} alt="" />
         </div>
       )}
-
-      {/*오른쪽 section*/}
       <div className="w-1/2">
-        {/*답안지 제목*/}
         <SectionTitle
           className="mb-14"
           title="문제를 풀고 생각하는 답안지를 작성해주세요"
