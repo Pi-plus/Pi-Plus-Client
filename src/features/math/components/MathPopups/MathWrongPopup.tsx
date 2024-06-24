@@ -1,23 +1,18 @@
+import React from 'react';
 import Lottie from 'react-lottie-player';
 import { defaultLottie } from '@public/lotties';
 
 import Popup from '@/components/Popup';
 import Typography from '@/components/Typography';
+import type { TMathPopupProps } from '@/features/math/types';
 
-interface IMathWrongPopupProps {
-  isOpen: boolean;
-  onClose: () => void;
-  onConfirm: () => void;
-  onCancel: () => void;
-}
-const MathWrongPopup = ({ isOpen, onClose, onConfirm, onCancel }: IMathWrongPopupProps) => {
+const MathWrongPopup = ({ isOpen, onClose, onConfirm, title, content }: TMathPopupProps) => {
   const handleConfirm = () => {
-    onConfirm();
     onClose();
+    onConfirm();
   };
 
   const handleCancel = () => {
-    onCancel();
     onClose();
   };
   return (
@@ -26,18 +21,15 @@ const MathWrongPopup = ({ isOpen, onClose, onConfirm, onCancel }: IMathWrongPopu
       onClose={onClose}
       onConfirm={handleConfirm}
       onCancel={handleCancel}
-      right="해설 보기"
-      left="닫기"
+      right="닫기"
+      left="해설보기"
     >
       <Lottie loop animationData={defaultLottie.sad} play className="w-[70%] -mt-24" />
       <div className="flex flex-col justify-center items-center -mt-8">
-        <Typography label="heading3" color="black">
-          오답이에요ㅠㅠ
+        <Typography label="heading3" color="black" className="mb-4">
+          {title}
         </Typography>
-        <Typography label="title2" className="mt-4">
-          다시 풀어보면 맞을 수 있을 거에요!
-        </Typography>
-        <Typography label="title2">한번 더 시도해보아요!</Typography>
+        {content}
       </div>
     </Popup>
   );

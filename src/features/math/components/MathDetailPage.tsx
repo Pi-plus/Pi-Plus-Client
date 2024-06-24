@@ -6,66 +6,101 @@ import Image from 'next/image';
 import type { TMathTag } from '@/apis/math/types';
 import Button from '@/components/Button';
 import MathTitle from '@/components/MathTitle';
-import { MATH_RESPONSE } from '@/constants/enums';
+import Typography from '@/components/Typography';
 import { SectionTitle } from '@/features/math/components';
+import { MathPopupFactory } from '@/features/math/components/MathPopups';
 import MathProblemContent from '@/features/math/components/MathProblemContent';
+import { MATH_POPUPS } from '@/features/math/constants';
 import type { TMathAnswer } from '@/features/math/contexts';
-import { getCorrectResponse } from '@/features/math/utils';
-import { useModal } from '@/hooks';
+import { useMathPopups } from '@/features/math/hooks';
+import { getCorrectResponse, getInitialMathResponse } from '@/features/math/utils';
 import { useMathDetailQuery } from '@/hooks/reactQuery/math';
 import { useSolveProblemPutStudentMutation, useWrongProblemPutStudentMutation } from '@/hooks/reactQuery/student';
 
 import MathForm from './MathForm';
-import { MathCorrectPopup, MathSolutionPopup, MathWrongPopup } from './MathPopups';
 
 const MathDetailPage = ({ id }: { id: string }) => {
   const { data } = useMathDetailQuery(id);
-  console.log(data?.answer);
+  const postBody = {
+    id,
+    tag: data?.tag as TMathTag,
+  };
   const {
     getValues,
     setValue,
     formState: { isDirty, isValid },
   } = useFormContext<TMathAnswer>();
-  const { isOpen: isSolutionOpen, onClose: onSolutionClose, onOpen: onSolutionOpen } = useModal();
-  const { isOpen: isCorrectOpen, onClose: onCorrectClose, onOpen: onCorrectOpen } = useModal();
-  const { isOpen: isWrongOpen, onClose: onWrongClose, onOpen: onWrongOpen } = useModal();
-  const { mutate: solveMutate } = useSolveProblemPutStudentMutation({
-    id,
-    tag: data?.tag as TMathTag,
-  });
-  const { mutate: wrongMutate } = useWrongProblemPutStudentMutation({
-    id,
-    tag: data?.tag ?? '0',
-  });
-
-  const answer = data?.answer ?? [];
-  const inputCount = data?.answer_type === MATH_RESPONSE.fractionResponse ? answer.length * 2 : answer.length;
-
+  const { mutate: solveMutate } = useSolveProblemPutStudentMutation(postBody);
+  const { mutate: wrongMutate } = useWrongProblemPutStudentMutation(postBody);
+  const { openPopup, closePopup } = useMathPopups();
+  const { initialAnswer, answer } = getInitialMathResponse(data!);
   const handleEmptyFormState = () => {
-    const initiaArray =
-      data?.answer_type === MATH_RESPONSE.multipleChoiceResponse
-        ? []
-        : Array.from({ length: inputCount }, () => ({ value: '' }));
-    setValue('answer', initiaArray);
+    setValue('answer', initialAnswer);
+  };
+
+  // 해설 팝업 여는 함수
+  const handleOpenMathSolutionPopup = () => {
+    openPopup(MATH_POPUPS.solution, {
+      onClose: () => {
+        closePopup(MATH_POPUPS.solution);
+      },
+      onConfirm: () => {},
+      title: `${id}번의 문제`,
+      mathImg: data ? data.question : '',
+      solutionImg: data ? data.question_answer : '',
+    });
+  };
+
+  // 정답 팝업 여는 함수
+  const handleOpenMathCorrectPopup = () => {
+    openPopup(MATH_POPUPS.correct, {
+      title: '정답입니다!',
+      onClose: () => {
+        closePopup(MATH_POPUPS.correct);
+      },
+      onConfirm: () => {
+        handleOpenMathSolutionPopup();
+      },
+    });
+  };
+
+  // 오답 팝업 여는 함수
+  const handleOpenMathWrongPopup = () => {
+    openPopup(MATH_POPUPS.wrong, {
+      title: '오답이에요ㅠㅠ',
+      content: (
+        <>
+          <Typography label="title2" className="mt-4">
+            다시 풀어보면 맞을 수 있을 거에요!
+          </Typography>
+          <Typography label="title2">한번 더 시도해보아요!</Typography>
+        </>
+      ),
+      onClose: () => {
+        closePopup(MATH_POPUPS.wrong);
+      },
+      onConfirm: () => {
+        handleOpenMathSolutionPopup();
+      },
+    });
   };
 
   const handleMathResponseSubmit = () => {
     const studentAnswer = getValues('answer');
     handleEmptyFormState();
     // 문제 맞았을 때
-    if (data && getCorrectResponse(data.answer ?? [], studentAnswer, data.answer_type ?? '0')) {
-      onCorrectOpen();
+    if (data && getCorrectResponse(answer, studentAnswer, data.answer_type ?? '0')) {
+      handleOpenMathCorrectPopup();
       solveMutate();
       // 문제 틀렸을 때
     } else {
-      onWrongOpen();
+      handleOpenMathWrongPopup();
       wrongMutate();
     }
   };
 
   return (
     <main className="flex justify-center items-start gap-28 w-full px-16 mt-20">
-      {/*왼쪽 section*/}
       {data && (
         <div className="flex flex-col items-center justify-center w-1/2">
           <MathTitle title="문제 보기" />
@@ -73,10 +108,7 @@ const MathDetailPage = ({ id }: { id: string }) => {
           <Image src={data.question!} width={630} height={500} alt="" />
         </div>
       )}
-
-      {/*오른쪽 section*/}
       <div className="w-1/2">
-        {/*답안지 제목*/}
         <SectionTitle
           className="mb-14"
           title="문제를 풀고 생각하는 답안지를 작성해주세요"
@@ -96,27 +128,7 @@ const MathDetailPage = ({ id }: { id: string }) => {
           답안 제출
         </Button>
 
-        {data && (
-          // 문제 해설 팝업
-          <MathSolutionPopup
-            isOpen={isSolutionOpen}
-            onClose={onSolutionClose}
-            title="2021 번 문제에 대한 답입니다! "
-            mathSrc={data.question!}
-            solutionSrc={data.question_answer!}
-          />
-        )}
-
-        {/*문제 맞을 때 팝업*/}
-        <MathCorrectPopup isOpen={isCorrectOpen} onClose={onCorrectClose} onConfirm={onSolutionOpen} />
-
-        {/*문제 틀렸을 때 팝업*/}
-        <MathWrongPopup
-          isOpen={isWrongOpen}
-          onClose={onWrongClose}
-          onConfirm={onWrongClose}
-          onCancel={onSolutionOpen}
-        />
+        <MathPopupFactory />
       </div>
     </main>
   );
