@@ -49,6 +49,7 @@ const MathDetailPage = ({ id }: { id: string }) => {
     setValue('answer', initiaArray);
   };
 
+  // 해설 팝업 여는 함수
   const handleOpenMathSolutionPopup = () => {
     openPopup(MATH_POPUPS.solution, {
       onClose: () => {
@@ -61,42 +62,52 @@ const MathDetailPage = ({ id }: { id: string }) => {
     });
   };
 
+  // 정답 팝업 여는 함수
+  const handleOpenMathCorrectPopup = () => {
+    openPopup(MATH_POPUPS.correct, {
+      title: '정답입니다!',
+      onClose: () => {
+        closePopup(MATH_POPUPS.correct);
+      },
+      onConfirm: () => {
+        console.log('실행은 되니?');
+        handleOpenMathSolutionPopup();
+      },
+    });
+  };
+
+  // 오답 팝업 여는 함수
+  const handleOpenMathWrongPopup = () => {
+    openPopup(MATH_POPUPS.wrong, {
+      title: '오답이에요ㅠㅠ',
+      content: (
+        <>
+          <Typography label="title2" className="mt-4">
+            다시 풀어보면 맞을 수 있을 거에요!
+          </Typography>
+          <Typography label="title2">한번 더 시도해보아요!</Typography>
+        </>
+      ),
+      onClose: () => {
+        closePopup(MATH_POPUPS.wrong);
+      },
+      onConfirm: () => {
+        console.log('실행은 되니?');
+        handleOpenMathSolutionPopup();
+      },
+    });
+  };
+
   const handleMathResponseSubmit = () => {
     const studentAnswer = getValues('answer');
     handleEmptyFormState();
     // 문제 맞았을 때
     if (data && getCorrectResponse(data.answer ?? [], studentAnswer, data.answer_type ?? '0')) {
-      openPopup(MATH_POPUPS.correct, {
-        title: '정답입니다!',
-        onClose: () => {
-          closePopup(MATH_POPUPS.correct);
-        },
-        onConfirm: () => {
-          console.log('실행은 되니?');
-          handleOpenMathSolutionPopup();
-        },
-      });
+      handleOpenMathCorrectPopup();
       solveMutate();
       // 문제 틀렸을 때
     } else {
-      openPopup(MATH_POPUPS.wrong, {
-        title: '오답이에요ㅠㅠ',
-        content: (
-          <>
-            <Typography label="title2" className="mt-4">
-              다시 풀어보면 맞을 수 있을 거에요!
-            </Typography>
-            <Typography label="title2">한번 더 시도해보아요!</Typography>
-          </>
-        ),
-        onClose: () => {
-          closePopup(MATH_POPUPS.wrong);
-        },
-        onConfirm: () => {
-          console.log('실행은 되니?');
-          handleOpenMathSolutionPopup();
-        },
-      });
+      handleOpenMathWrongPopup();
       wrongMutate();
     }
   };
