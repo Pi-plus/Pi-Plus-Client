@@ -5,14 +5,9 @@ import { defaultLottie } from '@public/lotties';
 import Popup from '@/components/Popup';
 import Typography from '@/components/Typography';
 
-interface IMathWrongPopupProps {
-  isOpen: boolean;
-  onClose: () => void;
-  onConfirm: () => void;
-  title: string;
-  content: React.ReactNode;
-}
-const MathWrongPopup = ({ isOpen, onClose, onConfirm, title, content }: IMathWrongPopupProps) => {
+import type { IMathPopupPropsWithConfirm } from '../../types';
+
+const MathWrongPopup = ({ isOpen, onClose, onConfirm, title, content }: IMathPopupPropsWithConfirm) => {
   const handleConfirm = () => {
     onConfirm();
     onClose();

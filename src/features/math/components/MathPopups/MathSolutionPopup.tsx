@@ -3,12 +3,9 @@ import { defaultSvg } from '@public/svgs';
 
 import Modal from '@/components/Modal';
 
-interface IMathSolutionPopup {
-  isOpen: boolean;
-  onClose: () => void;
-  content: React.ReactNode;
-}
-const MathSolutionPopup = ({ isOpen, onClose, content }: IMathSolutionPopup) => {
+import type { IMathPopupProps } from '../../types';
+
+const MathSolutionPopup = ({ isOpen, onClose, content }: IMathPopupProps) => {
   return (
     <Modal isShow={isOpen} onClose={onClose} className="w-[90%] h-[90%] gap-20 p-7 flex justify-between items-start">
       <Image
