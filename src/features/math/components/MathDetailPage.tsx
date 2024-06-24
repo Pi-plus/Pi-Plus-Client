@@ -22,20 +22,17 @@ import MathForm from './MathForm';
 
 const MathDetailPage = ({ id }: { id: string }) => {
   const { data } = useMathDetailQuery(id);
+  const postBody = {
+    id,
+    tag: data?.tag as TMathTag,
+  };
   const {
     getValues,
     setValue,
     formState: { isDirty, isValid },
   } = useFormContext<TMathAnswer>();
-
-  const { mutate: solveMutate } = useSolveProblemPutStudentMutation({
-    id,
-    tag: data?.tag as TMathTag,
-  });
-  const { mutate: wrongMutate } = useWrongProblemPutStudentMutation({
-    id,
-    tag: data?.tag as TMathTag,
-  });
+  const { mutate: solveMutate } = useSolveProblemPutStudentMutation(postBody);
+  const { mutate: wrongMutate } = useWrongProblemPutStudentMutation(postBody);
 
   const answer = data?.answer ?? [];
   const inputCount = data?.answer_type === MATH_RESPONSE.fractionResponse ? answer.length * 2 : answer.length;
