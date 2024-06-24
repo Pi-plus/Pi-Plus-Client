@@ -51,37 +51,13 @@ const MathDetailPage = ({ id }: { id: string }) => {
 
   const handleOpenMathSolutionPopup = () => {
     openPopup(MATH_POPUPS.solution, {
-      isOpen: true,
       onClose: () => {
         closePopup(MATH_POPUPS.solution);
       },
       onConfirm: () => {},
-      content: (
-        <>
-          {data && (
-            <div className="grid grid-cols-2 gap-10 h-full">
-              <div className="flex flex-col items-center justify-center w-full h-full">
-                <SectionTitle
-                  className="mb-14 mt-10"
-                  title={`${id}번의 문제`}
-                  subTitle="단원에 맞는 문제의 해설을 확인해보세요"
-                />
-                <Image src={data.question!} className="w-full mb-3" width={630} height={600} alt="" />
-              </div>
-              <div className="flex justify-center items-center mt-10">
-                <Image
-                  src={data.question_answer!}
-                  width={400}
-                  height={0}
-                  alt=""
-                  className="h-auto w-full"
-                  layout="responsive"
-                />
-              </div>
-            </div>
-          )}
-        </>
-      ),
+      title: `${id}번의 문제`,
+      mathImg: data ? data.question : '',
+      solutionImg: data ? data.question_answer : '',
     });
   };
 
@@ -91,7 +67,6 @@ const MathDetailPage = ({ id }: { id: string }) => {
     // 문제 맞았을 때
     if (data && getCorrectResponse(data.answer ?? [], studentAnswer, data.answer_type ?? '0')) {
       openPopup(MATH_POPUPS.correct, {
-        isOpen: true,
         title: '정답입니다!',
         onClose: () => {
           closePopup(MATH_POPUPS.correct);
@@ -105,7 +80,6 @@ const MathDetailPage = ({ id }: { id: string }) => {
       // 문제 틀렸을 때
     } else {
       openPopup(MATH_POPUPS.wrong, {
-        isOpen: true,
         title: '오답이에요ㅠㅠ',
         content: (
           <>

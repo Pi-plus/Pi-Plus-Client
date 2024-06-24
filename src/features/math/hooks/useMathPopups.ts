@@ -7,7 +7,7 @@ import type { TMathPopupProps, TPopupsComponent } from '@/features/math/types';
 export const useMathPopups = () => {
   const { popups, setPopups } = usePopupsStore();
   const openPopup = useCallback(
-    (Component: FunctionComponent<TPopupsComponent>, props: TMathPopupProps) => {
+    (Component: FunctionComponent<TPopupsComponent>, props: Omit<TMathPopupProps, 'isOpen'>) => {
       setPopups([...popups, { Component, props: { ...props, isOpen: true } }]);
     },
     [setPopups, popups],
