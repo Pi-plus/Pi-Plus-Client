@@ -3,13 +3,12 @@ import { defaultLottie } from '@public/lotties';
 
 import Popup from '@/components/Popup';
 import Typography from '@/components/Typography';
+import type { TMathPopupProps } from '@/features/math/types';
 
-import type { IMathPopupPropsWithConfirm } from '../../types';
-
-const MathCorrectPopup = ({ isOpen, onClose, onConfirm, title }: IMathPopupPropsWithConfirm) => {
+const MathCorrectPopup = ({ isOpen, onClose, onConfirm, title }: TMathPopupProps) => {
   const handleConfirm = () => {
-    onConfirm();
     onClose();
+    onConfirm();
   };
   return (
     <Popup isShow={isOpen} onClose={onClose} onConfirm={handleConfirm} onCancel={onClose} left="해설보기" right="취소">

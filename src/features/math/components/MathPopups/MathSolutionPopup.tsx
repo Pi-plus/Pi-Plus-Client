@@ -2,10 +2,9 @@ import Image from 'next/image';
 import { defaultSvg } from '@public/svgs';
 
 import Modal from '@/components/Modal';
+import type { TMathPopupProps } from '@/features/math/types';
 
-import type { IMathPopupProps } from '../../types';
-
-const MathSolutionPopup = ({ isOpen, onClose, content }: IMathPopupProps) => {
+const MathSolutionPopup = ({ isOpen, onClose, content }: TMathPopupProps) => {
   return (
     <Modal isShow={isOpen} onClose={onClose} className="w-[90%] h-[90%] gap-20 p-7 flex justify-between items-start">
       <Image

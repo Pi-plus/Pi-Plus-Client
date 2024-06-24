@@ -4,13 +4,12 @@ import { defaultLottie } from '@public/lotties';
 
 import Popup from '@/components/Popup';
 import Typography from '@/components/Typography';
+import type { TMathPopupProps } from '@/features/math/types';
 
-import type { IMathPopupPropsWithConfirm } from '../../types';
-
-const MathWrongPopup = ({ isOpen, onClose, onConfirm, title, content }: IMathPopupPropsWithConfirm) => {
+const MathWrongPopup = ({ isOpen, onClose, onConfirm, title, content }: TMathPopupProps) => {
   const handleConfirm = () => {
-    onConfirm();
     onClose();
+    onConfirm();
   };
 
   const handleCancel = () => {
