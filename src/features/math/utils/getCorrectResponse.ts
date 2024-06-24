@@ -5,6 +5,9 @@ import type { TMathAnswerContent } from '../contexts';
 
 import { getFractionStudentArray, getStudentArray } from './getStudentArray';
 
+/**
+ * @description 실제 수학 답안지와 실제 답 정답 여부 결정하는 함수
+ */
 export const getCorrectResponse = (
   solution: number[] | string[] | TFraction[],
   response: TMathAnswerContent,
