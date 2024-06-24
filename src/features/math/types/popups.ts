@@ -9,6 +9,8 @@ export type TMathPopupProps = {
   onConfirm: VoidFunction;
   title?: string;
   content?: React.ReactNode;
+  mathImg?: string;
+  solutionImg?: string;
 };
 
 export type TPopupsComponent =
