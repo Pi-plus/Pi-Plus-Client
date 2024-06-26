@@ -30,7 +30,6 @@ const meta: Meta<typeof Button> = {
     disabled: false,
     children: 'Button',
   },
-  tags: ['autodocs'],
 };
 
 export default meta;
@@ -39,28 +38,28 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     type: 'default',
-    children: 'Default Button',
+    children: '버튼',
   },
 };
 
 export const Secondary: Story = {
   args: {
     type: 'secondary',
-    children: 'Secondary Button',
+    children: '버튼',
   },
 };
 
 export const Loading: Story = {
   args: {
     loading: true,
-    children: 'Loading Button',
+    children: '버튼',
   },
 };
 
 export const Disabled: Story = {
   args: {
     disabled: true,
-    children: 'Disabled Button',
+    children: '버튼',
   },
 };
 
@@ -68,7 +67,7 @@ export const LoadingSecondary: Story = {
   args: {
     type: 'secondary',
     loading: true,
-    children: 'Loading Secondary Button',
+    children: '버튼',
   },
 };
 
@@ -76,6 +75,6 @@ export const DisabledSecondary: Story = {
   args: {
     type: 'secondary',
     disabled: true,
-    children: 'Disabled Secondary Button',
+    children: '버튼',
   },
 };
