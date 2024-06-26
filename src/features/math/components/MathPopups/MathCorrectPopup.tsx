@@ -1,8 +1,4 @@
-import Lottie from 'react-lottie-player';
-import { defaultLottie } from '@public/lotties';
-
-import Popup from '@/components/Popup';
-import Typography from '@/components/Typography';
+import { Popup } from '@/components/Popup/PopupMain';
 import type { TMathPopupProps } from '@/features/math/types';
 
 const MathCorrectPopup = ({ isOpen, onClose, onConfirm, title }: TMathPopupProps) => {
@@ -11,13 +7,15 @@ const MathCorrectPopup = ({ isOpen, onClose, onConfirm, title }: TMathPopupProps
     onConfirm();
   };
   return (
-    <Popup isShow={isOpen} onClose={onClose} onConfirm={handleConfirm} onCancel={onClose} left="해설보기" right="취소">
-      <div className="flex flex-col justify-center items-center">
-        <Lottie loop animationData={defaultLottie.clap} play className="w-[70%]" />
-        <Typography label="heading3" color="black" className="mt-8">
-          {title}
-        </Typography>
-      </div>
+    <Popup isShow={isOpen} onClose={onClose}>
+      <Popup.Content>
+        <Popup.Lottie imgKey="clap" />
+        <Popup.Title>{title}</Popup.Title>
+      </Popup.Content>
+      <Popup.Footer>
+        <Popup.ConfirmButton onConfirm={handleConfirm}>해설보기</Popup.ConfirmButton>
+        <Popup.CancelButton onCancel={onClose}>취소</Popup.CancelButton>
+      </Popup.Footer>
     </Popup>
   );
 };
