@@ -35,6 +35,7 @@ const RAW_RUNTIME_STATE =
           ["@storybook/addon-interactions", "npm:8.1.9"],\
           ["@storybook/addon-links", "virtual:e3e3d80051096c48b0c32d8cd2609bc7a2dc35a152b59841426dfa41198d5431929d1b46d768d58200db56cfc1a2d54ff30f8dc319460369e0403195451a63b4#npm:8.1.9"],\
           ["@storybook/addon-onboarding", "npm:8.1.9"],\
+          ["@storybook/addon-styling-webpack", "virtual:e3e3d80051096c48b0c32d8cd2609bc7a2dc35a152b59841426dfa41198d5431929d1b46d768d58200db56cfc1a2d54ff30f8dc319460369e0403195451a63b4#npm:1.0.0"],\
           ["@storybook/addon-webpack5-compiler-swc", "npm:1.0.3"],\
           ["@storybook/blocks", "virtual:e3e3d80051096c48b0c32d8cd2609bc7a2dc35a152b59841426dfa41198d5431929d1b46d768d58200db56cfc1a2d54ff30f8dc319460369e0403195451a63b4#npm:8.1.9"],\
           ["@storybook/react", "virtual:e3e3d80051096c48b0c32d8cd2609bc7a2dc35a152b59841426dfa41198d5431929d1b46d768d58200db56cfc1a2d54ff30f8dc319460369e0403195451a63b4#npm:8.1.9"],\
@@ -8243,6 +8244,29 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["@storybook/addon-styling-webpack", [\
+      ["npm:1.0.0", {\
+        "packageLocation": "./.yarn/cache/@storybook-addon-styling-webpack-npm-1.0.0-985a77463c-10c0.zip/node_modules/@storybook/addon-styling-webpack/",\
+        "packageDependencies": [\
+          ["@storybook/addon-styling-webpack", "npm:1.0.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:e3e3d80051096c48b0c32d8cd2609bc7a2dc35a152b59841426dfa41198d5431929d1b46d768d58200db56cfc1a2d54ff30f8dc319460369e0403195451a63b4#npm:1.0.0", {\
+        "packageLocation": "./.yarn/__virtual__/@storybook-addon-styling-webpack-virtual-4d98082a3b/0/cache/@storybook-addon-styling-webpack-npm-1.0.0-985a77463c-10c0.zip/node_modules/@storybook/addon-styling-webpack/",\
+        "packageDependencies": [\
+          ["@storybook/addon-styling-webpack", "virtual:e3e3d80051096c48b0c32d8cd2609bc7a2dc35a152b59841426dfa41198d5431929d1b46d768d58200db56cfc1a2d54ff30f8dc319460369e0403195451a63b4#npm:1.0.0"],\
+          ["@storybook/node-logger", "npm:8.1.10"],\
+          ["@types/webpack", null],\
+          ["webpack", null]\
+        ],\
+        "packagePeers": [\
+          "@types/webpack",\
+          "webpack"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["@storybook/addon-toolbars", [\
       ["npm:8.1.9", {\
         "packageLocation": "./.yarn/cache/@storybook-addon-toolbars-npm-8.1.9-35d334c786-10c0.zip/node_modules/@storybook/addon-toolbars/",\
@@ -9037,6 +9061,13 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@storybook/node-logger", [\
+      ["npm:8.1.10", {\
+        "packageLocation": "./.yarn/cache/@storybook-node-logger-npm-8.1.10-c8e460216e-10c0.zip/node_modules/@storybook/node-logger/",\
+        "packageDependencies": [\
+          ["@storybook/node-logger", "npm:8.1.10"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
       ["npm:8.1.9", {\
         "packageLocation": "./.yarn/cache/@storybook-node-logger-npm-8.1.9-16856dcce3-10c0.zip/node_modules/@storybook/node-logger/",\
         "packageDependencies": [\
@@ -18172,6 +18203,7 @@ const RAW_RUNTIME_STATE =
           ["@storybook/addon-interactions", "npm:8.1.9"],\
           ["@storybook/addon-links", "virtual:e3e3d80051096c48b0c32d8cd2609bc7a2dc35a152b59841426dfa41198d5431929d1b46d768d58200db56cfc1a2d54ff30f8dc319460369e0403195451a63b4#npm:8.1.9"],\
           ["@storybook/addon-onboarding", "npm:8.1.9"],\
+          ["@storybook/addon-styling-webpack", "virtual:e3e3d80051096c48b0c32d8cd2609bc7a2dc35a152b59841426dfa41198d5431929d1b46d768d58200db56cfc1a2d54ff30f8dc319460369e0403195451a63b4#npm:1.0.0"],\
           ["@storybook/addon-webpack5-compiler-swc", "npm:1.0.3"],\
           ["@storybook/blocks", "virtual:e3e3d80051096c48b0c32d8cd2609bc7a2dc35a152b59841426dfa41198d5431929d1b46d768d58200db56cfc1a2d54ff30f8dc319460369e0403195451a63b4#npm:8.1.9"],\
           ["@storybook/react", "virtual:e3e3d80051096c48b0c32d8cd2609bc7a2dc35a152b59841426dfa41198d5431929d1b46d768d58200db56cfc1a2d54ff30f8dc319460369e0403195451a63b4#npm:8.1.9"],\
