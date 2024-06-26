@@ -9,7 +9,7 @@ import teacherLottie from './teacher.json';
 import trophyLottie from './trophy.json';
 import tryLottie from './try.json';
 
-type TKeyOfDefaultLottie =
+export type TKeyOfDefaultLottie =
   | 'clap'
   | 'emptyBox'
   | 'matching'

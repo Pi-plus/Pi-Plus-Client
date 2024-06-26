@@ -1,9 +1,6 @@
 import React from 'react';
-import Lottie from 'react-lottie-player';
-import { defaultLottie } from '@public/lotties';
 
-import Popup from '@/components/Popup';
-import Typography from '@/components/Typography';
+import { Popup } from '@/components/Popup/PopupMain';
 import type { TMathPopupProps } from '@/features/math/types';
 
 const MathWrongPopup = ({ isOpen, onClose, onConfirm, title, content }: TMathPopupProps) => {
@@ -12,25 +9,17 @@ const MathWrongPopup = ({ isOpen, onClose, onConfirm, title, content }: TMathPop
     onConfirm();
   };
 
-  const handleCancel = () => {
-    onClose();
-  };
   return (
-    <Popup
-      isShow={isOpen}
-      onClose={onClose}
-      onConfirm={handleConfirm}
-      onCancel={handleCancel}
-      right="닫기"
-      left="해설보기"
-    >
-      <Lottie loop animationData={defaultLottie.sad} play className="w-[70%] -mt-24" />
-      <div className="flex flex-col justify-center items-center -mt-8">
-        <Typography label="heading3" color="black" className="mb-4">
-          {title}
-        </Typography>
-        {content}
-      </div>
+    <Popup isShow={isOpen} onClose={onClose}>
+      <Popup.Content>
+        <Popup.Lottie imgKey="sad" />
+        <Popup.Title>{title}</Popup.Title>
+        <Popup.SubTitle>{content}</Popup.SubTitle>
+      </Popup.Content>
+      <Popup.Footer>
+        <Popup.ConfirmButton onConfirm={handleConfirm}>해설보기</Popup.ConfirmButton>
+        <Popup.CancelButton onCancel={onClose}>닫기</Popup.CancelButton>
+      </Popup.Footer>
     </Popup>
   );
 };
