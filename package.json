@@ -40,6 +40,8 @@
     "@storybook/addon-interactions": "^8.1.9",
     "@storybook/addon-links": "^8.1.9",
     "@storybook/addon-onboarding": "^8.1.9",
+    "@storybook/addon-postcss": "^2.0.0",
+    "@storybook/addon-styling-webpack": "^1.0.0",
     "@storybook/addon-webpack5-compiler-swc": "1.0.3",
     "@storybook/blocks": "^8.1.9",
     "@storybook/react": "^8.1.9",
@@ -73,6 +75,9 @@
       "prettier --write",
       "eslint --fix"
     ]
+  },
+  "resolutions": {
+    "webpack": "^5"
   },
   "packageManager": "yarn@4.1.1"
 }
