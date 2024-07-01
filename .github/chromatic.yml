@@ -1,40 +1,14 @@
 name: 'Chromatic Deployment'
-run-name: deploy storybook by ${{ github.actor }}
-on:
-  pull_request:
-    branches:
-      - main
-    paths:
-      - '**.stories.ts'
-      - '**.stories.tsx'
-      - '**.mdx'
+
+on: push
+
 jobs:
-  chromatic-storybook-deploy:
+  test:
     runs-on: ubuntu-latest
-    outputs:
-      status: ${{ job.status }}
     steps:
-      - name: checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v1
+      - run: yarn
+      - uses: chromaui/action@v1
         with:
-          fetch-depth: 0
-            - name: cache dependencies
-              id: cache
-              uses: actions/cache@v4
-              with:
-                path: "**/node_modules"
-                key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}-storybook
-
-            - name: depedency install
-              if: steps.cache.outputs.cache-hit != 'true'
-              run: npm ci
-
-            - name: publish chromatic
-              id: chromatic
-              uses: chromaui/action@latest
-              with:
-                projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-                token: ${{ secrets.GITHUB_TOKEN }}
-
-            - name: publish summary
-              run: echo -e "| Results |  |\n| --- | --- |\n| Build Results | ${{steps.chromatic.outputs.buildUrl}} |\n| Storybook Preview | ${{steps.chromatic.outputs.storybookUrl}} |\n| Component Count | ${{steps.chromatic.outputs.componentCount}} |" >> $GITHUB_STEP_SUMMARY
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
