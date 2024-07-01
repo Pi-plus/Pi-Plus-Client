@@ -15,6 +15,9 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: comment PR
+        if: github.event_name == 'pull_request'
         uses: thollander/actions-comment-pull-request@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           message: "🚀storybook: ${{ steps.chromatic.outputs.storybookUrl }}"
