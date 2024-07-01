@@ -1,0 +1,24 @@
+name: 'Chromatic Deployment'
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - run: yarn
+      - name: publish to chromatic
+        id: chromatic
+        uses: chromaui/action@v1
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: comment PR
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          message: "🚀storybook: ${{ steps.chromatic.outputs.storybookUrl }}"

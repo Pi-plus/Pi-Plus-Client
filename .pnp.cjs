@@ -51,6 +51,7 @@ const RAW_RUNTIME_STATE =
           ["@typescript-eslint/parser", "virtual:e3e3d80051096c48b0c32d8cd2609bc7a2dc35a152b59841426dfa41198d5431929d1b46d768d58200db56cfc1a2d54ff30f8dc319460369e0403195451a63b4#npm:7.1.1"],\
           ["autoprefixer", "virtual:e3e3d80051096c48b0c32d8cd2609bc7a2dc35a152b59841426dfa41198d5431929d1b46d768d58200db56cfc1a2d54ff30f8dc319460369e0403195451a63b4#npm:10.4.18"],\
           ["chart.js", "npm:4.4.3"],\
+          ["chromatic", "virtual:a1cb9ce426e87f1a3ad3bc8e00eef6b02921ac7ea9bca61a2ba32b3432bed85be85c76d5e1e34eb89bc45c4fc777f1d38bb5b96e90ea1498072f0b5d3fce61e3#npm:11.5.4"],\
           ["classnames", "npm:2.5.1"],\
           ["cookies-next", "npm:4.2.1"],\
           ["eslint", "npm:8.57.0"],\
@@ -18451,6 +18452,7 @@ const RAW_RUNTIME_STATE =
           ["@typescript-eslint/parser", "virtual:e3e3d80051096c48b0c32d8cd2609bc7a2dc35a152b59841426dfa41198d5431929d1b46d768d58200db56cfc1a2d54ff30f8dc319460369e0403195451a63b4#npm:7.1.1"],\
           ["autoprefixer", "virtual:e3e3d80051096c48b0c32d8cd2609bc7a2dc35a152b59841426dfa41198d5431929d1b46d768d58200db56cfc1a2d54ff30f8dc319460369e0403195451a63b4#npm:10.4.18"],\
           ["chart.js", "npm:4.4.3"],\
+          ["chromatic", "virtual:a1cb9ce426e87f1a3ad3bc8e00eef6b02921ac7ea9bca61a2ba32b3432bed85be85c76d5e1e34eb89bc45c4fc777f1d38bb5b96e90ea1498072f0b5d3fce61e3#npm:11.5.4"],\
           ["classnames", "npm:2.5.1"],\
           ["cookies-next", "npm:4.2.1"],\
           ["eslint", "npm:8.57.0"],\
