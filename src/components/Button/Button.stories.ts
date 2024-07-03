@@ -62,19 +62,3 @@ export const Disabled: Story = {
     children: '버튼',
   },
 };
-
-export const LoadingSecondary: Story = {
-  args: {
-    type: 'secondary',
-    loading: true,
-    children: '버튼',
-  },
-};
-
-export const DisabledSecondary: Story = {
-  args: {
-    type: 'secondary',
-    disabled: true,
-    children: '버튼',
-  },
-};
