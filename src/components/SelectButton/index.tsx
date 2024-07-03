@@ -1,4 +1,5 @@
 import type { HTMLAttributes } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 
 import Typography from '../Typography';
