@@ -7,7 +7,12 @@ function getAbsolutePath(value: string): any {
 }
 // @ts-ignore
 const config: StorybookConfig = {
-  stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)', '../**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+  stories: [
+    '../src/**/*.mdx',
+    '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)',
+    '../**/*.stories.@(js|jsx|mjs|ts|tsx)',
+    '../**/**/**/*.stories.@(js|jsx|mjs|ts|tsx)',
+  ],
   webpackFinal: async (config) => {
     if (config.resolve) {
       config.resolve.alias = {
