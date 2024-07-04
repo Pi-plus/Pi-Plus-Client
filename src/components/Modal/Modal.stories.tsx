@@ -22,9 +22,9 @@ const Template = () => {
 
   return (
     <>
-      <Button onClick={onOpen} className="w-24">
-        Click
-      </Button>
+      <div className="w-[30%]">
+        <Button onClick={onOpen}>Click</Button>
+      </div>
       <Modal isShow={isOpen} onClose={onClose} className="flex flex-col justify-between p-7">
         <Typography>ModalContent</Typography>
         <Button onClick={onClose}>Close</Button>
