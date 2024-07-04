@@ -5,7 +5,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import SelectButton from '@/components/SelectButton/index';
 
 const meta: Meta<typeof SelectButton> = {
-  title: 'Components/SelectButton',
+  title: 'Button/SelectButton',
   component: SelectButton,
   parameters: {
     layout: 'centered',
@@ -27,7 +27,7 @@ const Template = () => {
   return <SelectButton onClick={handleSelectButton} label="클릭" isSelected={isSelected} />;
 };
 
-export const Select: StoryObj<typeof Template> = {
+export const Primary: StoryObj<typeof Template> = {
   render: () => <Template />,
   args: {
     isSelected: false,

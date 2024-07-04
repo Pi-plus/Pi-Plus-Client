@@ -7,7 +7,12 @@ function getAbsolutePath(value: string): any {
 }
 // @ts-ignore
 const config: StorybookConfig = {
-  stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)', '../**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+  stories: [
+    '../src/**/*.mdx',
+    '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)',
+    '../**/*.stories.@(js|jsx|mjs|ts|tsx)',
+    '../**/**/**/*.stories.@(js|jsx|mjs|ts|tsx)',
+  ],
   webpackFinal: async (config) => {
     if (config.resolve) {
       config.resolve.alias = {
@@ -41,8 +46,21 @@ const config: StorybookConfig = {
     },
   ],
   framework: {
-    name: getAbsolutePath('@storybook/react-webpack5'),
-    options: {},
+    name: '@storybook/react-webpack5',
+    options: {
+      builder: {
+        useSWC: true,
+      },
+    },
   },
+  swc: () => ({
+    jsc: {
+      transform: {
+        react: {
+          runtime: 'automatic',
+        },
+      },
+    },
+  }),
 };
 export default config;
