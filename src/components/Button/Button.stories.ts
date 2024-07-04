@@ -3,14 +3,14 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Button from '.';
 
 const meta: Meta<typeof Button> = {
-  title: 'Components/Button',
+  title: 'Button/Button',
   component: Button,
   parameters: {
     layout: 'centered',
   },
   argTypes: {
     type: {
-      control: { type: 'select', options: ['default', 'secondary'] },
+      control: { type: 'radio', options: ['secondary', 'default'] },
     },
     loading: {
       control: 'boolean',
@@ -35,22 +35,16 @@ const meta: Meta<typeof Button> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Secondary: Story = {
+export const Primary: Story = {
   args: {
     type: 'secondary',
     children: '버튼',
   },
 };
 
-export const Default: Story = {
-  args: {
-    type: 'default',
-    children: '버튼',
-  },
-};
-
 export const Loading: Story = {
   args: {
+    type: 'secondary',
     loading: true,
     children: '버튼',
   },
@@ -58,6 +52,7 @@ export const Loading: Story = {
 
 export const Disabled: Story = {
   args: {
+    type: 'secondary',
     disabled: true,
     children: '버튼',
   },
