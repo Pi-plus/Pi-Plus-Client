@@ -5,7 +5,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import SelectButton from '@/components/SelectButton/index';
 
 const meta: Meta<typeof SelectButton> = {
-  title: 'Components/SelectButton',
+  title: 'Button/SelectButton',
   component: SelectButton,
   parameters: {
     layout: 'centered',
