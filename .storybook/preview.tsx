@@ -1,5 +1,5 @@
 import type { Preview } from '@storybook/react';
-import React from 'react';
+
 import { PortalProvider } from '@/components/GlobalPortal';
 
 import '../src/app/globals.css';
