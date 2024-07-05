@@ -14,6 +14,20 @@ const config: StorybookConfig = {
     '@storybook/addon-essentials',
     '@chromatic-com/storybook',
     '@storybook/addon-interactions',
+    {
+      name: '@storybook/addon-styling',
+      options: {
+        postCss: true,
+      },
+    },
+    {
+      name: '@storybook/addon-postcss',
+      options: {
+        postcssLoaderOptions: {
+          implementation: require('postcss'),
+        },
+      },
+    },
   ],
   framework: {
     name: '@storybook/nextjs',
