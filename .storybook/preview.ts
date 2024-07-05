@@ -1,8 +1,4 @@
 import type { Preview } from '@storybook/react';
-import React from 'react';
-import { PortalProvider } from '@/components/GlobalPortal';
-
-import '../src/app/globals.css';
 
 const preview: Preview = {
   parameters: {
@@ -13,14 +9,6 @@ const preview: Preview = {
       },
     },
   },
-
-  decorators: [
-    (Story) => (
-      <PortalProvider>
-        <Story />
-      </PortalProvider>
-    ),
-  ],
 };
 
 export default preview;
