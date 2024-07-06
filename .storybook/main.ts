@@ -8,6 +8,12 @@ const config: StorybookConfig = {
     '../**/*.stories.@(js|jsx|mjs|ts|tsx)',
     '../**/**/**/*.stories.@(js|jsx|mjs|ts|tsx)',
   ],
+  staticDirs: [
+    {
+      from: '../public/svgs',
+      to: '/svgs',
+    },
+  ],
   addons: [
     '@storybook/addon-onboarding',
     '@storybook/addon-links',
@@ -29,6 +35,7 @@ const config: StorybookConfig = {
       },
     },
   ],
+
   framework: {
     name: '@storybook/nextjs',
     options: {},
