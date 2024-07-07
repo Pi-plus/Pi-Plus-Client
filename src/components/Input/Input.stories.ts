@@ -5,9 +5,6 @@ import Input from '@/components/Input/index';
 const meta: Meta<typeof Input> = {
   title: 'Input/Input',
   component: Input,
-  parameters: {
-    layout: 'centered',
-  },
   argTypes: {
     color: {
       control: { type: 'select', options: ['default', 'secondary'] },
