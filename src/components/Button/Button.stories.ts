@@ -5,6 +5,9 @@ import Button from '.';
 const meta: Meta<typeof Button> = {
   title: 'Button/Button',
   component: Button,
+  parameters: {
+    layout: 'centered',
+  },
   argTypes: {
     type: {
       control: { type: 'radio', options: ['secondary', 'default'] },
@@ -39,7 +42,6 @@ export const Primary: Story = {
   args: {
     type: 'secondary',
     children: '버튼',
-    className: 'w-1/3',
   },
 };
 
@@ -48,7 +50,6 @@ export const Loading: Story = {
     type: 'secondary',
     loading: true,
     children: '버튼',
-    className: 'w-1/3',
   },
 };
 
@@ -57,6 +58,5 @@ export const Disabled: Story = {
     type: 'secondary',
     disabled: true,
     children: '버튼',
-    className: 'w-1/3',
   },
 };

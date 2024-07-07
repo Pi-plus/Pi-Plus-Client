@@ -11,7 +11,7 @@ const MathTitle = ({ title, type, className, ...rest }: IMathTitleProps) => {
   return (
     <div
       {...rest}
-      className={classNames('bg-blue-10 w-full flex items-center justify-center rounded-t-3xl py-5', className, {
+      className={classNames('bg-blue-10 w-full flex items-center justify-center rounded-t-3xl py-5 px-14', className, {
         'bg-blue-10': type === 'primary',
         'bg-gray-10': type === 'secondary',
       })}
