@@ -16,7 +16,7 @@ interface IMathProblemTitleProps {
 const MathProblemContent = ({ id, concept, difficulty }: IMathProblemTitleProps) => {
   const [bigChapter, smallChapter] = getMathChapter(concept as TMathSmallChapter);
   return (
-    <div className="w-full flex items-start justify-between p-5">
+    <div className="w-full flex items-start justify-between p-5 gap-9">
       <div className="flex items-center justify-center gap-9">
         <Image src={defaultImages.book} width={173} height={120} alt="" />
         <div className="flex flex-col">
