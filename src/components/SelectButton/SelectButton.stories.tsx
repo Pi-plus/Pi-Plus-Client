@@ -7,9 +7,6 @@ import SelectButton from '@/components/SelectButton/index';
 const meta: Meta<typeof SelectButton> = {
   title: 'Button/SelectButton',
   component: SelectButton,
-  parameters: {
-    layout: 'centered',
-  },
   argTypes: {
     isSelected: {
       control: false,
