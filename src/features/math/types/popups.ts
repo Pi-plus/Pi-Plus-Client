@@ -1,7 +1,9 @@
 import type { ComponentProps, FunctionComponent } from 'react';
 import type React from 'react';
 
-import type { MathCorrectPopup, MathSolutionPopup, MathWrongPopup } from '@/features/math/components/MathPopups';
+import type MathCorrectPopup from '@/features/math/components/MathPopups/MathCorrectPopup';
+import type MathSolutionPopup from '@/features/math/components/MathPopups/MathSolutionPopup';
+import type MathWrongPopup from '@/features/math/components/MathPopups/MathWrongPopup';
 
 export type TMathPopupProps = {
   isOpen: boolean;

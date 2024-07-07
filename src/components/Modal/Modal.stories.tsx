@@ -9,11 +9,6 @@ import { useModal } from '@/hooks';
 const meta: Meta<typeof Modal> = {
   title: 'Modal/Modal',
   component: Modal,
-  argTypes: {
-    isShow: {
-      control: false,
-    },
-  },
 };
 export default meta;
 
