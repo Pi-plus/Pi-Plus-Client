@@ -5,6 +5,9 @@ import MathProblemContent from '@/features/math/components/MathProblemContent/in
 const meta: Meta<typeof MathProblemContent> = {
   title: 'Math/MathProblemContent',
   component: MathProblemContent,
+  parameters: {
+    layout: 'centered',
+  },
 };
 export default meta;
 type Story = StoryObj<typeof meta>;
