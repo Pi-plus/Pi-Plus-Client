@@ -9,6 +9,9 @@ const meta: Meta<typeof Input> = {
     color: {
       control: { type: 'radio', options: ['default', 'secondary'] },
     },
+    className: {
+      control: false,
+    },
   },
 };
 export default meta;
@@ -18,7 +21,7 @@ export const Primary: Story = {
   args: {
     color: 'secondary',
     placeholder: '입력해주세요',
-    className: 'w-56',
+    className: 'w-1/3',
   },
 };
 
@@ -26,7 +29,7 @@ export const Error: Story = {
   args: {
     errorMessage: '에러 메시지',
     placeholder: '입력해주세요',
-    className: 'w-56',
+    className: 'w-1/3',
   },
 };
 
@@ -34,6 +37,6 @@ export const Title: Story = {
   args: {
     title: '제목',
     placeholder: '입력해주세요',
-    className: 'w-56',
+    className: 'w-1/3',
   },
 };

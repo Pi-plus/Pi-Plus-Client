@@ -21,6 +21,9 @@ const meta: Meta<typeof Button> = {
     onClick: {
       action: 'clicked',
     },
+    className: {
+      control: false,
+    },
   },
   args: {
     loading: false,
@@ -36,7 +39,7 @@ export const Primary: Story = {
   args: {
     type: 'secondary',
     children: '버튼',
-    className: 'w-56',
+    className: 'w-1/3',
   },
 };
 
@@ -45,7 +48,7 @@ export const Loading: Story = {
     type: 'secondary',
     loading: true,
     children: '버튼',
-    className: 'w-56',
+    className: 'w-1/3',
   },
 };
 
@@ -54,6 +57,6 @@ export const Disabled: Story = {
     type: 'secondary',
     disabled: true,
     children: '버튼',
-    className: 'w-56',
+    className: 'w-1/3',
   },
 };

@@ -18,8 +18,8 @@ const Button = ({
     <button
       disabled={disabled || loading}
       className={classNames(
-        className,
         'w-full bg-blue-30 rounded-xl py-[19px] px-7 active:opacity-[0.85] disabled:pointer-events-none disabled:bg-gray-10 disabled:opacity-50',
+        className,
         BUTTON_STYLE[type].container,
       )}
       {...rest}

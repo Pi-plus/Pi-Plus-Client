@@ -9,6 +9,7 @@ const meta: Meta<typeof MathTitle> = {
     type: {
       control: { type: 'radio', options: ['primary', 'secondary'] },
     },
+    className: { control: false },
   },
 };
 
@@ -19,6 +20,6 @@ export const Primary: Story = {
   args: {
     type: 'primary',
     title: '문제 보기',
-    className: 'w-64',
+    className: 'w-1/3',
   },
 };
