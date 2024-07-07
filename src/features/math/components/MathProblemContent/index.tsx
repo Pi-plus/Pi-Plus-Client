@@ -9,7 +9,7 @@ import { getMathChapter } from '@/utils';
 
 interface IMathProblemTitleProps {
   id: string;
-  concept: string;
+  concept: TMathSmallChapter;
   difficulty: TMathDifficulty;
 }
 

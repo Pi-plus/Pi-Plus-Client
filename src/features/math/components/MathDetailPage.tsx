@@ -7,6 +7,7 @@ import type { TMathTag } from '@/apis/math/types';
 import Button from '@/components/Button';
 import MathTitle from '@/components/MathTitle';
 import Typography from '@/components/Typography';
+import type { TMathSmallChapter } from '@/constants';
 import { SectionTitle } from '@/features/math/components';
 import { MathPopupFactory } from '@/features/math/components/MathPopups';
 import MathProblemContent from '@/features/math/components/MathProblemContent';
@@ -104,7 +105,11 @@ const MathDetailPage = ({ id }: { id: string }) => {
       {data && (
         <div className="flex flex-col items-center justify-center w-1/2">
           <MathTitle title="문제 보기" />
-          <MathProblemContent id={id} concept={data.question_chapter!} difficulty={data.question_difficulty!} />
+          <MathProblemContent
+            id={id}
+            concept={data.question_chapter! as TMathSmallChapter}
+            difficulty={data.question_difficulty!}
+          />
           <Image src={data.question!} width={630} height={500} alt="" />
         </div>
       )}
