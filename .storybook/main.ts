@@ -13,6 +13,10 @@ const config: StorybookConfig = {
       from: '../public/svgs',
       to: '/svgs',
     },
+    {
+      from: '../public/images',
+      to: '/images',
+    },
   ],
   addons: [
     '@storybook/addon-onboarding',
