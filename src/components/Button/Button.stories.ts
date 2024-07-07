@@ -5,9 +5,6 @@ import Button from '.';
 const meta: Meta<typeof Button> = {
   title: 'Button/Button',
   component: Button,
-  parameters: {
-    layout: 'centered',
-  },
   argTypes: {
     type: {
       control: { type: 'radio', options: ['secondary', 'default'] },
