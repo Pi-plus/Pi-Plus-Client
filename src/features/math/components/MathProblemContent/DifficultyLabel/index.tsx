@@ -13,7 +13,7 @@ const DifficultyLabel = ({ difficulty }: IDifficultyLabelProps) => {
   return (
     <div
       className={classNames(
-        'p-3 flex items-center justify-center self-start overflow-hidden rounded-[20px] whitespace-nowrap',
+        'p-3 inline-flex items-center justify-center self-start overflow-hidden rounded-[20px] whitespace-nowrap',
         DIFFICULTY_STYLE[difficulty],
       )}
     >
