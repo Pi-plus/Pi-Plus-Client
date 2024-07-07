@@ -11,7 +11,7 @@ import FractionForm from './FractionForm';
 import MultipleChoiceForm from './MultipleChoiceForm';
 import SubjectiveForm from './SubjectiveForm';
 
-interface IMathForm {
+export interface IMathForm {
   title: string;
   answerCount: number;
   answerType: TMathResponse;
