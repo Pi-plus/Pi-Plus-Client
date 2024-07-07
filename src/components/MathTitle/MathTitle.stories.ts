@@ -19,6 +19,6 @@ export const Primary: Story = {
   args: {
     type: 'primary',
     title: '문제 보기',
-    className: 'w-72',
+    className: 'w-64',
   },
 };
