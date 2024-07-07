@@ -36,6 +36,7 @@ export const Primary: Story = {
   args: {
     type: 'secondary',
     children: '버튼',
+    className: 'w-56',
   },
 };
 
@@ -44,6 +45,7 @@ export const Loading: Story = {
     type: 'secondary',
     loading: true,
     children: '버튼',
+    className: 'w-56',
   },
 };
 
@@ -52,5 +54,6 @@ export const Disabled: Story = {
     type: 'secondary',
     disabled: true,
     children: '버튼',
+    className: 'w-56',
   },
 };
