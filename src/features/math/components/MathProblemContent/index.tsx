@@ -2,11 +2,10 @@ import Image from 'next/image';
 import { defaultImages } from '@public/images';
 
 import type { TMathDifficulty } from '@/apis/math/types';
+import DifficultyLabel from '@/components/DifficultyLabel';
 import Typography from '@/components/Typography';
 import type { TMathSmallChapter } from '@/constants';
 import { getMathChapter } from '@/utils';
-
-import DifficultyLabel from './DifficultyLabel';
 
 interface IMathProblemTitleProps {
   id: string;

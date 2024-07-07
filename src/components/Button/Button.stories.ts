@@ -24,6 +24,9 @@ const meta: Meta<typeof Button> = {
     onClick: {
       action: 'clicked',
     },
+    className: {
+      control: false,
+    },
   },
   args: {
     loading: false,

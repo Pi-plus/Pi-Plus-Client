@@ -2,6 +2,8 @@ import { forwardRef } from 'react';
 import React from 'react';
 import classNames from 'classnames';
 
+import ErrorMessage from '@/components/ErrorMessage';
+
 import Typography from '../Typography';
 
 import { COMMON_STYLE, INPUT_STYLE } from './constant';
@@ -25,11 +27,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           ref={ref}
           {...rest}
         />
-        {errorMessage && (
-          <Typography color="red" className="ml-1">
-            {errorMessage}
-          </Typography>
-        )}
+        {errorMessage && <ErrorMessage message={errorMessage} />}
       </div>
     );
   },

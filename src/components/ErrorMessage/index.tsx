@@ -7,7 +7,7 @@ const ErrorMessage = ({ message }: { message: string }) => {
   return (
     <>
       {message && (
-        <div className="flex items-center mt-3">
+        <div className="flex items-center mt-2">
           <Image src={defaultSvg.caution} width={16} height={16} alt="" />
           <Typography color="red" className="ml-1">
             {message}

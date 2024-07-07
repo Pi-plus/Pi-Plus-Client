@@ -10,37 +10,33 @@ const meta: Meta<typeof Input> = {
   },
   argTypes: {
     color: {
-      control: { type: 'select', options: ['default', 'secondary'] },
+      control: { type: 'radio', options: ['default', 'secondary'] },
+    },
+    className: {
+      control: false,
     },
   },
 };
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Secondary: Story = {
+export const Primary: Story = {
   args: {
     color: 'secondary',
-    placeholder: 'placeholder',
-  },
-};
-
-export const Default: Story = {
-  args: {
-    color: 'default',
-    placeholder: 'placeholder',
+    placeholder: '입력해주세요',
   },
 };
 
 export const Error: Story = {
   args: {
-    errorMessage: 'error message',
-    placeholder: 'placeholder',
+    errorMessage: '에러 메시지',
+    placeholder: '입력해주세요',
   },
 };
 
 export const Title: Story = {
   args: {
-    title: 'title',
-    placeholder: 'placeholder',
+    title: '제목',
+    placeholder: '입력해주세요',
   },
 };
