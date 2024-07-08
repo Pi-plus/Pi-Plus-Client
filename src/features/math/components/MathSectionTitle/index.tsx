@@ -9,7 +9,7 @@ interface ISectionTitleProps extends HTMLAttributes<HTMLDivElement> {
   title: string;
   subTitle: string;
 }
-const SectionTitle = ({ title, subTitle, className, ...rest }: ISectionTitleProps) => {
+const MathSectionTitle = ({ title, subTitle, className, ...rest }: ISectionTitleProps) => {
   return (
     <div className={classNames('w-full flex items-center gap-6', className)} {...rest}>
       <Image src={defaultImages.studyStudent} width={170} height={170} alt="" />
@@ -24,4 +24,4 @@ const SectionTitle = ({ title, subTitle, className, ...rest }: ISectionTitleProp
     </div>
   );
 };
-export default SectionTitle;
+export default MathSectionTitle;
