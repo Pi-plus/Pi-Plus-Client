@@ -8,9 +8,9 @@ import Button from '@/components/Button';
 import MathTitle from '@/components/MathTitle';
 import Typography from '@/components/Typography';
 import type { TMathSmallChapter } from '@/constants';
-import { SectionTitle } from '@/features/math/components';
 import { MathPopupFactory } from '@/features/math/components/MathPopups';
 import MathProblemContent from '@/features/math/components/MathProblemContent';
+import MathSectionTitle from '@/features/math/components/MathSectionTitle';
 import { MATH_POPUPS } from '@/features/math/constants';
 import type { TMathAnswer } from '@/features/math/contexts';
 import { useMathPopups } from '@/features/math/hooks';
@@ -114,7 +114,7 @@ const MathDetailPage = ({ id }: { id: string }) => {
         </div>
       )}
       <div className="w-1/2">
-        <SectionTitle
+        <MathSectionTitle
           className="mb-14"
           title="문제를 풀고 생각하는 답안지를 작성해주세요"
           subTitle="객관식/주관식 형식에 맞게 입력해주세요"

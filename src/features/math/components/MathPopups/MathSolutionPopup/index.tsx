@@ -1,5 +1,5 @@
 import { Popup } from '@/components/Popup/PopupMain';
-import { SectionTitle } from '@/features/math/components';
+import MathSectionTitle from '@/features/math/components/MathSectionTitle';
 import type { TMathPopupProps } from '@/features/math/types';
 
 const MathSolutionPopup = ({ isOpen, onClose, title, mathImg, solutionImg }: TMathPopupProps) => {
@@ -8,7 +8,7 @@ const MathSolutionPopup = ({ isOpen, onClose, title, mathImg, solutionImg }: TMa
       <Popup.CloseSvg onClick={onClose} />
       <Popup.Container className="grid grid-cols-2 gap-10 h-full w-full">
         <Popup.Container>
-          <SectionTitle className="mb-14 mt-10" title={title!} subTitle="단원에 맞는 문제의 해설을 확인해보세요" />
+          <MathSectionTitle className="mb-14 mt-10" title={title!} subTitle="단원에 맞는 문제의 해설을 확인해보세요" />
           <Popup.Image imgSrc={mathImg!} />
         </Popup.Container>
         <Popup.Container className="mt-8">
