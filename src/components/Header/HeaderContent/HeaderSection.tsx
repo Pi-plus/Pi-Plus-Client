@@ -1,15 +1,24 @@
+import Link from 'next/link';
+
 import type { TStudentContent } from '@/components/Header/type';
 import Typography from '@/components/Typography';
+import { ROUTES } from '@/constants';
+import { useTabStore } from '@/stores';
 
 interface IHeaderSectionProps {
   list: TStudentContent[];
   count: number;
-  baseUrl: string;
 }
 
-const HeaderSection = ({ list, count, baseUrl }: IHeaderSectionProps) => {
+const HeaderSection = ({ list, count }: IHeaderSectionProps) => {
   const columnCount = Math.floor(list.length / count);
-
+  const { tab } = useTabStore();
+  const handleMathConceptLink = (math: TStudentContent) => {
+    if (tab === ROUTES.STUDENT_CONCEPT && math.href) {
+      return math.href;
+    }
+    return `${tab}?math=${math.query}`;
+  };
   return (
     <>
       {Array.from({ length: columnCount }, (_, i) => (
@@ -17,17 +26,21 @@ const HeaderSection = ({ list, count, baseUrl }: IHeaderSectionProps) => {
           {i === columnCount - 1 ? (
             <>
               {list.slice(i * count).map((math) => (
-                <Typography label="body3" className="cursor-pointer hover:font-semibold" key={math.label}>
-                  {math.label}
-                </Typography>
+                <Link href={handleMathConceptLink(math)} key={math.label}>
+                  <Typography label="body3" className="cursor-pointer hover:font-semibold">
+                    {math.label}
+                  </Typography>
+                </Link>
               ))}
             </>
           ) : (
             <>
               {list.slice(i * count, (i + 1) * count).map((math) => (
-                <Typography label="body3" className="cursor-pointer hover:font-semibold" key={math.label}>
-                  {math.label}
-                </Typography>
+                <Link href={handleMathConceptLink(math)} key={math.label}>
+                  <Typography label="body3" className="cursor-pointer hover:font-semibold">
+                    {math.label}
+                  </Typography>
+                </Link>
               ))}
             </>
           )}
