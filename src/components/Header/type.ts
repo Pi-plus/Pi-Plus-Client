@@ -5,7 +5,7 @@ export type TTabContent = {
   hasArrow?: boolean;
 };
 
-export type TFocusTab = '' | '문제 풀기' | '개념학습';
+export type TFocusTab = string;
 
 export type THoverValueOfStudent = 'middle' | 'high' | '';
 export type TValueOfStudent = 'middle' | 'high';

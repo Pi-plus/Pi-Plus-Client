@@ -1,4 +1,5 @@
 import type { HTMLAttributes } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { defaultSvg } from '@public/svgs';
@@ -15,7 +16,7 @@ interface IHeaderTabProps extends HTMLAttributes<HTMLDivElement> {
 const HeaderTab = ({ tab, ...rest }: IHeaderTabProps) => {
   const { pathname } = useNavigate();
   const { tab: focusTab } = useTabStore();
-  const isHover = focusTab === tab.label;
+  const isHover = focusTab === tab.baseUrl;
 
   return (
     <div className="flex items-center gap-3" {...rest}>
