@@ -15,10 +15,6 @@ const Header = () => {
     return <HeaderMain tabs={HOME_TAB} />;
   }
 
-  if (!role) {
-    return <HeaderMain tabs={HOME_TAB} />;
-  }
-
   if (role === USER_ROLE.TEACHER) {
     return <HeaderMain tabs={TEACHER_TAB} />;
   }
@@ -26,7 +22,6 @@ const Header = () => {
   if (role === USER_ROLE.STUDENT) {
     return <HeaderMain tabs={STUDENT_TABS} />;
   }
-
-  return null;
+  return <HeaderMain isLoading />;
 };
 export default Header;
