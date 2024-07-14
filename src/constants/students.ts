@@ -1,6 +1,8 @@
 import { ROUTES } from './routes';
 
+export type THoverValueOfStudent = 'middle' | 'high' | '';
 export type TValueOfStudent = 'middle' | 'high';
+
 export const HEADER_STUDENT_TABS: { value: TValueOfStudent; label: string }[] = [
   { value: 'middle', label: '중학교' },
   { value: 'high', label: '고등학교' },
