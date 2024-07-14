@@ -1,4 +1,5 @@
-import type { TTabContent } from '@/components/Header/type';
+import type { TStudentContent, TTabContent } from '@/components/Header/type';
+import type { TValueOfStudent } from '@/constants';
 import { LOGIN_ROUTES, MYPAGE_STUDENT_ROUTES, MYPAGE_TEACHER_ROUTES, ROUTES, SIGN_UP_ROUTES } from '@/constants';
 
 /**
@@ -40,3 +41,55 @@ export const STUDENT_TABS: TTabContent[] = [
     baseUrl: ROUTES.STUDENT_MY,
   },
 ];
+
+/**
+ * @description 헤더 컨텐츠 안 학생 학년 탭 상수
+ */
+export const HEADER_STUDENT_TABS: { value: TValueOfStudent; label: string }[] = [
+  { value: 'middle', label: '중학교' },
+  { value: 'high', label: '고등학교' },
+];
+
+/**
+ * @description 중학교 학생 학년 탭 상수
+ */
+export const MIDDLE_STUDENT_MATH: TStudentContent[] = [
+  {
+    label: '중학교 1학년 1학기',
+    query: 'middle1-1',
+    href: 'https://numberings.tistory.com/category/%EA%B0%9C%EB%85%90%20%EC%A0%95%EB%A6%AC/%EC%A4%911',
+  },
+  {
+    label: '중학교 1학년 2학기',
+    query: 'middle1-2',
+  },
+  {
+    label: '중학교 2학년 1학기',
+    query: 'middle2-1',
+  },
+  {
+    label: '중학교 2학년 2학기',
+    query: 'middle2-2',
+  },
+  {
+    label: '중학교 3학년 1학기',
+    query: 'middle3-1',
+  },
+  {
+    label: '중학교 3학년 2학기',
+    query: 'middle3-2',
+  },
+] as const;
+
+/**
+ * @description 고등학교 학생 학년 탭 상수
+ */
+export const HIGH_STUDENT_MATH: TStudentContent[] = [
+  { label: '고등수학(상)', query: 'high1-1' },
+  { label: '고등수학(하)', query: 'high1-2' },
+  { label: '수학1', query: 'high2-1' },
+  { label: '수학2', query: 'high2-2' },
+  { label: '확률 통계', query: 'high-probability-statistics' },
+  { label: '미적분', query: 'high-aesthetic' },
+  { label: '기하', query: 'high-geometry' },
+] as const;
