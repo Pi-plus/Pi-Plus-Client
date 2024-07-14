@@ -1,5 +1,4 @@
-import type { TStudentContent, TTabContent } from '@/components/Header/type';
-import type { TValueOfStudent } from '@/constants';
+import type { TStudentContent, TTabContent, TValueOfStudent } from '@/components/Header/type';
 import { LOGIN_ROUTES, MYPAGE_STUDENT_ROUTES, MYPAGE_TEACHER_ROUTES, ROUTES, SIGN_UP_ROUTES } from '@/constants';
 
 /**
