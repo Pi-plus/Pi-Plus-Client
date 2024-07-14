@@ -1,15 +1,15 @@
 import { create } from 'zustand';
 
-import type { TFocusTab } from '@/components/Header/type';
-
 interface ITabStoreState {
-  tab: TFocusTab;
+  tab: string;
 }
 interface ITabStoreActions {
-  setTab: (state: TFocusTab) => void;
+  setTab: (state: string) => void;
+  setInitialTab: () => void;
 }
 
 export const useTabStore = create<ITabStoreState & ITabStoreActions>((set) => ({
   tab: '',
-  setTab: (state: TFocusTab) => set({ tab: state }),
+  setTab: (state: string) => set({ tab: state }),
+  setInitialTab: () => set({ tab: '' }),
 }));
