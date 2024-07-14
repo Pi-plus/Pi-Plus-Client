@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import { defaultSvg } from '@public/svgs';
 
+import { HEADER_STUDENT_TABS } from '@/components/Header/constant';
+import type { THoverValueOfStudent } from '@/components/Header/type';
 import Typography from '@/components/Typography';
-import type { THoverValueOfStudent } from '@/constants';
-import { HEADER_STUDENT_TABS } from '@/constants';
 
 interface IHeaderStudentSelectProps {
   setStudentHover: (value: THoverValueOfStudent) => void;
