@@ -3,7 +3,7 @@ name: REFACTOR issue template
 about: 리팩토링
 title: "[REFACTOR]"
 labels: refactor
-assignees: ''
+assignees: suminhan123
 
 ---
 

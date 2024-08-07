@@ -3,7 +3,7 @@ name: FIX issue template
 about: 수정사항 관련 작업
 title: "[FIX]"
 labels: fix
-assignees: ''
+assignees: suminhan123
 
 ---
 

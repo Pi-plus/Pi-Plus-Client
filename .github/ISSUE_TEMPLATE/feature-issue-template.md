@@ -3,7 +3,7 @@ name: FEATURE issue template
 about: 기능 구현
 title: "[FEAT]"
 labels: feature
-assignees: ''
+assignees: suminhan123
 
 ---
 

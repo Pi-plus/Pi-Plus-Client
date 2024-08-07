@@ -1,8 +1,8 @@
 ---
-name: UI issue template
-about: UI 컴포넌트 생성
-title: "[UI]"
-labels: ui
+name: Test issue template
+about: 테스트 코드 작성
+title: "[TEST]"
+labels: test
 assignees: suminhan123
 
 ---
