@@ -1,6 +1,6 @@
 'use client';
 
-import Lottie from 'react-lottie-player';
+import { lazy } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { defaultImages } from '@public/images';
@@ -11,6 +11,7 @@ import Typography from '@/components/Typography';
 import { LOGIN_ROUTES, ROUTES } from '@/constants';
 import { LandingLayout, LandingSection } from '@/features/landing/components';
 
+const Lottie = lazy(() => import('react-lottie-player'));
 const HomePage = () => {
   const { push } = useRouter();
 
