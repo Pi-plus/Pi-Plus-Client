@@ -1,6 +1,6 @@
 'use client';
 
-import { lazy } from 'react';
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { defaultImages } from '@public/images';
@@ -11,7 +11,8 @@ import Typography from '@/components/Typography';
 import { LOGIN_ROUTES, ROUTES } from '@/constants';
 import { LandingLayout, LandingSection } from '@/features/landing/components';
 
-const Lottie = lazy(() => import('react-lottie-player'));
+const Lottie = dynamic(() => import('react-lottie-player'));
+
 const HomePage = () => {
   const { push } = useRouter();
 
