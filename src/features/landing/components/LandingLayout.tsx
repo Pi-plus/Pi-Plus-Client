@@ -1,7 +1,8 @@
 import type { HTMLAttributes } from 'react';
+import dynamic from 'next/dynamic';
 import classNames from 'classnames';
 
-import ScrollAnimation from '@/components/Animation';
+const ScrollAnimation = dynamic(() => import('@/components/Animation'));
 
 interface ILandingLayoutProps extends HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;

@@ -1,29 +1,35 @@
 'use client';
 
-import Lottie from 'react-lottie-player';
-import { Carousel } from 'react-responsive-carousel';
+import { useRef, useState } from 'react';
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { defaultImages } from '@public/images';
-import { defaultLottie } from '@public/lotties';
 
 import Button from '@/components/Button';
 import Typography from '@/components/Typography';
 import { LOGIN_ROUTES, ROUTES } from '@/constants';
 import { LandingLayout, LandingSection } from '@/features/landing/components';
+import { useIntersectionObserver } from '@/hooks';
 
-import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
+const Lottie = dynamic(() => import('react-lottie-player'));
 
 const HomePage = () => {
   const { push } = useRouter();
+  const lottieRef = useRef(null);
+  const [animationData, setAnimationData] = useState<object>();
+
+  useIntersectionObserver({
+    target: lottieRef,
+    onIntersect: () => {
+      if (!animationData) {
+        import('@public/lotties/teacher.json').then(setAnimationData);
+      }
+    },
+  });
 
   return (
     <main className="flex-col items-center justify-between flex gap-24">
-      <Carousel className="mt-10 w-[80%]" autoPlay showThumbs={false} showStatus={false}>
-        <Image src={defaultImages.banner1} className="w-full" width={1920} height={30} alt="" />
-        <Image src={defaultImages.banner2} className="w-full" width={1920} height={30} alt="" />
-        <Image src={defaultImages.banner3} className="w-full" width={1920} height={30} alt="" />
-      </Carousel>
       <LandingLayout>
         <Image src={defaultImages.onboarding2} width={480} height={480} alt="" />
         <div className="flex flex-col justify-between pb-8">
@@ -72,8 +78,11 @@ const HomePage = () => {
         <Image src={defaultImages.onboarding3} width={550} height={550} alt="" />
       </LandingLayout>
 
+      <div ref={lottieRef} />
       <LandingLayout>
-        <Lottie loop animationData={defaultLottie.teacher} play />
+        <div ref={lottieRef} />
+        {animationData && <Lottie loop animationData={animationData} play />}
+
         <div className="flex flex-col justify-between pb-8">
           <LandingSection
             summary="학생과의 소통, 정확한 매칭"

@@ -5,7 +5,7 @@ import classNames from 'classnames';
 
 import { PortalProvider } from '@/components/GlobalPortal';
 import Header from '@/components/Header';
-import { ChakraUIProvider, ReactQueryProvider } from '@/providers';
+import { ReactQueryProvider } from '@/providers';
 
 import { pretendard } from './fonts';
 
@@ -26,13 +26,11 @@ export default function RootLayout({
       <body className={classNames('size-full flex-1', pretendard.className)}>
         <ReactQueryProvider>
           <PortalProvider>
-            <ChakraUIProvider>
-              <Toaster position="top-center" reverseOrder={false} />
-              <Suspense>
-                <Header />
-              </Suspense>
-              <div className="flex flex-col min-h-screen w-full pt-[93px]">{children}</div>
-            </ChakraUIProvider>
+            <Toaster position="top-center" reverseOrder={false} />
+            <Suspense>
+              <Header />
+            </Suspense>
+            <div className="flex flex-col min-h-screen w-full pt-[93px]">{children}</div>
           </PortalProvider>
         </ReactQueryProvider>
       </body>
