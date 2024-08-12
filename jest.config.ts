@@ -2,7 +2,7 @@ import nextJest from 'next/jest';
 import type { Config } from 'jest';
 
 const createJestConfig = nextJest({
-  dir: './src',
+  dir: './',
 });
 
 const config: Config = {
@@ -12,6 +12,7 @@ const config: Config = {
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
+    '^@public/(.*)$': '<rootDir>/public/$1',
   },
 };
 
