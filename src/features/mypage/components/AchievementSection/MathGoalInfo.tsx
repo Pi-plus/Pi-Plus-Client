@@ -1,26 +1,13 @@
-import { useRef, useState } from 'react';
-import Lottie from 'react-lottie-player';
-
 import type { TStudentResponse } from '@/apis/student/types';
+import LazyLottie from '@/components/LazyLottie';
 import Typography from '@/components/Typography';
 import PieChart from '@/features/dataAnalysis/components/PieChart';
-import { useIntersectionObserver } from '@/hooks';
 
 const MathGoalInfo = ({ data }: { data: TStudentResponse }) => {
   const totalCount = (data.solve_problem?.length ?? 0) + (data.wrong_problem?.length ?? 0);
   const goalCount = Number(data.user_goal ?? 0);
   const remainCount = goalCount > totalCount ? goalCount - totalCount : 0;
-  const lottieRef = useRef(null);
-  const [animationData, setAnimationData] = useState<object>();
 
-  useIntersectionObserver({
-    target: lottieRef,
-    onIntersect: () => {
-      if (!animationData) {
-        import('@public/lotties/goal.json').then(setAnimationData);
-      }
-    },
-  });
   return (
     <div className="w-full grid grid-cols-2 gap-5 items-center justify-center mt-5">
       <div className="flex flex-col p-5 shadow-content rounded-lg h-[450px]">
@@ -39,7 +26,7 @@ const MathGoalInfo = ({ data }: { data: TStudentResponse }) => {
       </div>
       {goalCount > totalCount ? (
         <div className="flex flex-col p-5 shadow-content rounded-lg h-[450px] justify-center items-center">
-          <Lottie loop animationData={animationData} className="w-[200px] -mt-11" play />
+          <LazyLottie imgkey="goal" className="w-[200px] -mt-11" />
           <Typography className="my-4 -mt-8" label="title1">
             {`목표까지 총 ${goalCount - totalCount}문제 남았습니다`}
           </Typography>
@@ -48,7 +35,7 @@ const MathGoalInfo = ({ data }: { data: TStudentResponse }) => {
         </div>
       ) : (
         <div className="flex flex-col p-5 shadow-content rounded-lg h-[450px] justify-center items-center">
-          <Lottie loop animationData={animationData} className="w-[200px] -mt-11" play />
+          <LazyLottie imgkey="goal" className="w-[200px] -mt-11" />
           <Typography className="my-4 -mt-8" label="title1">
             최종 목표를 달성하였습니다
           </Typography>

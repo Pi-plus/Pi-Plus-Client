@@ -1,10 +1,7 @@
-import { useRef, useState } from 'react';
-import Lottie from 'react-lottie-player';
-
 import type { TStudentResponse } from '@/apis/student/types';
+import LazyLottie from '@/components/LazyLottie';
 import Typography from '@/components/Typography';
 import MathCountChart from '@/features/dataAnalysis/components/MathCountChart';
-import { useIntersectionObserver } from '@/hooks';
 
 import { getMathCountComparison, getMathPercent } from '../../utils/getMathData';
 
@@ -13,17 +10,6 @@ const MathCountInfo = ({ data }: { data: TStudentResponse }) => {
   const wrongCount = data.wrong_problem?.length as number;
   const [solvePercent, wrongPercent] = getMathPercent(solveCount, wrongCount);
 
-  const lottieRef = useRef(null);
-  const [animationData, setAnimationData] = useState<object>();
-
-  useIntersectionObserver({
-    target: lottieRef,
-    onIntersect: () => {
-      if (!animationData) {
-        import('@public/lotties/clap.json').then(setAnimationData);
-      }
-    },
-  });
   return (
     <div className="w-full grid grid-cols-2 gap-5 items-center justify-center mt-5">
       <div className="flex flex-col p-5 shadow-content rounded-lg h-[315px]">
@@ -35,7 +21,7 @@ const MathCountInfo = ({ data }: { data: TStudentResponse }) => {
         <MathCountChart wrongCount={wrongCount} correctCount={solveCount} />
       </div>
       <div className="flex flex-col p-5 shadow-content rounded-lg h-[315px] justify-center items-center">
-        <Lottie loop animationData={animationData} className="w-[100px]" play />
+        <LazyLottie className="w-[100px]" imgkey="clap" />
         <Typography className="my-4" label="title1">
           {`${data.user_name}님, 수고하셨습니다`}
         </Typography>

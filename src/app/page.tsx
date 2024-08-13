@@ -1,32 +1,17 @@
 'use client';
 
-import { useRef, useState } from 'react';
-import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { defaultImages } from '@public/images';
 
 import Button from '@/components/Button';
+import LazyLottie from '@/components/LazyLottie';
 import Typography from '@/components/Typography';
 import { LOGIN_ROUTES, ROUTES } from '@/constants';
 import { LandingLayout, LandingSection } from '@/features/landing/components';
-import { useIntersectionObserver } from '@/hooks';
-
-const Lottie = dynamic(() => import('react-lottie-player'));
 
 const HomePage = () => {
   const { push } = useRouter();
-  const lottieRef = useRef(null);
-  const [animationData, setAnimationData] = useState<object>();
-
-  useIntersectionObserver({
-    target: lottieRef,
-    onIntersect: () => {
-      if (!animationData) {
-        import('@public/lotties/teacher.json').then(setAnimationData);
-      }
-    },
-  });
 
   return (
     <main className="flex-col items-center justify-between flex gap-24">
@@ -78,10 +63,8 @@ const HomePage = () => {
         <Image src={defaultImages.onboarding3} width={550} height={550} alt="" />
       </LandingLayout>
 
-      <div ref={lottieRef} />
       <LandingLayout>
-        <div ref={lottieRef} />
-        <Lottie loop animationData={animationData} play />
+        <LazyLottie imgkey="teacher" />
 
         <div className="flex flex-col justify-between pb-8">
           <LandingSection

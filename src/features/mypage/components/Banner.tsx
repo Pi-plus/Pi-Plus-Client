@@ -1,12 +1,12 @@
-import Lottie from 'react-lottie-player';
-import { defaultLottie } from '@public/lotties';
+import React from 'react';
 
+import LazyLottie from '@/components/LazyLottie';
 import Typography from '@/components/Typography';
 
 const MyPageBanner = ({ title, subTitle }: { title: string; subTitle: string }) => {
   return (
     <div className="w-full flex items-center bg-blue-20 h-48 px-10 rounded-xl">
-      <Lottie loop animationData={defaultLottie.try} play className="w-[180px]" />
+      <LazyLottie imgkey="try" className="w-[180px]" />
       <div className="flex flex-col ml-9">
         <Typography
           label="body3"
