@@ -1,4 +1,5 @@
 import type { HTMLAttributes, PropsWithChildren } from 'react';
+import dynamic from 'next/dynamic';
 import classNames from 'classnames';
 
 import Modal from '@/components/Modal';
@@ -9,9 +10,10 @@ import PopupContainer from '@/components/Popup/PopupContainer';
 import PopupContent from '@/components/Popup/PopupContent';
 import PopupFooter from '@/components/Popup/PopupFooter';
 import PopupImage from '@/components/Popup/PopupImage';
-import PopupLottie from '@/components/Popup/PopupLottie';
 import PopupSubTitle from '@/components/Popup/PopupSubTitle';
 import PopupTitle from '@/components/Popup/PopupTitle';
+
+const PopupLottie = dynamic(() => import('@/components/Popup/PopupLottie'));
 
 interface IPopupMainProps extends PropsWithChildren, HTMLAttributes<HTMLDivElement> {
   isShow: boolean;
