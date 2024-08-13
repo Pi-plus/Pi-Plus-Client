@@ -1,9 +1,22 @@
+import { useRef, useState } from 'react';
 import Lottie from 'react-lottie-player';
-import { defaultLottie } from '@public/lotties';
+
+import { useIntersectionObserver } from '@/hooks';
 
 import Typography from '../Typography';
 
 const PiPlusInfo = () => {
+  const lottieRef = useRef(null);
+  const [animationData, setAnimationData] = useState<object>();
+
+  useIntersectionObserver({
+    target: lottieRef,
+    onIntersect: () => {
+      if (!animationData) {
+        import('@public/lotties/pi-plus.json').then(setAnimationData);
+      }
+    },
+  });
   return (
     <div className="w-full justify-center items-center flex flex-col h-full">
       <Typography label="heading1" className="mt-7">
@@ -12,7 +25,7 @@ const PiPlusInfo = () => {
       <Typography label="heading3" className="mb-3">
         파이플러스
       </Typography>
-      <Lottie loop animationData={defaultLottie.piPlus} className="size-[440px]" play />
+      <Lottie loop animationData={animationData} className="size-[440px]" play />
     </div>
   );
 };

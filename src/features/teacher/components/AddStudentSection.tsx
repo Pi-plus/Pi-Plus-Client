@@ -1,16 +1,27 @@
+import { useRef, useState } from 'react';
 import Lottie from 'react-lottie-player';
-import { defaultLottie } from '@public/lotties';
 
 import Button from '@/components/Button';
 import Input from '@/components/Input';
 import Typography from '@/components/Typography';
-import { useInput } from '@/hooks';
+import { useInput, useIntersectionObserver } from '@/hooks';
 import { useManageStudentPutTeacherMutation } from '@/hooks/reactQuery/teacher';
 import { showSuccessToast } from '@/utils';
 
 const AddStudentSection = () => {
   const { value, onChange, setValue } = useInput('');
-  const { mutateAsync, isSuccess } = useManageStudentPutTeacherMutation();
+  const { mutateAsync } = useManageStudentPutTeacherMutation();
+  const lottieRef = useRef(null);
+  const [animationData, setAnimationData] = useState<object>();
+
+  useIntersectionObserver({
+    target: lottieRef,
+    onIntersect: () => {
+      if (!animationData) {
+        import('@public/lotties/teacher.json').then(setAnimationData);
+      }
+    },
+  });
 
   const handleAddManageStudent = () => {
     mutateAsync(value ?? '');
@@ -20,7 +31,7 @@ const AddStudentSection = () => {
   };
   return (
     <div className="size-full flex flex-col justify-center items-center px-36">
-      <Lottie loop className="w-[40%]" animationData={defaultLottie.teacher} play />
+      <Lottie loop className="w-[40%]" animationData={animationData} play />
       <Typography label="heading2" className="text-center">
         학생의 고유한 코드를 입력해 관리하는 학생으로 추가해보세요
       </Typography>

@@ -81,7 +81,7 @@ const HomePage = () => {
       <div ref={lottieRef} />
       <LandingLayout>
         <div ref={lottieRef} />
-        {animationData && <Lottie loop animationData={animationData} play />}
+        <Lottie loop animationData={animationData} play />
 
         <div className="flex flex-col justify-between pb-8">
           <LandingSection
