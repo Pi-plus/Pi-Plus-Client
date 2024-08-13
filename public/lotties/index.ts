@@ -1,14 +1,3 @@
-import clapLottie from './clap.json';
-import emptyLottie from './emptyBox.json';
-import goalLottie from './goal.json';
-import matchingLottie from './matching.json';
-import piPlusLottie from './pi-plus.json';
-import sadLottie from './sad.json';
-import studyLottie from './study.json';
-import teacherLottie from './teacher.json';
-import trophyLottie from './trophy.json';
-import tryLottie from './try.json';
-
 export type TKeyOfDefaultLottie =
   | 'clap'
   | 'emptyBox'
@@ -22,18 +11,19 @@ export type TKeyOfDefaultLottie =
   | 'goal';
 
 export type Assets = {
-  [key in TKeyOfDefaultLottie]: object;
+  [key in TKeyOfDefaultLottie]: () => Promise<{ default: object }>;
 };
 
-export const defaultLottie: Assets = {
-  clap: clapLottie,
-  emptyBox: emptyLottie,
-  matching: matchingLottie,
-  study: studyLottie,
-  teacher: teacherLottie,
-  sad: sadLottie,
-  try: tryLottie,
-  piPlus: piPlusLottie,
-  trophy: trophyLottie,
-  goal: goalLottie,
+const defaultLottie: Assets = {
+  clap: () => import('@public/lotties/clap.json'),
+  emptyBox: () => import('@public/lotties/emptyBox.json'),
+  matching: () => import('@public/lotties/matching.json'),
+  study: () => import('@public/lotties/study.json'),
+  teacher: () => import('@public/lotties/teacher.json'),
+  sad: () => import('@public/lotties/sad.json'),
+  try: () => import('@public/lotties/try.json'),
+  piPlus: () => import('@public/lotties/pi-plus.json'),
+  trophy: () => import('@public/lotties/trophy.json'),
+  goal: () => import('@public/lotties/goal.json'),
 };
+export default defaultLottie;
