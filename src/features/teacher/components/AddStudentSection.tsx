@@ -1,8 +1,6 @@
-import Lottie from 'react-lottie-player';
-import { defaultLottie } from '@public/lotties';
-
 import Button from '@/components/Button';
 import Input from '@/components/Input';
+import LazyLottie from '@/components/LazyLottie';
 import Typography from '@/components/Typography';
 import { useInput } from '@/hooks';
 import { useManageStudentPutTeacherMutation } from '@/hooks/reactQuery/teacher';
@@ -10,17 +8,16 @@ import { showSuccessToast } from '@/utils';
 
 const AddStudentSection = () => {
   const { value, onChange, setValue } = useInput('');
-  const { mutateAsync, isSuccess } = useManageStudentPutTeacherMutation();
+  const { mutateAsync } = useManageStudentPutTeacherMutation();
 
   const handleAddManageStudent = () => {
     mutateAsync(value ?? '');
-
     setValue('');
     showSuccessToast('관리학생을 성공적으로 추가되었어요');
   };
   return (
     <div className="size-full flex flex-col justify-center items-center px-36">
-      <Lottie loop className="w-[40%]" animationData={defaultLottie.teacher} play />
+      <LazyLottie imgkey="teacher" className="w-[40%]" />
       <Typography label="heading2" className="text-center">
         학생의 고유한 코드를 입력해 관리하는 학생으로 추가해보세요
       </Typography>

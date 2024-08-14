@@ -1,6 +1,4 @@
-import Lottie from 'react-lottie-player';
-import { defaultLottie } from '@public/lotties';
-
+import LazyLottie from '../LazyLottie';
 import Typography from '../Typography';
 
 const PiPlusInfo = () => {
@@ -12,7 +10,8 @@ const PiPlusInfo = () => {
       <Typography label="heading3" className="mb-3">
         파이플러스
       </Typography>
-      <Lottie loop animationData={defaultLottie.piPlus} className="size-[440px]" play />
+
+      <LazyLottie className="size-[440px]" imgkey="piPlus" />
     </div>
   );
 };
