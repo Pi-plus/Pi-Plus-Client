@@ -14,10 +14,16 @@ const HomePage = () => {
   const { push } = useRouter();
 
   return (
-    <main className="flex-col items-center justify-between flex gap-24">
-      <LandingLayout>
-        <Image src={defaultImages.onboarding2} width={480} height={480} alt="" />
-        <div className="flex flex-col justify-between pb-8">
+    <main className="flex-col items-center justify-between flex">
+      <LandingLayout className="px-5">
+        <Image
+          src={defaultImages.onboarding2}
+          className="sm:max-md:w-[400px] max-sm:w-[200px]"
+          width={480}
+          height={480}
+          alt=""
+        />
+        <div className="flex flex-col justify-between pb-8 max-sm:w-full">
           <LandingSection
             summary="정확한 복습"
             title="파이플러스로 수학 복습을"
@@ -30,6 +36,7 @@ const HomePage = () => {
             </Typography>
           </LandingSection>
           <Button
+            className="mt-5"
             onClick={() => {
               push(`${ROUTES.LOGIN}?step=${LOGIN_ROUTES.SELECT}`);
             }}
