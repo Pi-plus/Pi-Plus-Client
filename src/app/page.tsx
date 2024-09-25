@@ -4,7 +4,6 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { defaultImages } from '@public/images';
 
-import Button from '@/components/Button';
 import LazyLottie from '@/components/LazyLottie';
 import Typography from '@/components/Typography';
 import { LOGIN_ROUTES, ROUTES } from '@/constants';
@@ -23,42 +22,35 @@ const HomePage = () => {
           height={480}
           alt=""
         />
-        <div className="flex flex-col justify-between pb-8 max-sm:w-full">
-          <LandingSection
-            summary="정확한 복습"
-            title="파이플러스로 수학 복습을"
-            option="마이 페이지에서 확인해보세요 😊"
-          >
-            <Typography label="heading1">
-              여러 수학 문제를 풀면
-              <br />
-              오답 문제 및 성취도를 확인할 수 있어요
-            </Typography>
-          </LandingSection>
-          <Button
-            className="mt-5"
-            onClick={() => {
-              push(`${ROUTES.LOGIN}?step=${LOGIN_ROUTES.SELECT}`);
-            }}
-          >
-            파이플러스 시작하기
-          </Button>
-        </div>
+        <LandingSection
+          summary="정확한 복습"
+          title="파이플러스로 수학 복습을"
+          description={
+            <>
+              여러 수학 문제를 풀면 <br /> 오답 문제 및 성취도를 확인할 수 있어요
+            </>
+          }
+          option="마이 페이지에서 확인해보세요 😊"
+          text="파이플러스 시작하기"
+          onClick={() => {
+            push(`${ROUTES.LOGIN}?step=${LOGIN_ROUTES.SELECT}`);
+          }}
+        />
       </LandingLayout>
 
       <LandingLayout className="items-center bg-blue-40">
         <LandingSection
           summary="더 많은 문제를"
           title="파이플러스로 다양한 문제를"
+          description={
+            <>
+              단원에 맞는 다양한 문제를 제공하는
+              <br /> 파이플러스의 문제 은행
+            </>
+          }
           option="헤더 문제 풀기 탭을 클릭해 문제를 풀어보세요 😊"
           theme="dark"
-        >
-          <Typography label="heading1" color="white">
-            단원에 맞는 다양한 문제를 제공하는
-            <br />
-            파이플러스의 문제 은행
-          </Typography>
-        </LandingSection>
+        />
         <Image src={defaultImages.onboarding1} width={480} height={480} alt="" />
       </LandingLayout>
 
@@ -72,28 +64,20 @@ const HomePage = () => {
 
       <LandingLayout>
         <LazyLottie imgkey="teacher" />
-
-        <div className="flex flex-col justify-between pb-8">
-          <LandingSection
-            summary="학생과의 소통, 정확한 매칭"
-            title="선생님을 위한 파이플러스"
-            option="헤더 학생 관리 탭을 이용해보세요 😊"
-          >
-            <Typography label="heading1">
-              선생님과 학생간의
-              <br />
-              소통 창구, 웹서비스
-            </Typography>
-          </LandingSection>
-
-          <Button
-            onClick={() => {
-              push(ROUTES.TEACHER_MATCHING);
-            }}
-          >
-            학생 매칭하러 가기
-          </Button>
-        </div>
+        <LandingSection
+          summary="학생과의 소통, 정확한 매칭"
+          title="선생님을 위한 파이플러스"
+          option="헤더 학생 관리 탭을 이용해보세요 😊"
+          description={
+            <>
+              선생님과 학생 간의 <br /> 소통 창구, 웹서비스
+            </>
+          }
+          text="학생 매칭하러 가기"
+          onClick={() => {
+            push(ROUTES.TEACHER_MATCHING);
+          }}
+        />
       </LandingLayout>
     </main>
   );

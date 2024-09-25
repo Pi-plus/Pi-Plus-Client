@@ -1,26 +1,26 @@
-import type { HTMLAttributes } from 'react';
-import classNames from 'classnames';
-
+import Button from '@/components/Button';
 import Typography from '@/components/Typography';
 
-interface ILandingSectionProps extends HTMLAttributes<HTMLDivElement> {
+interface ILandingSectionProps {
   summary: string;
   title: string;
+  description?: React.ReactNode;
   option: string;
-  children: React.ReactNode;
   theme?: 'light' | 'dark';
+  text?: string;
+  onClick?: VoidFunction;
 }
 const LandingSection = ({
   summary,
   title,
+  description,
   option,
-  children,
   theme = 'light',
-  className,
-  ...rest
+  text,
+  onClick,
 }: ILandingSectionProps) => {
   return (
-    <div className={classNames('flex flex-col', className)} {...rest}>
+    <div className="flex flex-col justify-between pb-8 px-10 max-sm:w-full">
       <Typography label="heading1" color={theme === 'light' ? 'blue40' : 'gray5'} className="mb-4">
         {summary}
       </Typography>
@@ -29,11 +29,19 @@ const LandingSection = ({
         {title}
       </Typography>
 
+      <Typography label="heading1" color={theme === 'light' ? 'black' : 'white'}>
+        {description}
+      </Typography>
+
       <Typography label="heading2" color={theme === 'light' ? 'gray70' : 'white'} className="mt-5">
         {option}
       </Typography>
 
-      {children}
+      {theme === 'light' && (
+        <Button className="mt-10" onClick={onClick}>
+          {text}
+        </Button>
+      )}
     </div>
   );
 };
