@@ -101,9 +101,9 @@ const MathDetailPage = ({ id }: { id: string }) => {
   };
 
   return (
-    <main className="flex justify-center items-start gap-28 w-full px-16 mt-20">
+    <main className="md:flex md:max-lg:px-10 md:max-lg:gap-14 justify-center items-start gap-28 w-full px-16 mt-20 sm:max-md:px-20 max-sm:px-6">
       {data && (
-        <div className="flex flex-col items-center justify-center w-1/2">
+        <div className="flex flex-col items-center justify-center w-1/2 max-lg:w-full">
           <MathTitle title="문제 보기" />
           <MathProblemContent
             id={id}
@@ -113,7 +113,7 @@ const MathDetailPage = ({ id }: { id: string }) => {
           <Image src={data.question!} width={630} height={500} alt="" />
         </div>
       )}
-      <div className="w-1/2">
+      <div className="w-1/2 max-lg:w-full">
         <MathSectionTitle
           className="mb-14"
           title="문제를 풀고 생각하는 답안지를 작성해주세요"
