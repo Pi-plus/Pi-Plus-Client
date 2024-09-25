@@ -11,7 +11,7 @@ const MathListPage = () => {
   return (
     <>
       {query.math === 'middle1-1' ? (
-        <div className="w-full flex flex-col">
+        <div className="w-full flex flex-col justify-center mt-9 px-44">
           <MathTable />
         </div>
       ) : (
