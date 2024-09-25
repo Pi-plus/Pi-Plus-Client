@@ -1,16 +1,26 @@
-import type { PropsWithChildren } from 'react';
+import type { HTMLAttributes } from 'react';
+import classNames from 'classnames';
 
 import Typography from '@/components/Typography';
 
-interface ILandingSectionProps extends PropsWithChildren {
+interface ILandingSectionProps extends HTMLAttributes<HTMLDivElement> {
   summary: string;
   title: string;
   option: string;
+  children: React.ReactNode;
   theme?: 'light' | 'dark';
 }
-const LandingSection = ({ summary, title, option, children, theme = 'light' }: ILandingSectionProps) => {
+const LandingSection = ({
+  summary,
+  title,
+  option,
+  children,
+  theme = 'light',
+  className,
+  ...rest
+}: ILandingSectionProps) => {
   return (
-    <div className="flex flex-col">
+    <div className={classNames('flex flex-col', className)} {...rest}>
       <Typography label="heading1" color={theme === 'light' ? 'blue40' : 'gray5'} className="mb-4">
         {summary}
       </Typography>
@@ -19,10 +29,11 @@ const LandingSection = ({ summary, title, option, children, theme = 'light' }: I
         {title}
       </Typography>
 
-      {children}
       <Typography label="heading2" color={theme === 'light' ? 'gray70' : 'white'} className="mt-5">
         {option}
       </Typography>
+
+      {children}
     </div>
   );
 };
