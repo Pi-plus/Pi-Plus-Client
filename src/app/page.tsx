@@ -18,7 +18,7 @@ const HomePage = () => {
       <LandingLayout className="px-5">
         <Image
           src={defaultImages.onboarding2}
-          className="sm:max-md:w-[400px] max-sm:w-[200px]"
+          className="sm:max-md:w-[400px] max-sm:w-[200px] max-sm:mt-7"
           width={480}
           height={480}
           alt=""
