@@ -13,42 +13,40 @@ const MathTable = () => {
   const [bigChapter, smallChapter] = getMathChapter(data![0].question_chapter as TMathSmallChapter);
 
   return (
-    <div className="w-full flex justify-center mt-9">
-      <table className="w-[80%]">
-        <thead className="bg-gray-10">
-          <tr>
-            {columns.map((column) => (
-              <th scope="col" key={column} className="text-gray-40">
-                {column}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {data?.map((math) => (
-            <tr
-              key={math.id}
-              className="w-full border-b border-gray-10 h-[48px] hover:bg-gray-5 cursor-pointer"
-              onClick={() => {
-                push(`${ROUTES.STUDENT_LIST}/${math.id}`);
-              }}
-            >
-              <td className="text-center">{math.id} 번</td>
-              <td className="text-center">중학교 1학년 1학기</td>
-              <td className="text-center flex flex-col">
-                <Typography label="title3" className="mt-1">
-                  {bigChapter}
-                </Typography>
-                <Typography label="caption1" className="my-1">
-                  {smallChapter}
-                </Typography>
-              </td>
-              <td className="text-center">{MATH_DIFFICULTY[math.question_difficulty ?? 'HIGH'].label}</td>
-            </tr>
+    <table className="w-full">
+      <thead className="bg-gray-10">
+        <tr>
+          {columns.map((column) => (
+            <th scope="col" key={column} className="text-gray-40">
+              {column}
+            </th>
           ))}
-        </tbody>
-      </table>
-    </div>
+        </tr>
+      </thead>
+      <tbody>
+        {data?.map((math) => (
+          <tr
+            key={math.id}
+            className="w-full border-b border-gray-10 h-[48px] hover:bg-gray-5 cursor-pointer"
+            onClick={() => {
+              push(`${ROUTES.STUDENT_LIST}/${math.id}`);
+            }}
+          >
+            <td className="text-center">{math.id} 번</td>
+            <td className="text-center">중학교 1학년 1학기</td>
+            <td className="text-center flex flex-col">
+              <Typography label="title3" className="mt-1">
+                {bigChapter}
+              </Typography>
+              <Typography label="caption1" className="my-1">
+                {smallChapter}
+              </Typography>
+            </td>
+            <td className="text-center">{MATH_DIFFICULTY[math.question_difficulty ?? 'HIGH'].label}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
   );
 };
 export default MathTable;
