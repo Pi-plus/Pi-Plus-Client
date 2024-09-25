@@ -12,7 +12,7 @@ const LandingLayout = ({ children, className }: ILandingLayoutProps) => {
     <ScrollAnimation>
       <div
         className={classNames(
-          'flex w-full gap-28 justify-center py-36 items-center sm:max-md:py-28 max-md:flex-col max-md:gap-6 max-sm:py-8',
+          'md:px-5 flex w-full gap-28 justify-center py-36 items-center sm:max-md:py-28 max-md:flex-col max-md:gap-6 max-sm:py-8',
           className,
         )}
       >

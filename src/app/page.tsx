@@ -6,15 +6,17 @@ import { defaultImages } from '@public/images';
 
 import LazyLottie from '@/components/LazyLottie';
 import Typography from '@/components/Typography';
-import { LOGIN_ROUTES, ROUTES } from '@/constants';
+import { LOGIN_ROUTES, ROUTES, SCREENS } from '@/constants';
 import { LandingLayout, LandingSection } from '@/features/landing/components';
+import { useMediaQuery } from '@/hooks';
 
 const HomePage = () => {
   const { push } = useRouter();
+  const isTabletMobile = useMediaQuery(`(max-width: ${SCREENS.TABLET}`);
 
   return (
     <main className="flex-col items-center justify-between flex">
-      <LandingLayout className="md:px-5">
+      <LandingLayout>
         <Image
           src={defaultImages.onboarding2}
           className="max-lg:w-1/3 sm:max-md:w-[400px] max-sm:w-[200px] max-sm:mt-7"
@@ -39,25 +41,51 @@ const HomePage = () => {
       </LandingLayout>
 
       <LandingLayout className="items-center bg-blue-40">
-        <LandingSection
-          summary="더 많은 문제를"
-          title="파이플러스로 다양한 문제를"
-          description={
-            <>
-              단원에 맞는 다양한 문제를 제공하는
-              <br /> 파이플러스의 문제 은행
-            </>
-          }
-          option="헤더 문제 풀기 탭을 클릭해 문제를 풀어보세요 😊"
-          theme="dark"
-        />
-        <Image
-          className="max-lg:w-1/3 sm:max-md:w-[400px] max-sm:w-[200px] max-sm:mt-7"
-          src={defaultImages.onboarding1}
-          width={480}
-          height={480}
-          alt=""
-        />
+        {isTabletMobile ? (
+          <>
+            <Image
+              className="max-lg:w-1/3 sm:max-md:w-[400px] max-sm:w-[200px] max-sm:mt-7"
+              src={defaultImages.onboarding1}
+              width={480}
+              height={480}
+              alt=""
+            />
+            <LandingSection
+              summary="더 많은 문제를"
+              title="파이플러스로 다양한 문제를"
+              description={
+                <>
+                  단원에 맞는 다양한 문제를 제공하는
+                  <br /> 파이플러스의 문제 은행
+                </>
+              }
+              option="헤더 문제 풀기 탭을 클릭해 문제를 풀어보세요 😊"
+              theme="dark"
+            />
+          </>
+        ) : (
+          <>
+            <LandingSection
+              summary="더 많은 문제를"
+              title="파이플러스로 다양한 문제를"
+              description={
+                <>
+                  단원에 맞는 다양한 문제를 제공하는
+                  <br /> 파이플러스의 문제 은행
+                </>
+              }
+              option="헤더 문제 풀기 탭을 클릭해 문제를 풀어보세요 😊"
+              theme="dark"
+            />
+            <Image
+              className="max-lg:w-1/3 sm:max-md:w-[400px] max-sm:w-[200px] max-sm:mt-7"
+              src={defaultImages.onboarding1}
+              width={480}
+              height={480}
+              alt=""
+            />
+          </>
+        )}
       </LandingLayout>
 
       <LandingLayout className="py-50 items-center flex-col mt-20">
