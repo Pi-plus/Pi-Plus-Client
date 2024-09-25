@@ -20,7 +20,7 @@ const LandingSection = ({
   onClick,
 }: ILandingSectionProps) => {
   return (
-    <div className="flex flex-col justify-between pb-8 px-10 max-sm:w-full">
+    <div className="flex flex-col justify-between pb-8 px-10 max-sm:w-full max-sm:px-7">
       <Typography label="heading1" color={theme === 'light' ? 'blue40' : 'gray5'} className="mb-4">
         {summary}
       </Typography>

@@ -14,10 +14,10 @@ const HomePage = () => {
 
   return (
     <main className="flex-col items-center justify-between flex">
-      <LandingLayout className="px-5">
+      <LandingLayout className="md:px-5">
         <Image
           src={defaultImages.onboarding2}
-          className="sm:max-md:w-[400px] max-sm:w-[200px] max-sm:mt-7"
+          className="max-lg:w-1/3 sm:max-md:w-[400px] max-sm:w-[200px] max-sm:mt-7"
           width={480}
           height={480}
           alt=""
@@ -51,7 +51,13 @@ const HomePage = () => {
           option="헤더 문제 풀기 탭을 클릭해 문제를 풀어보세요 😊"
           theme="dark"
         />
-        <Image src={defaultImages.onboarding1} width={480} height={480} alt="" />
+        <Image
+          className="max-lg:w-1/3 sm:max-md:w-[400px] max-sm:w-[200px] max-sm:mt-7"
+          src={defaultImages.onboarding1}
+          width={480}
+          height={480}
+          alt=""
+        />
       </LandingLayout>
 
       <LandingLayout className="py-50 items-center flex-col mt-20">
@@ -59,11 +65,17 @@ const HomePage = () => {
           파이플러스는 오직 학생들만의
           <br />웹 서비스가 아닙니다
         </Typography>
-        <Image src={defaultImages.onboarding3} width={550} height={550} alt="" />
+        <Image
+          className="max-sm:w-[250px] sm:max-md:w-1/2"
+          src={defaultImages.onboarding3}
+          width={550}
+          height={550}
+          alt=""
+        />
       </LandingLayout>
 
       <LandingLayout>
-        <LazyLottie imgkey="teacher" />
+        <LazyLottie imgkey="teacher" className="max-lg:w-1/3 sm:max-md:w-[400px] max-sm:w-[300px] max-sm:mt-7" />
         <LandingSection
           summary="학생과의 소통, 정확한 매칭"
           title="선생님을 위한 파이플러스"
