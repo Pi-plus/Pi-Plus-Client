@@ -15,7 +15,6 @@ export const useMediaQuery = (query: string) => {
   }
 
   useEffect(() => {
-    //const media = window.matchMedia(query);
     handleChange();
 
     window.addEventListener('resize', handleChange);
